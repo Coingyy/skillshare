@@ -151,6 +151,7 @@
     max-width: 46ch;
     margin-bottom: 30px;
   }
+  .hero-cta { margin-bottom: 30px; font-size: 15px; padding: 13px 20px; }
   .stats {
     display: flex;
     gap: 36px;
@@ -461,16 +462,19 @@
     <a class="nav-link hide-sm" id="nav-repo" href="#" target="_blank" rel="noopener">GitHub</a>
     <a class="btn-primary" id="nav-submit" href="#submit">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-      Submit a skill
+      Add a skill
     </a>
   </div>
 </nav>
 
 <header class="hero">
   <div>
-    <div class="kicker">vetted &amp; curated</div>
-    <h1>Claude Code skills.<br><span class="green">No nasty<br>surprises.</span></h1>
-    <p class="sub">Our shared collection of skills and repos — every entry goes through an automated security scan and a review before it gets in.</p>
+    <div class="kicker">our skill collection</div>
+    <h1>Spotted a cool skill<br>on X or Insta?<br><span class="green">Drop it here.</span></h1>
+    <p class="sub">Paste the GitHub link, our bot checks it for sketchy stuff and writes the description for you. Takes 30 seconds — and everyone finds it here afterwards.</p>
+    <a class="btn-primary hero-cta" href="#submit">Add a skill
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
     <div class="stats" role="list">
       <div class="stat" role="listitem"><div class="num" id="stat-total">0</div><div class="lbl">Skills</div></div>
       <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Verified</div></div>
@@ -483,14 +487,13 @@
       <span class="term-title">security_scan.py</span>
     </div>
     <div class="term-body">
-      <div><span class="p">$</span> python security_scan.py --repo new-skill</div>
-      <div><span class="c"># cloning repo (shallow) ...</span></div>
-      <div><span class="c"># scanning 34 files ...</span></div>
-      <div><span class="ok">✓</span> no curl|sh pipes</div>
-      <div><span class="ok">✓</span> no credential access</div>
-      <div><span class="ok">✓</span> no prompt injection</div>
-      <div><span class="w">!</span> 1 hook found → reviewed manually</div>
-      <div><span class="ok">✓ VERIFIED</span> <span class="c">— ready to merge</span></div>
+      <div><span class="p">$</span> checking new skill ...</div>
+      <div><span class="c"># reading 34 files</span></div>
+      <div><span class="ok">✓</span> no hidden commands</div>
+      <div><span class="ok">✓</span> doesn't steal your data</div>
+      <div><span class="ok">✓</span> doesn't touch your passwords</div>
+      <div><span class="w">!</span> 1 thing to double-check → done, all good</div>
+      <div><span class="ok">✓ SAFE</span> <span class="c">— added to the list</span></div>
     </div>
   </div>
 </header>
@@ -508,13 +511,13 @@
   <section class="submit" id="submit">
     <div class="submit-box">
       <div>
-        <h2>Submit a skill.<br><span class="green">The bot does the rest.</span></h2>
-        <p class="expl">Paste the repo link, roughly say what it is — you don't need to write anything fancy.</p>
+        <h2>Found something cool?<br><span class="green">Adding it is easy.</span></h2>
+        <p class="expl">You just paste the link and roughly say what it does. No fancy writing needed — the bot handles the rest.</p>
         <ol class="submit-steps">
-          <li><span class="n">01</span><span>Your submission opens as a GitHub issue (needs a GitHub account — that's your signature)</span></li>
-          <li><span class="n">02</span><span>The security scan checks the repo automatically</span></li>
-          <li><span class="n">03</span><span>Claude reads the repo, writes the description, picks category &amp; tags, and opens the pull request</span></li>
-          <li><span class="n">04</span><span>Maintainer merges → skill shows up here</span></li>
+          <li><span class="n">01</span><span>Paste the GitHub link + one rough sentence</span></li>
+          <li><span class="n">02</span><span>GitHub opens with everything pre-filled — just hit "Submit new issue" there (free GitHub account needed, that's it)</span></li>
+          <li><span class="n">03</span><span>The bot checks the skill for sketchy stuff and writes a proper description for you</span></li>
+          <li><span class="n">04</span><span>After a quick OK it shows up on this page</span></li>
         </ol>
       </div>
       <form id="submit-form" novalidate>
@@ -524,11 +527,11 @@
           <p class="err">That doesn't look like a GitHub repo URL (https://github.com/user/repo).</p>
         </div>
         <div class="field">
-          <label for="in-notes">What is it? (rough note is fine)</label>
-          <textarea id="in-notes" placeholder="e.g. skill that helps with blender modeling, auto-generates materials"></textarea>
+          <label for="in-notes">What does it do? (rough is fine)</label>
+          <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
         </div>
-        <button type="submit" class="btn-primary submit-btn">Submit skill →</button>
-        <p class="submit-hint">$ opens a prefilled GitHub issue — just click "Submit new issue" there</p>
+        <button type="submit" class="btn-primary submit-btn">Add skill →</button>
+        <p class="submit-hint">opens GitHub with everything filled in — one more click there and you're done</p>
       </form>
     </div>
   </section>
@@ -537,12 +540,12 @@
 <footer>
   <div class="foot-inner">
     <div>
-      <h4>// Submit your own skill</h4>
-      <p>Use the <a href="#submit">form above</a> — repo link plus a rough note is all it takes. Prefer doing it by hand? Add an entry to <code>skills.json</code> via pull request; the scan runs either way.</p>
+      <h4>// Adding a skill</h4>
+      <p>Use the <a href="#submit">form above</a> — link plus one sentence, done. If you know your way around GitHub you can also edit <code>skills.json</code> directly via pull request.</p>
     </div>
     <div>
-      <h4>// Security</h4>
-      <p>Every repo is automatically scanned for red flags (shell pipes, credential access, prompt injection, obfuscated code). The scan doesn't replace your own eyes: still skim hooks and scripts before installing.</p>
+      <h4>// Is this stuff safe?</h4>
+      <p>Every skill gets checked automatically before it lands here: hidden commands, data stealing, password grabbing — all of that gets caught and rejected. Still smart: take a quick look yourself before installing anything.</p>
     </div>
   </div>
   <div class="foot-note">skillshare_ — built by friends, for friends. Hosted for free on GitHub Pages.</div>
@@ -615,15 +618,15 @@
     });
 
     if (!visible.length) {
-      grid.innerHTML = '<div class="empty">$ grep "' + esc(query || activeCategory) + '" skills.json<br>— no matches —</div>';
+      grid.innerHTML = '<div class="empty">Nothing here yet — try another search, or be the first to <a href="#submit" style="color:var(--accent)">add one</a>.</div>';
       return;
     }
 
     grid.innerHTML = visible.map(function (s) {
       var verified = s.status === "verified";
       var badge = verified
-        ? '<span class="badge verified">' + ICON_SHIELD + "verified</span>"
-        : '<span class="badge pending">' + ICON_CLOCK + "pending</span>";
+        ? '<span class="badge verified" title="Checked — no sketchy stuff found">' + ICON_SHIELD + "checked</span>"
+        : '<span class="badge pending" title="Still being checked">' + ICON_CLOCK + "checking</span>";
       var tags = (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
       var repoShort = esc(s.repo.replace("https://github.com/", ""));
       return (
@@ -641,7 +644,7 @@
   }
 
   function renderChips() {
-    var cats = ["all"].concat(Array.from(new Set(allSkills.map(function (s) { return s.category; }))).sort());
+    var cats = ["all"].concat(Object.keys(CATEGORY_LABELS));
     var chips = document.getElementById("chips");
     chips.innerHTML = cats.map(function (c) {
       var label = c === "all" ? "Alle" : (CATEGORY_LABELS[c] || c);
