@@ -1,0 +1,17 @@
+{
+  "$schema": "./schema/skills.schema.json",
+  "updated": "2026-08-27",
+  "skills": [
+    {
+      "id": "anthropic-skills",
+      "name": "Anthropic Agent Skills",
+      "repo": "https://github.com/anthropics/skills",
+      "description": "Offizielle Skill-Sammlung von Anthropic: Dokument-Erstellung (docx, xlsx, pptx, pdf), Artifacts und mehr. Guter Startpunkt und Referenz für eigene Skills.",
+      "category": "official",
+      "tags": ["anthropic", "docs", "referenz"],
+      "submittedBy": "marvin",
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    }
+  ]
+}

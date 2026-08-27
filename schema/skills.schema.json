@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Skillshare Katalog",
+  "type": "object",
+  "required": ["skills"],
+  "properties": {
+    "updated": { "type": "string", "format": "date" },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "repo", "description", "category", "submittedBy", "addedAt", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "description": "Eindeutiger Slug, kebab-case"
+          },
+          "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+          "repo": {
+            "type": "string",
+            "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?$",
+            "description": "GitHub-Repo-URL des Skills"
+          },
+          "description": { "type": "string", "minLength": 10, "maxLength": 300 },
+          "category": {
+            "type": "string",
+            "enum": ["design", "workflow", "review", "testing", "mcp", "official", "other"]
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "maxLength": 30 },
+            "maxItems": 8
+          },
+          "submittedBy": { "type": "string", "maxLength": 60 },
+          "addedAt": { "type": "string", "format": "date" },
+          "status": {
+            "type": "string",
+            "enum": ["verified", "pending"],
+            "description": "verified = Security-Check bestanden und von Maintainer abgesegnet"
+          }
+        }
+      }
+    }
+  }
+}
