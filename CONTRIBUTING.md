@@ -33,7 +33,7 @@
 ## Rules
 
 - `id`: kebab-case, unique.
-- `category`: one of `ui-design`, `3d`, `game-dev`, `web`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
+- `category`: one of `ui-design`, `3d`, `game-dev`, `web`, `audio`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
 - `status`: always `pending` when submitting — only maintainers set `verified`.
 - Public GitHub repos only.
 - Look at the repo yourself before submitting. Your name vouches for it.

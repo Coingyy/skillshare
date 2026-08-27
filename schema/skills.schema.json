@@ -26,7 +26,7 @@
           "description": { "type": "string", "minLength": 10, "maxLength": 300 },
           "category": {
             "type": "string",
-            "enum": ["ui-design", "3d", "game-dev", "web", "automation", "code-quality", "docs", "integrations", "subagents", "prompting", "llm-tooling", "official", "other"]
+            "enum": ["ui-design", "3d", "game-dev", "web", "audio", "automation", "code-quality", "docs", "integrations", "subagents", "prompting", "llm-tooling", "official", "other"]
           },
           "tags": {
             "type": "array",
