@@ -109,7 +109,7 @@ jobs:
                - tags: up to 8 short lowercase tags
                - submittedBy: always "anonymous" (submissions are anonymous by design)
                - addedAt: today's date
-               - status: "pending"
+               - status: "verified" (the security scan already passed on the issue)
             3. Add the entry to the end of the skills array in skills.json (valid JSON, keep formatting) and bump the top-level "updated" date.
             4. Create a branch named add-skill/<id>, commit with a normal message, push it.
             5. Open a PR to main titled "Add skill: <name>". The PR body must contain
@@ -120,6 +120,26 @@ jobs:
                `gh api repos/${{ github.repository }}/statuses/$(git rev-parse HEAD) -X POST -f state=success -f context=scan -f description="Security scan passed on issue #${{ github.event.issue.number }}"`
             7. Comment on the issue with a link to the PR.
           claude_args: "--allowedTools Bash,Read,Write,Edit,Glob,Grep"
+
+      - name: Auto-merge the PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pr=$(gh pr list -R "${{ github.repository }}" --state open \
+            --json number,body \
+            --jq '[.[] | select(.body | contains("Closes #${{ github.event.issue.number }}"))][0].number')
+          if [ -z "$pr" ] || [ "$pr" = "null" ]; then
+            echo "No PR found for issue #${{ github.event.issue.number }} — nothing to merge."
+            exit 0
+          fi
+          for i in 1 2 3; do
+            gh pr merge "$pr" -R "${{ github.repository }}" --squash --delete-branch && exit 0
+            echo "Merge attempt $i failed, retrying in 10s..."
+            sleep 10
+          done
+          gh issue comment ${{ github.event.issue.number }} -R "${{ github.repository }}" \
+            --body "The entry PR #$pr could not be merged automatically (likely a conflict with a simultaneous submission). A maintainer will finish it up."
+          exit 1
 
       - name: Note on missing token
         if: failure()

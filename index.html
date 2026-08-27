@@ -7,7 +7,7 @@
 <meta name="description" content="Curated, security-checked collection of Claude Code skills and repos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #181715;
@@ -32,7 +32,6 @@
     --radius-sm: 3px;
     --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     --sans: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
-    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -152,10 +151,9 @@
     text-wrap: balance;
   }
   h1 .green {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: -0.5px;
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: -2.5px;
     color: var(--accent);
   }
   .hero p.sub {
@@ -259,14 +257,20 @@
     font-family: var(--mono);
     font-size: 12px;
     color: var(--text-muted);
-    background: transparent;
+    background: var(--surface-2);
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 6px 12px;
+    border-radius: 9px;
+    padding: 7px 14px;
     cursor: pointer;
-    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(250, 249, 245, 0.04);
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
-  .chip:hover { color: var(--text); border-color: var(--border-strong); }
+  .chip:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(250, 249, 245, 0.04);
+  }
   .chip.active { color: #181715; background: var(--cream); border-color: var(--cream); font-weight: 600; }
 
   /* ---------- Grid ---------- */
@@ -305,7 +309,13 @@
     font-weight: 600;
     letter-spacing: -0.4px;
   }
-  .card .tagline { color: var(--text); font-size: 15.5px; font-weight: 600; line-height: 1.4; }
+  .card .tagline {
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--accent);
+    letter-spacing: -0.2px;
+  }
   .card .desc { color: var(--text-dim); font-size: 13.5px; flex: 1; }
   .badge {
     display: inline-flex;
@@ -387,9 +397,9 @@
     text-wrap: balance;
   }
   .submit-box h2 .green {
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 400;
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: -1px;
     color: var(--accent);
   }
   .submit-box .expl { color: var(--text-muted); font-size: 15px; margin-bottom: 18px; }
@@ -569,11 +579,11 @@
       <input type="search" id="search" placeholder="search skills..." aria-label="Search skills">
     </div>
     <div class="sort" role="group" aria-label="Sort skills">
-      <button class="sort-btn active" data-sort="new" aria-pressed="true">newest</button>
-      <button class="sort-btn" data-sort="stars" aria-pressed="false">
+      <button class="sort-btn active" data-sort="stars" aria-pressed="true">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>
         stars
       </button>
+      <button class="sort-btn" data-sort="new" aria-pressed="false">newest</button>
     </div>
     <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
   </div>
@@ -733,7 +743,7 @@
   var allSkills = [];
   var activeCategory = "all";
   var query = "";
-  var sortMode = "new";
+  var sortMode = "stars";
   var starsMap = {};
 
   function fmtStars(n) {
