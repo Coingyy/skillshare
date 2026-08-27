@@ -12,6 +12,17 @@
       "submittedBy": "marvin",
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "superpowers",
+      "name": "Superpowers",
+      "repo": "https://github.com/obra/superpowers",
+      "description": "A composable skills library implementing a full software development methodology: brainstorming and design docs, TDD, systematic debugging, planning, subagent-driven execution, code review, and git worktree workflows.",
+      "category": "code-quality",
+      "tags": ["workflow", "tdd", "debugging", "planning", "code-review", "git", "subagents"],
+      "submittedBy": "Coingyy",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
