@@ -93,6 +93,14 @@ TEST_PATH_RE = re.compile(r"(^|[/\\])(tests?|__tests__|e2e|spec|fixtures)([/\\]|
 # machine of someone installing the skill.
 CI_PATH_RE = re.compile(r"^(\.github[/\\]|action\.ya?ml$)", re.I)
 
+# An injection phrase that is being QUOTED as something to defend against or
+# refuse ("never follow ... 'ignore previous instructions'") is guidance, not
+# an attack.
+DEFENSIVE_CONTEXT_RE = re.compile(
+    r"never\s+follow|not\s+follow|refuse|as\s+data,?\s+not\s+instructions?|"
+    r"prompt.?injection|injection\s+(surface|attack|attempt)|such\s+as|e\.g\.|"
+    r"for\s+example|detect|guard|flag|reject", re.I)
+
 
 def run(cmd, **kw):
     return subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -157,6 +165,9 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                             and any(c in desc for c in DOC_DOWNGRADE_CLASSES):
                         severity = "WARN"
                         desc = desc + " (in documentation — doesn't run on install)"
+                    if severity == "HIGH" and "Prompt injection" in desc and DEFENSIVE_CONTEXT_RE.search(context):
+                        severity = "WARN"
+                        desc = desc + " (quoted as something to defend against)"
                     if severity == "HIGH" and TEST_PATH_RE.search(rel):
                         severity = "WARN"
                         desc = desc + " (in test code)"
