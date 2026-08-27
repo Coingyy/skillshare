@@ -53,6 +53,24 @@
       ],
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "claude-code-action",
+      "name": "Claude Code Action",
+      "repo": "https://github.com/anthropics/claude-code-action",
+      "description": "Official GitHub Action that runs Claude Code inside CI to answer questions, review pull requests, and implement code changes, activating on @claude mentions, issue assignments, or explicit automation prompts. Supports Anthropic API, AWS Bedrock, Google Vertex AI, and Microsoft Foundry as backends.",
+      "category": "official",
+      "tags": [
+        "github-actions",
+        "ci-cd",
+        "automation",
+        "code-review",
+        "github",
+        "anthropic"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
