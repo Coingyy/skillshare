@@ -382,6 +382,25 @@
       ],
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "awesome-design-md",
+      "name": "Awesome DESIGN.md",
+      "tagline": "Ready-made design style guides so AI builds UI that matches real sites",
+      "repo": "https://github.com/voltagent/awesome-design-md",
+      "description": "A curated collection of DESIGN.md files extracted from real websites; these plain-text design-system docs let AI coding agents generate UI that matches that site's visual style.",
+      "category": "ui-design",
+      "tags": [
+        "design-system",
+        "ui",
+        "design-md",
+        "style-guide",
+        "ai-agents",
+        "markdown"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
