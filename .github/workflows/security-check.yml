@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Schema validieren
+      - name: Validate schema
         run: |
           pip install jsonschema
           python - <<'EOF'
@@ -30,17 +30,17 @@ jobs:
           schema = json.load(open("schema/skills.schema.json", encoding="utf-8"))
           jsonschema.validate(data, schema)
           ids = [s["id"] for s in data["skills"]]
-          assert len(ids) == len(set(ids)), f"Doppelte IDs: {set(i for i in ids if ids.count(i) > 1)}"
-          print(f"Schema OK — {len(ids)} Eintraege.")
+          assert len(ids) == len(set(ids)), f"Duplicate ids: {set(i for i in ids if ids.count(i) > 1)}"
+          print(f"Schema OK — {len(ids)} entries.")
           EOF
 
-      - name: Neue Repos scannen
+      - name: Scan new repos
         id: scan
         run: |
           git fetch origin ${{ github.base_ref }}
           python scripts/security_scan.py --base-ref "origin/${{ github.base_ref }}" --report security-report.md
 
-      - name: Report als PR-Kommentar posten
+      - name: Post report as PR comment
         if: always()
         uses: actions/github-script@v7
         with:

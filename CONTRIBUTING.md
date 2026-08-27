@@ -1,43 +1,43 @@
-# Skill einreichen
+# Submitting a skill
 
-## Schnellweg (direkt auf GitHub)
+## Quick path (directly on GitHub)
 
-1. Öffne [`skills.json`](skills.json) und klicke auf den Stift (Edit).
-2. Füge deinen Eintrag ans Ende des `skills`-Arrays:
+1. Open [`skills.json`](skills.json) and click the pencil (Edit).
+2. Add your entry to the end of the `skills` array:
 
 ```json
 {
-  "id": "mein-skill",
-  "name": "Mein Skill",
-  "repo": "https://github.com/username/mein-skill",
-  "description": "Was der Skill macht, in 1-2 Sätzen.",
+  "id": "my-skill",
+  "name": "My Skill",
+  "repo": "https://github.com/username/my-skill",
+  "description": "What the skill does, in 1-2 sentences.",
   "category": "workflow",
-  "tags": ["beispiel", "tag"],
-  "submittedBy": "dein-github-name",
+  "tags": ["example", "tag"],
+  "submittedBy": "your-github-name",
   "addedAt": "2026-08-27",
   "status": "pending"
 }
 ```
 
-3. "Propose changes" → Pull Request öffnen.
-4. Warten: Der Security-Scan kommentiert automatisch im PR.
-5. Bei grünem Check merged ein Maintainer und setzt `status` auf `verified`.
+3. "Propose changes" → open a pull request.
+4. Wait: the security scan comments on the PR automatically.
+5. On a green check, a maintainer merges and sets `status` to `verified`.
 
-## Regeln
+## Rules
 
-- `id`: kebab-case, eindeutig.
-- `category`: eine aus `design`, `workflow`, `review`, `testing`, `mcp`, `official`, `other`.
-- `status`: immer `pending` beim Einreichen — `verified` vergibt nur der Maintainer.
-- Nur öffentliche GitHub-Repos.
-- Schau dir das Repo vorher selbst an. Du bürgst mit deinem Namen dafür.
+- `id`: kebab-case, unique.
+- `category`: one of `design`, `workflow`, `review`, `testing`, `mcp`, `official`, `other`.
+- `status`: always `pending` when submitting — only maintainers set `verified`.
+- Public GitHub repos only.
+- Look at the repo yourself before submitting. Your name vouches for it.
 
-## Was der Scan ablehnt (HIGH)
+## What the scan rejects (HIGH)
 
-- Downloads, die direkt in eine Shell gepiped werden (`curl ... | sh`, `iwr ... | iex`)
-- Zugriff auf SSH-Keys, AWS-Credentials, Browser-Cookies
-- Auslesen von API-Keys mit Netzwerkversand
-- Destruktive Befehle (`rm -rf /`, `format c:`)
-- Prompt-Injection ("ignore previous instructions", "don't tell the user")
+- Downloads piped straight into a shell (`curl ... | sh`, `iwr ... | iex`)
+- Access to SSH keys, AWS credentials, browser cookies
+- Reading API keys combined with sending them over the network
+- Destructive commands (`rm -rf /`, `format c:`)
+- Prompt injection ("ignore previous instructions", "don't tell the user")
 
-Warnungen (WARN) blockieren nicht, werden aber im Review angeschaut — z.B. Hooks,
-Base64-Blobs oder Requests an fremde Hosts.
+Warnings (WARN) don't block, but they get looked at in review — e.g. hooks,
+base64 blobs, or requests to unknown hosts.

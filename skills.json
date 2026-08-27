@@ -6,9 +6,9 @@
       "id": "anthropic-skills",
       "name": "Anthropic Agent Skills",
       "repo": "https://github.com/anthropics/skills",
-      "description": "Offizielle Skill-Sammlung von Anthropic: Dokument-Erstellung (docx, xlsx, pptx, pdf), Artifacts und mehr. Guter Startpunkt und Referenz für eigene Skills.",
+      "description": "Official skill collection by Anthropic: document creation (docx, xlsx, pptx, pdf), artifacts and more. Good starting point and reference for building your own skills.",
       "category": "official",
-      "tags": ["anthropic", "docs", "referenz"],
+      "tags": ["anthropic", "docs", "reference"],
       "submittedBy": "marvin",
       "addedAt": "2026-08-27",
       "status": "verified"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Skillshare Katalog",
+  "title": "Skillshare Catalog",
   "type": "object",
   "required": ["skills"],
   "properties": {
@@ -15,13 +15,13 @@
           "id": {
             "type": "string",
             "pattern": "^[a-z0-9][a-z0-9-]*$",
-            "description": "Eindeutiger Slug, kebab-case"
+            "description": "Unique slug, kebab-case"
           },
           "name": { "type": "string", "minLength": 2, "maxLength": 80 },
           "repo": {
             "type": "string",
             "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?$",
-            "description": "GitHub-Repo-URL des Skills"
+            "description": "GitHub repo URL of the skill"
           },
           "description": { "type": "string", "minLength": 10, "maxLength": 300 },
           "category": {
@@ -38,7 +38,7 @@
           "status": {
             "type": "string",
             "enum": ["verified", "pending"],
-            "description": "verified = Security-Check bestanden und von Maintainer abgesegnet"
+            "description": "verified = passed the security check and was approved by a maintainer"
           }
         }
       }

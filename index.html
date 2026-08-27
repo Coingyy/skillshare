@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>skillshare_ — geprüfte Claude Code Skills</title>
-<meta name="description" content="Kuratierte, sicherheitsgeprüfte Sammlung von Claude Code Skills und Repos.">
+<title>skillshare_ — vetted Claude Code skills</title>
+<meta name="description" content="Curated, security-checked collection of Claude Code skills and repos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -380,27 +380,27 @@
 </head>
 <body>
 
-<nav class="nav" aria-label="Hauptnavigation">
+<nav class="nav" aria-label="Main navigation">
   <a class="logo" href="#">skillshare<span class="cursor" aria-hidden="true"></span></a>
   <div class="nav-links">
-    <a class="nav-link hide-sm" href="#katalog">Katalog</a>
+    <a class="nav-link hide-sm" href="#catalog">Catalog</a>
     <a class="nav-link hide-sm" id="nav-repo" href="#" target="_blank" rel="noopener">GitHub</a>
     <a class="btn-primary" id="nav-submit" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-      Skill einreichen
+      Submit a skill
     </a>
   </div>
 </nav>
 
 <header class="hero">
   <div>
-    <div class="kicker">geprüft &amp; kuratiert</div>
-    <h1>Claude Code Skills.<br><span class="green">Ohne böse<br>Überraschungen.</span></h1>
-    <p class="sub">Unsere gemeinsame Sammlung von Skills und Repos — jeder Eintrag läuft vor der Aufnahme durch einen automatischen Security-Scan und ein Review.</p>
+    <div class="kicker">vetted &amp; curated</div>
+    <h1>Claude Code skills.<br><span class="green">No nasty<br>surprises.</span></h1>
+    <p class="sub">Our shared collection of skills and repos — every entry goes through an automated security scan and a review before it gets in.</p>
     <div class="stats" role="list">
       <div class="stat" role="listitem"><div class="num" id="stat-total">0</div><div class="lbl">Skills</div></div>
-      <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Verifiziert</div></div>
-      <div class="stat" role="listitem"><div class="num" id="stat-cats">0</div><div class="lbl">Kategorien</div></div>
+      <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Verified</div></div>
+      <div class="stat" role="listitem"><div class="num" id="stat-cats">0</div><div class="lbl">Categories</div></div>
     </div>
   </div>
   <div class="term" aria-hidden="true">
@@ -409,25 +409,25 @@
       <span class="term-title">security_scan.py</span>
     </div>
     <div class="term-body">
-      <div><span class="p">$</span> python security_scan.py --repo neuer-skill</div>
-      <div><span class="c"># klone repo (shallow) ...</span></div>
-      <div><span class="c"># scanne 34 dateien ...</span></div>
-      <div><span class="ok">✓</span> keine curl|sh Pipes</div>
-      <div><span class="ok">✓</span> kein Credential-Zugriff</div>
-      <div><span class="ok">✓</span> keine Prompt-Injection</div>
-      <div><span class="w">!</span> 1 Hook gefunden → manuell geprüft</div>
-      <div><span class="ok">✓ VERIFIED</span> <span class="c">— bereit zum Merge</span></div>
+      <div><span class="p">$</span> python security_scan.py --repo new-skill</div>
+      <div><span class="c"># cloning repo (shallow) ...</span></div>
+      <div><span class="c"># scanning 34 files ...</span></div>
+      <div><span class="ok">✓</span> no curl|sh pipes</div>
+      <div><span class="ok">✓</span> no credential access</div>
+      <div><span class="ok">✓</span> no prompt injection</div>
+      <div><span class="w">!</span> 1 hook found → reviewed manually</div>
+      <div><span class="ok">✓ VERIFIED</span> <span class="c">— ready to merge</span></div>
     </div>
   </div>
 </header>
 
-<main id="katalog">
+<main id="catalog">
   <div class="toolbar">
     <div class="search">
       <span class="prompt" aria-hidden="true">$</span>
-      <input type="search" id="search" placeholder="Skills durchsuchen..." aria-label="Skills durchsuchen">
+      <input type="search" id="search" placeholder="search skills..." aria-label="Search skills">
     </div>
-    <div class="chips" id="chips" role="group" aria-label="Nach Kategorie filtern"></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
   </div>
   <div class="grid" id="grid" aria-live="polite"></div>
 </main>
@@ -435,27 +435,27 @@
 <footer>
   <div class="foot-inner">
     <div>
-      <h4>// Eigenen Skill einreichen</h4>
+      <h4>// Submit your own skill</h4>
       <ol>
-        <li>Repo forken &amp; Eintrag in <code>skills.json</code> ergänzen</li>
-        <li>Pull Request öffnen — Security-Scan läuft automatisch</li>
-        <li>Nach grünem Check &amp; Review wird gemergt → Skill erscheint hier</li>
+        <li>Fork the repo &amp; add your entry to <code>skills.json</code></li>
+        <li>Open a pull request — the security scan runs automatically</li>
+        <li>After a green check &amp; review it gets merged → skill shows up here</li>
       </ol>
     </div>
     <div>
-      <h4>// Sicherheit</h4>
-      <p>Jedes Repo wird automatisch auf Rotflaggen gescannt (Shell-Pipes, Credential-Zugriff, Prompt-Injection, obfuskierter Code). Der Scan ersetzt keinen eigenen Blick: schau dir Hooks und Skripte vor der Installation trotzdem kurz an.</p>
+      <h4>// Security</h4>
+      <p>Every repo is automatically scanned for red flags (shell pipes, credential access, prompt injection, obfuscated code). The scan doesn't replace your own eyes: still skim hooks and scripts before installing.</p>
     </div>
   </div>
-  <div class="foot-note">skillshare_ — gebaut von Freunden, für Freunde. Kostenlos gehostet auf GitHub Pages.</div>
+  <div class="foot-note">skillshare_ — built by friends, for friends. Hosted for free on GitHub Pages.</div>
 </footer>
 
 <script>
 (function () {
   "use strict";
 
-  // Wird nach "gh repo create" automatisch korrekt gesetzt, wenn die Seite auf
-  // *.github.io läuft; lokal bleibt der Platzhalter.
+  // Resolves to the correct repo automatically when the page runs on
+  // *.github.io; locally the placeholder stays.
   var host = location.hostname.split(".")[0];
   var path = location.pathname.split("/").filter(Boolean)[0] || "skillshare";
   var repoUrl = location.hostname.endsWith("github.io")
@@ -470,7 +470,7 @@
 
   var CATEGORY_LABELS = {
     design: "Design", workflow: "Workflow", review: "Review", testing: "Testing",
-    mcp: "MCP", official: "Offiziell", other: "Sonstiges"
+    mcp: "MCP", official: "Official", other: "Other"
   };
 
   var allSkills = [];
@@ -494,7 +494,7 @@
     });
 
     if (!visible.length) {
-      grid.innerHTML = '<div class="empty">$ grep "' + esc(query || activeCategory) + '" skills.json<br>— kein Treffer —</div>';
+      grid.innerHTML = '<div class="empty">$ grep "' + esc(query || activeCategory) + '" skills.json<br>— no matches —</div>';
       return;
     }
 
@@ -506,13 +506,13 @@
       var tags = (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
       var repoShort = esc(s.repo.replace("https://github.com/", ""));
       return (
-        '<a class="card" href="' + esc(s.repo) + '" target="_blank" rel="noopener" aria-label="' + esc(s.name) + ' auf GitHub öffnen">' +
+        '<a class="card" href="' + esc(s.repo) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.name) + ' on GitHub">' +
           '<div class="card-head"><h3>' + esc(s.name) + "</h3>" + badge + "</div>" +
           '<p class="desc">' + esc(s.description) + "</p>" +
           '<div class="tags">' + tags + "</div>" +
           '<div class="card-foot">' +
             '<span class="repo-link">' + ICON_EXT + repoShort + "</span>" +
-            "<span>von " + esc(s.submittedBy) + "</span>" +
+            "<span>by " + esc(s.submittedBy) + "</span>" +
           "</div>" +
         "</a>"
       );
@@ -559,7 +559,7 @@
       render();
     })
     .catch(function () {
-      document.getElementById("grid").innerHTML = '<div class="empty">skills.json konnte nicht geladen werden.</div>';
+      document.getElementById("grid").innerHTML = '<div class="empty">Could not load skills.json.</div>';
     });
 
   document.getElementById("search").addEventListener("input", function (e) {

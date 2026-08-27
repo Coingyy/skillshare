@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""Security-Scanner fuer eingereichte Skill-Repos.
+"""Security scanner for submitted skill repos.
 
-Wird in CI bei jedem PR ausgefuehrt, der skills.json aendert:
-  1. Findet neue/geaenderte Eintraege gegenueber dem Basis-Branch.
-  2. Validiert die Eintraege gegen das Schema (Basis-Checks).
-  3. Klont jedes neue Repo (shallow) und scannt alle Textdateien
-     auf bekannte Rotflaggen.
-  4. Schreibt einen Markdown-Report (fuer den PR-Kommentar) und
-     bricht mit Exit-Code 1 ab, wenn HIGH-Findings existieren.
+Runs in CI on every PR that changes skills.json:
+  1. Finds new/changed entries compared to the base branch.
+  2. Shallow-clones each new repo and scans all text files
+     for known red flags.
+  3. Writes a Markdown report (posted as PR comment) and exits
+     with code 1 if any HIGH findings exist.
 
-Nutzung:
+Usage:
   python scripts/security_scan.py --base-ref origin/main --report report.md
   python scripts/security_scan.py --repo https://github.com/foo/bar --report report.md
 """
@@ -29,47 +28,47 @@ TEXT_EXTENSIONS = {
     ".rb", ".pl", ".php", ".lua", ".html", ".css", ".xml", ".ini", ".cfg", "",
 }
 
-# (Severity, Beschreibung, Regex) — Severity: HIGH bricht den Build ab, WARN ist Hinweis.
+# (severity, description, regex) — HIGH fails the build, WARN is a heads-up.
 PATTERNS = [
-    ("HIGH", "Download wird direkt in Shell gepiped (curl|sh)",
+    ("HIGH", "Download piped directly into a shell (curl|sh)",
      re.compile(r"(curl|wget|iwr|invoke-webrequest)[^\n|;&]{0,200}\|\s*(sh|bash|zsh|iex|invoke-expression|powershell)", re.I)),
-    ("HIGH", "PowerShell mit encodetem Payload",
+    ("HIGH", "PowerShell with encoded payload",
      re.compile(r"powershell[^\n]{0,80}(-enc\b|-encodedcommand)", re.I)),
-    ("HIGH", "Invoke-Expression auf heruntergeladenen Inhalt",
+    ("HIGH", "Invoke-Expression on downloaded content",
      re.compile(r"(iex|invoke-expression)\s*\(?\s*\(?\s*(new-object\s+net\.webclient|iwr|invoke-webrequest|invoke-restmethod)", re.I)),
-    ("HIGH", "Destruktives Loeschen von Systempfaden",
+    ("HIGH", "Destructive deletion of system paths",
      re.compile(r"(rm\s+-rf\s+[\"']?(/|~|\$HOME)[\s\"'/]|del\s+/[fsq]\s+.{0,20}c:\\\\|rd\s+/s\s+/q\s+c:\\\\|format\s+c:)", re.I)),
-    ("HIGH", "Zugriff auf SSH-Keys / Credentials",
+    ("HIGH", "Access to SSH keys / credentials",
      re.compile(r"(\.ssh[/\\]id_[a-z0-9]+|\.aws[/\\]credentials|\.netrc\b|\.git-credentials)", re.I)),
-    ("HIGH", "Auslesen von API-Keys/Tokens aus Umgebung mit Netzwerkversand in Naehe",
+    ("HIGH", "Reads API keys/tokens from environment with network call nearby",
      re.compile(r"(ANTHROPIC_API_KEY|OPENAI_API_KEY|GITHUB_TOKEN|AWS_SECRET_ACCESS_KEY)[\s\S]{0,300}(curl|fetch\(|requests\.(post|get)|http\.client|urllib|invoke-restmethod|iwr\b)", re.I)),
-    ("HIGH", "Browser-Credential-/Cookie-Diebstahl",
+    ("HIGH", "Browser credential/cookie theft",
      re.compile(r"(login\s*data|cookies\.sqlite|local\s*state)[\s\S]{0,120}(chrome|chromium|edge|firefox|brave)|"
                 r"(chrome|chromium|edge|brave)[\s\S]{0,120}(login\s*data|cookies\b.{0,30}(copy|read|sqlite))", re.I)),
-    ("HIGH", "Prompt-Injection: Anweisung, Instruktionen zu ignorieren",
+    ("HIGH", "Prompt injection: instruction to ignore prior instructions",
      re.compile(r"(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above|earlier)\s+(instructions|prompts|rules)", re.I)),
-    ("HIGH", "Prompt-Injection: heimliches Verhalten gefordert",
+    ("HIGH", "Prompt injection: demands hidden behavior",
      re.compile(r"(do\s+not|don'?t|never)\s+(tell|inform|mention|reveal|show)\s+(this\s+)?(to\s+)?the\s+user", re.I)),
-    ("WARN", "Grosser Base64-Blob (moeglich verschleierter Payload)",
+    ("WARN", "Large base64 blob (possibly obfuscated payload)",
      re.compile(r"[A-Za-z0-9+/=]{400,}")),
-    ("WARN", "Base64-Decode kombiniert mit Ausfuehrung",
+    ("WARN", "Base64 decode combined with execution",
      re.compile(r"(base64\s+(-d|--decode)|frombase64string|b64decode)[\s\S]{0,160}(\|\s*(sh|bash)|iex|invoke-expression|exec\(|eval\()", re.I)),
-    ("WARN", "eval/exec auf dynamischen Inhalt",
+    ("WARN", "eval/exec on dynamic content",
      re.compile(r"\b(eval|exec)\s*\(\s*(request|resp|data|input|urllib|fetch)", re.I)),
-    ("WARN", "Netzwerk-Request an Nicht-GitHub-Host in Skript",
+    ("WARN", "Network request to non-GitHub host in script",
      re.compile(r"(curl|wget|iwr|invoke-restmethod|requests\.post|fetch\()\s+[\"']?https?://(?!(github\.com|raw\.githubusercontent\.com|api\.github\.com|fonts\.googleapis\.com|registry\.npmjs\.org|pypi\.org))[a-z0-9.-]+", re.I)),
-    ("WARN", "Zero-Width-Zeichen (versteckter Text moeglich)",
+    ("WARN", "Zero-width characters (possible hidden text)",
      re.compile(r"[\u200b\u200c\u200d\u2060\ufeff]")),
-    ("WARN", "Claude-Code-Hook definiert (fuehrt automatisch Befehle aus — manuell pruefen!)",
+    ("WARN", "Claude Code hook defined (runs commands automatically — review manually!)",
      re.compile(r"\"hooks\"\s*:|PreToolUse|PostToolUse|SessionStart|UserPromptSubmit")),
-    ("WARN", "Zugriff auf Umgebungsvariablen mit 'KEY', 'TOKEN' oder 'SECRET'",
+    ("WARN", "Reads environment variables named KEY, TOKEN or SECRET",
      re.compile(r"(os\.environ|process\.env|\$env:)[\[\.\:]?\s*[\"']?[A-Z_]*?(KEY|TOKEN|SECRET|PASSWORD)", re.I)),
 ]
 
 REPO_URL_RE = re.compile(r"^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?$")
 
-# API-Key + Request an einen dieser Hosts ist normale API-Nutzung, kein Exfil —
-# solche Treffer werden von HIGH auf WARN heruntergestuft.
+# An API key next to a request against one of these hosts is normal API usage,
+# not exfiltration — such matches are downgraded from HIGH to WARN.
 TRUSTED_API_HOSTS = re.compile(
     r"api\.anthropic\.com|api\.openai\.com|api\.github\.com|[a-z-]+\.googleapis\.com|"
     r"registry\.npmjs\.org|pypi\.org|huggingface\.co|anthropic-version", re.I)
@@ -80,7 +79,7 @@ def run(cmd, **kw):
 
 
 def changed_repos(base_ref: str) -> list[dict]:
-    """Neue/geaenderte Eintraege in skills.json gegenueber base_ref."""
+    """New/changed entries in skills.json compared to base_ref."""
     current = json.loads(Path("skills.json").read_text(encoding="utf-8"))
     old_raw = run(["git", "show", f"{base_ref}:skills.json"])
     old_entries = {}
@@ -99,14 +98,14 @@ def changed_repos(base_ref: str) -> list[dict]:
 
 
 def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
-    """Klont url shallow und liefert Findings: (severity, file, desc, snippet)."""
+    """Shallow-clones url and returns findings: (severity, file, desc, snippet)."""
     findings = []
     if not REPO_URL_RE.match(url):
-        return [("HIGH", "-", "Repo-URL ist keine gueltige GitHub-URL", url)]
+        return [("HIGH", "-", "Repo URL is not a valid GitHub URL", url)]
     with tempfile.TemporaryDirectory() as tmp:
         clone = run(["git", "clone", "--depth", "1", "--no-tags", url, tmp], timeout=120)
         if clone.returncode != 0:
-            return [("HIGH", "-", "Repo konnte nicht geklont werden (privat/geloescht?)",
+            return [("HIGH", "-", "Repo could not be cloned (private/deleted?)",
                      clone.stderr.strip()[:200])]
         root = Path(tmp)
         for f in root.rglob("*"):
@@ -126,7 +125,7 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                     full = m.group(0)
                     severity = sev
                     context = text[max(0, m.start() - 100):m.end() + 300]
-                    if severity == "HIGH" and "API-Keys" in desc and TRUSTED_API_HOSTS.search(context):
+                    if severity == "HIGH" and "API keys" in desc and TRUSTED_API_HOSTS.search(context):
                         severity = "WARN"
                     snippet = full[:120].replace("\n", " ")
                     findings.append((severity, f"{rel}:{line}", desc, snippet))
@@ -135,8 +134,8 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base-ref", help="Basis-Ref fuer skills.json-Diff, z.B. origin/main")
-    ap.add_argument("--repo", action="append", default=[], help="Repo-URL direkt scannen")
+    ap.add_argument("--base-ref", help="Base ref to diff skills.json against, e.g. origin/main")
+    ap.add_argument("--repo", action="append", default=[], help="Scan a repo URL directly")
     ap.add_argument("--report", default="security-report.md")
     args = ap.parse_args()
 
@@ -146,32 +145,32 @@ def main() -> int:
         targets += [e["repo"] for e in entries]
     targets = sorted(set(targets))
 
-    lines = ["# Security-Scan\n"]
+    lines = ["# Security Scan\n"]
     exit_code = 0
     if not targets:
-        lines.append("Keine neuen oder geaenderten Repos in `skills.json` — nichts zu scannen.")
+        lines.append("No new or changed repos in `skills.json` — nothing to scan.")
     for url in targets:
-        print(f"::group::Scanne {url}")
+        print(f"::group::Scanning {url}")
         findings = scan_repo(url)
-        print(f"{len(findings)} Finding(s)")
+        print(f"{len(findings)} finding(s)")
         print("::endgroup::")
         lines.append(f"\n## {url}\n")
         if not findings:
-            lines.append("Keine Rotflaggen gefunden. (Automatischer Scan ersetzt keinen manuellen Blick — besonders Hooks und Shell-Skripte kurz selbst anschauen.)")
+            lines.append("No red flags found. (Automated scanning is no substitute for a human look — still skim hooks and shell scripts yourself.)")
             continue
         highs = [f for f in findings if f[0] == "HIGH"]
         if highs:
             exit_code = 1
-        lines.append("| Severity | Datei | Problem | Fundstelle |")
+        lines.append("| Severity | File | Issue | Match |")
         lines.append("|---|---|---|---|")
         for sev, loc, desc, snippet in sorted(findings, key=lambda x: x[0] != "HIGH"):
             icon = "🔴 HIGH" if sev == "HIGH" else "🟡 WARN"
             safe = snippet.replace("|", "\\|").replace("`", "'")
             lines.append(f"| {icon} | `{loc}` | {desc} | `{safe}` |")
         if highs:
-            lines.append("\n**Ergebnis: ABGELEHNT** — HIGH-Findings muessen geklaert werden, bevor gemergt wird.")
+            lines.append("\n**Result: REJECTED** — HIGH findings must be resolved before merging.")
         else:
-            lines.append("\n**Ergebnis: Warnungen pruefen**, dann kann gemergt werden.")
+            lines.append("\n**Result: review the warnings**, then this can be merged.")
 
     Path(args.report).write_text("\n".join(lines), encoding="utf-8")
     print(f"Report: {args.report}")
