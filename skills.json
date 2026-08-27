@@ -68,9 +68,9 @@
         "github",
         "anthropic"
       ],
-      "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
-      "status": "pending"
+      "status": "verified",
+      "tagline": "Lets Claude work inside your GitHub repo automatically"
     }
   ]
 }
