@@ -23,6 +23,12 @@
             "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?$",
             "description": "GitHub repo URL of the skill"
           },
+          "tagline": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 80,
+            "description": "One plain-language line anyone understands - what is this for?"
+          },
           "description": { "type": "string", "minLength": 10, "maxLength": 300 },
           "category": {
             "type": "string",

@@ -101,6 +101,9 @@ jobs:
             2. Write a new entry for skills.json following schema/skills.schema.json exactly:
                - id: kebab-case slug derived from the repo name (must be unique in skills.json)
                - name: proper display name
+               - tagline: ONE short plain-language line (max 80 chars) that anyone — including
+                 non-programmers — instantly understands. What is this for? No jargon.
+                 Example: "Makes your AI-built websites look professional"
                - description: 1-2 clear English sentences (max 300 chars) describing what the skill does, based on what you read — not marketing fluff
                - category: the single best fit from the schema enum
                - tags: up to 8 short lowercase tags

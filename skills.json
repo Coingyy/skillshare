@@ -5,6 +5,7 @@
     {
       "id": "anthropic-skills",
       "name": "Anthropic Agent Skills",
+      "tagline": "Official starter skills straight from Anthropic",
       "repo": "https://github.com/anthropics/skills",
       "description": "Official skill collection by Anthropic: document creation (docx, xlsx, pptx, pdf), artifacts and more. Good starting point and reference for building your own skills.",
       "category": "official",
@@ -19,6 +20,7 @@
     {
       "id": "superpowers",
       "name": "Superpowers",
+      "tagline": "A full workflow toolbox for coding with Claude",
       "repo": "https://github.com/obra/superpowers",
       "description": "A composable skills library implementing a full software development methodology: brainstorming and design docs, TDD, systematic debugging, planning, subagent-driven execution, code review, and git worktree workflows.",
       "category": "code-quality",
@@ -37,6 +39,7 @@
     {
       "id": "impeccable",
       "name": "Impeccable",
+      "tagline": "Makes your AI-built websites look professional",
       "repo": "https://github.com/pbakaus/impeccable",
       "description": "Design guidance skill for AI coding agents that provides 23 commands (init, craft, critique, audit, polish, animate, and more) plus 59 deterministic detector rules to steer AI-generated frontend UI away from common design tells and toward more distinctive, higher-quality craft.",
       "category": "ui-design",
