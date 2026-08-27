@@ -733,7 +733,7 @@
         <ol class="submit-steps">
           <li><span class="n">01</span><span>Paste the GitHub link (a rough note helps, but isn't needed)</span></li>
           <li><span class="n">02</span><span>Hit the button — the bot checks the skill for sketchy stuff and writes a proper description</span></li>
-          <li><span class="n">03</span><span>After a quick OK it shows up on this page — completely anonymous</span></li>
+          <li><span class="n">03</span><span>Passes the check → it shows up here automatically, completely anonymous</span></li>
         </ol>
       </div>
       <form id="submit-form" novalidate>
@@ -824,7 +824,7 @@
         if (res.j.ok) {
           document.getElementById("in-url").value = "";
           document.getElementById("in-notes").value = "";
-          toast("Submitted! The bot is checking it now — it'll show up here after a quick OK.");
+          toast("Submitted! The bot is checking it now — it'll show up here in a few minutes.");
         } else if (res.j.error === "already-listed") {
           toast("That one's already in the catalog — nice taste though!", true);
         } else if (res.j.error === "already-submitted") {

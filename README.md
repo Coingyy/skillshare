@@ -25,13 +25,16 @@ Curated, security-checked collection of Claude Code skills and repos — by frie
    the submitted repo is cloned and scanned for red flags — shell pipes (`curl | sh`),
    credential access, prompt injection, obfuscated payloads, destructive commands.
    The report is posted as a comment on the PR.
-4. HIGH findings block the merge. After a green check plus a quick human review,
-   the PR is merged and the skill appears on the website.
+4. HIGH findings reject the submission automatically. If the scan passes, a bot
+   drafts the catalog entry, opens a PR, and merges it — the skill appears on
+   the website with no human in the loop.
 
-## Important
+## Disclaimer
 
-The automated scan catches blunt malware, but it is **no substitute for your own eyes**.
-Before installing a skill: skim its hooks, shell scripts, and `SKILL.md` yourself.
+The automated scan catches blunt malware, but **no scan is perfect and "checked"
+is not a safety guarantee**. These are third-party repos; we take no
+responsibility for what they do. Installing is your own decision — skim a
+skill's hooks, shell scripts, and `SKILL.md` yourself before installing it.
 
 ## Local testing
 

@@ -4,8 +4,8 @@
 
 1. Open [the catalog](https://coingyy.github.io/skillshare/) and scroll to **Submit a skill**.
 2. Paste the repo link, roughly say what it does, hit submit — a prefilled GitHub issue opens; confirm it with "Submit new issue".
-3. Everything else is automatic: the security scan checks the repo, Claude writes the catalog entry (description, category, tags) and opens a pull request in your name.
-4. A maintainer merges → skill shows up on the site.
+3. Everything else is automatic: the security scan checks the repo, Claude writes the catalog entry (description, category, tags), opens a pull request, and merges it.
+4. The skill shows up on the site — no human review, the scan is the gate.
 
 ## Manual path (directly on GitHub)
 
@@ -28,13 +28,13 @@
 
 3. "Propose changes" → open a pull request.
 4. Wait: the security scan comments on the PR automatically.
-5. On a green check, a maintainer merges and sets `status` to `verified`.
+5. On a green check the PR can be merged.
 
 ## Rules
 
 - `id`: kebab-case, unique.
 - `category`: one of `ui-design`, `3d`, `game-dev`, `web`, `audio`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
-- `status`: always `pending` when submitting — only maintainers set `verified`.
+- `status`: `verified` is set automatically once the scan passes.
 - Public GitHub repos only.
 - Look at the repo yourself before submitting. Your name vouches for it.
 
