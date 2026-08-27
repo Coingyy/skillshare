@@ -37,7 +37,7 @@ PATTERNS = [
     ("HIGH", "Invoke-Expression on downloaded content",
      re.compile(r"(iex|invoke-expression)\s*\(?\s*\(?\s*(new-object\s+net\.webclient|iwr|invoke-webrequest|invoke-restmethod)", re.I)),
     ("HIGH", "Destructive deletion of system paths",
-     re.compile(r"(rm\s+-rf\s+[\"']?(/|~|\$HOME)[\s\"'/]|del\s+/[fsq]\s+.{0,20}c:\\\\|rd\s+/s\s+/q\s+c:\\\\|format\s+c:)", re.I)),
+     re.compile(r"(rm\s+-rf\s+[\"']?(/|~/?|\$HOME/?)[\"']?(\s|$|[;&|)])|del\s+/[fsq]\s+.{0,20}c:\\\\|rd\s+/s\s+/q\s+c:\\\\|format\s+c:)", re.I)),
     ("HIGH", "Access to SSH keys / credentials",
      re.compile(r"(\.ssh[/\\]id_[a-z0-9]+|\.aws[/\\]credentials|\.netrc\b|\.git-credentials)", re.I)),
     ("HIGH", "Reads API keys/tokens from environment with network call nearby",
@@ -72,6 +72,18 @@ REPO_URL_RE = re.compile(r"^https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/
 TRUSTED_API_HOSTS = re.compile(
     r"api\.anthropic\.com|api\.openai\.com|api\.github\.com|[a-z-]+\.googleapis\.com|"
     r"registry\.npmjs\.org|pypi\.org|huggingface\.co|anthropic-version", re.I)
+
+# Official installers that many legit dev repos pipe into a shell.
+TRUSTED_INSTALLERS = re.compile(
+    r"https://(claude\.ai/install\.(sh|ps1)|bun\.sh/install|sh\.rustup\.rs|get\.docker\.com)", re.I)
+
+# Findings inside test code don't run on an installer's machine — keep them
+# visible, but as WARN instead of HIGH.
+TEST_PATH_RE = re.compile(r"(^|[/\\])(tests?|__tests__|e2e|spec|fixtures)([/\\]|$)|\.(test|spec)\.[a-z]+$", re.I)
+
+# CI config of the scanned repo runs in that repo's own CI, never on the
+# machine of someone installing the skill.
+CI_PATH_RE = re.compile(r"^(\.github[/\\]|action\.ya?ml$)", re.I)
 
 
 def run(cmd, **kw):
@@ -127,6 +139,14 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                     context = text[max(0, m.start() - 100):m.end() + 300]
                     if severity == "HIGH" and "API keys" in desc and TRUSTED_API_HOSTS.search(context):
                         severity = "WARN"
+                    if severity == "HIGH" and "piped" in desc and TRUSTED_INSTALLERS.search(context):
+                        severity = "WARN"
+                    if severity == "HIGH" and TEST_PATH_RE.search(rel):
+                        severity = "WARN"
+                        desc = desc + " (in test code)"
+                    elif severity == "HIGH" and CI_PATH_RE.search(rel):
+                        severity = "WARN"
+                        desc = desc + " (in CI config — runs in the repo's own CI, not on your machine)"
                     snippet = full[:120].replace("\n", " ")
                     findings.append((severity, f"{rel}:{line}", desc, snippet))
     return findings
