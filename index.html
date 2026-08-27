@@ -43,12 +43,37 @@
     font-size: 16px;
     line-height: 1.6;
     min-height: 100vh;
-    background-image:
-      radial-gradient(ellipse 55% 38% at 18% -6%, rgba(224, 106, 67, 0.13), transparent),
-      radial-gradient(ellipse 50% 40% at 92% 110%, rgba(124, 92, 255, 0.10), transparent),
-      radial-gradient(rgba(250, 249, 245, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 26px 26px;
-    background-attachment: fixed, fixed, scroll;
+    background-image: radial-gradient(rgba(250, 249, 245, 0.035) 1px, transparent 1px);
+    background-size: 26px 26px;
+    position: relative;
+  }
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    width: 60vw; height: 60vw;
+    max-width: 900px; max-height: 900px;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+  }
+  body::before {
+    top: -22vw; left: -14vw;
+    background: radial-gradient(circle, rgba(224, 106, 67, 0.32), rgba(224, 106, 67, 0.05) 60%, transparent 75%);
+    animation: drift-a 26s ease-in-out infinite alternate;
+  }
+  body::after {
+    bottom: -26vw; right: -16vw;
+    background: radial-gradient(circle, rgba(124, 92, 255, 0.26), rgba(93, 184, 166, 0.08) 55%, transparent 75%);
+    animation: drift-b 32s ease-in-out infinite alternate;
+  }
+  @keyframes drift-a {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(9vw, 7vh) scale(1.15); }
+  }
+  @keyframes drift-b {
+    from { transform: translate(0, 0) scale(1.1); }
+    to { transform: translate(-8vw, -8vh) scale(0.95); }
   }
   ::selection { background: var(--accent); color: #FFFFFF; }
   a { color: inherit; }
@@ -211,16 +236,19 @@
     gap: 36px;
     font-family: var(--mono);
   }
-  .stat .num { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .stat .num { font-size: 28px; font-weight: 700; color: var(--accent); text-shadow: 0 0 20px rgba(224, 106, 67, 0.45); }
   .stat .lbl { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); }
 
   /* Terminal-Fenster */
   .term {
-    background: var(--bg-deep);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: linear-gradient(170deg, #1A1815 0%, #121110 70%);
+    border: 1px solid rgba(250, 249, 245, 0.1);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 48px rgba(15, 12, 10, 0.5);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 24px 56px rgba(0, 0, 0, 0.55),
+      0 12px 48px rgba(224, 106, 67, 0.14);
     font-family: var(--mono);
     font-size: 13.5px;
   }
@@ -352,21 +380,38 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: linear-gradient(165deg, #282420 0%, #1E1B18 55%, #191714 100%);
+    border: 1px solid rgba(250, 249, 245, 0.09);
+    border-radius: 12px;
     padding: 22px;
     text-decoration: none;
     cursor: pointer;
     overflow: hidden;
-    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s;
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    top: -55%; right: -25%;
+    width: 75%; height: 110%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224, 106, 67, 0.10), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
   }
   .card:hover {
-    border-color: var(--border-strong);
-    background: var(--surface-2);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(15, 12, 10, 0.35);
+    border-color: rgba(224, 106, 67, 0.45);
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 16px 40px rgba(0, 0, 0, 0.45),
+      0 8px 32px rgba(224, 106, 67, 0.2);
   }
+  .card:hover::after { opacity: 1; }
   .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
   .card h3 {
     font-family: var(--sans);
@@ -450,9 +495,13 @@
     padding: 24px 24px 88px;
   }
   .submit-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    background: linear-gradient(160deg, #292420 0%, #1D1A17 60%, #191714 100%);
+    border: 1px solid rgba(250, 249, 245, 0.1);
+    border-radius: 14px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 16px 48px rgba(0, 0, 0, 0.4),
+      0 8px 40px rgba(224, 106, 67, 0.1);
     padding: 40px;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
