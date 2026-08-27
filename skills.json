@@ -439,6 +439,27 @@
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "marketing-skills",
+      "name": "Marketing Skills for AI Agents",
+      "tagline": "50+ skills that teach AI agents how to do marketing tasks",
+      "repo": "https://github.com/coreyhaines31/marketingskills",
+      "description": "A collection of over 50 skills covering marketing tasks like conversion optimization, copywriting, SEO, paid ads, email, analytics, and growth engineering, plus CLI/MCP integrations for tools like Google Ads, Mailchimp, and Segment.",
+      "category": "other",
+      "tags": [
+        "marketing",
+        "seo",
+        "copywriting",
+        "advertising",
+        "analytics",
+        "email",
+        "growth",
+        "cro"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "verified"
     }
   ]
 }
