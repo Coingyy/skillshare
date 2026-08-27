@@ -78,7 +78,12 @@ TRUSTED_API_HOSTS = re.compile(
 # Official installers that many legit dev repos pipe into a shell.
 TRUSTED_INSTALLERS = re.compile(
     r"https://(claude\.ai/install\.(sh|ps1)|bun\.sh/install|sh\.rustup\.rs|get\.docker\.com|"
-    r"astral\.sh/uv/install\.sh)", re.I)
+    r"astral\.sh/uv/install\.sh|deb\.nodesource\.com/setup)", re.I)
+
+# Dockerfiles execute in container builds, not on the machine of someone
+# installing the skill; data files merely mention strings.
+DOCKER_PATH_RE = re.compile(r"(^|[/\\])(dockerfile[^/\\]*|[^/\\]*\.dockerfile)$|(^|[/\\])docker([/\\]|$)", re.I)
+DATA_EXTENSIONS = {".json", ".jsonl", ".csv", ".tsv"}
 
 DOC_EXTENSIONS = {".md", ".rst", ".txt"}
 # These classes describe commands to a human reader when found in docs; they
@@ -165,6 +170,13 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                             and any(c in desc for c in DOC_DOWNGRADE_CLASSES):
                         severity = "WARN"
                         desc = desc + " (in documentation — doesn't run on install)"
+                    if severity == "HIGH" and DOCKER_PATH_RE.search(rel) \
+                            and any(c in desc for c in DOC_DOWNGRADE_CLASSES):
+                        severity = "WARN"
+                        desc = desc + " (in a Dockerfile — runs in a container build, not on your machine)"
+                    if severity == "HIGH" and "SSH keys" in desc and f.suffix.lower() in DATA_EXTENSIONS:
+                        severity = "WARN"
+                        desc = desc + " (string in a data file)"
                     if severity == "HIGH" and "Prompt injection" in desc and DEFENSIVE_CONTEXT_RE.search(context):
                         severity = "WARN"
                         desc = desc + " (quoted as something to defend against)"
