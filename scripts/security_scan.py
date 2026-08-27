@@ -43,12 +43,14 @@ PATTERNS = [
     ("HIGH", "Reads API keys/tokens from environment with network call nearby",
      re.compile(r"(ANTHROPIC_API_KEY|OPENAI_API_KEY|GITHUB_TOKEN|AWS_SECRET_ACCESS_KEY)[\s\S]{0,300}(curl|fetch\(|requests\.(post|get)|http\.client|urllib|invoke-restmethod|iwr\b)", re.I)),
     ("HIGH", "Browser credential/cookie theft",
-     re.compile(r"(login\s*data|cookies\.sqlite|local\s*state)[\s\S]{0,120}(chrome|chromium|edge|firefox|brave)|"
-                r"(chrome|chromium|edge|brave)[\s\S]{0,120}(login\s*data|cookies\b.{0,30}(copy|read|sqlite))", re.I)),
+     re.compile(r"(login\s*data|cookies\.sqlite)[\s\S]{0,120}(chrome|chromium|edge|firefox|brave)|"
+                r"(chrome|chromium|edge|brave)[\s\S]{0,120}(login\s*data|cookies\.sqlite)|"
+                r"local\s*state[\"']?[\s\S]{0,100}(os_crypt|encrypted_key|master_?key|dpapi)", re.I)),
     ("HIGH", "Prompt injection: instruction to ignore prior instructions",
      re.compile(r"(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above|earlier)\s+(instructions|prompts|rules)", re.I)),
     ("HIGH", "Prompt injection: demands hidden behavior",
-     re.compile(r"(do\s+not|don'?t|never)\s+(tell|inform|mention|reveal|show)\s+(this\s+)?(to\s+)?the\s+user", re.I)),
+     re.compile(r"(do\s+not|don'?t|never)\s+((tell|inform|notify)\s+the\s+user|"
+                r"(reveal|mention|show)\s+(this|that|it|these\s+instructions?)\s+to\s+the\s+user)", re.I)),
     ("WARN", "Large base64 blob (possibly obfuscated payload)",
      re.compile(r"[A-Za-z0-9+/=]{400,}")),
     ("WARN", "Base64 decode combined with execution",
