@@ -320,8 +320,9 @@
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 3px 8px rgba(0, 0, 0, 0.3);
   }
   .sort-btn {
-    font-family: var(--mono);
-    font-size: 12.5px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-muted);
     background: transparent;
     border: none;
@@ -715,9 +716,9 @@
         <div class="sort" role="group" aria-label="Sort skills">
           <button class="sort-btn active" data-sort="stars" aria-pressed="true">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>
-            stars
+            GitHub stars (popularity)
           </button>
-          <button class="sort-btn" data-sort="new" aria-pressed="false">newest</button>
+          <button class="sort-btn" data-sort="new" aria-pressed="false">Newest</button>
         </div>
       </div>
       <div class="grid" id="grid" aria-live="polite"></div>
