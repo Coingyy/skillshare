@@ -223,6 +223,23 @@
     padding: 14px 0;
   }
   .search input::placeholder { color: var(--text-dim); }
+  .sort { display: flex; border: 1px solid var(--border); border-radius: 9px; overflow: hidden; }
+  .sort-btn {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    background: var(--bg-deep);
+    border: none;
+    padding: 9px 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s, background-color 0.2s;
+  }
+  .sort-btn + .sort-btn { border-left: 1px solid var(--border); }
+  .sort-btn:hover { color: var(--text); }
+  .sort-btn.active { color: var(--bg-deep); background: var(--accent); font-weight: 600; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
     font-family: var(--mono);
@@ -325,6 +342,8 @@
   }
   .card:hover .card-foot .repo-link { color: var(--accent); }
   .card-foot svg { width: 14px; height: 14px; }
+  .cat-pill { font-weight: 600; border-width: 1px; }
+  .star-count { display: inline-flex; align-items: center; gap: 5px; color: var(--amber); }
   .empty {
     grid-column: 1 / -1;
     text-align: center;
@@ -531,6 +550,13 @@
       <span class="prompt" aria-hidden="true">$</span>
       <input type="search" id="search" placeholder="search skills..." aria-label="Search skills">
     </div>
+    <div class="sort" role="group" aria-label="Sort skills">
+      <button class="sort-btn active" data-sort="new" aria-pressed="true">newest</button>
+      <button class="sort-btn" data-sort="stars" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>
+        stars
+      </button>
+    </div>
     <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
   </div>
   <div class="grid" id="grid" aria-live="polite"></div>
@@ -541,10 +567,9 @@
         <h2>Found something cool?<br><span class="green">Adding it is easy.</span></h2>
         <p class="expl">You just paste the link and roughly say what it does. No fancy writing needed — the bot handles the rest.</p>
         <ol class="submit-steps">
-          <li><span class="n">01</span><span>Paste the GitHub link + one rough sentence</span></li>
-          <li><span class="n">02</span><span>Your name + the crew code (type it once, the page remembers it)</span></li>
-          <li><span class="n">03</span><span>Hit the button — the bot checks the skill for sketchy stuff and writes a proper description</span></li>
-          <li><span class="n">04</span><span>After a quick OK it shows up on this page</span></li>
+          <li><span class="n">01</span><span>Paste the GitHub link (a rough note helps, but isn't needed)</span></li>
+          <li><span class="n">02</span><span>Hit the button — the bot checks the skill for sketchy stuff and writes a proper description</span></li>
+          <li><span class="n">03</span><span>After a quick OK it shows up on this page — completely anonymous</span></li>
         </ol>
       </div>
       <form id="submit-form" novalidate>
@@ -554,19 +579,8 @@
           <p class="err">That doesn't look like a GitHub repo URL (https://github.com/user/repo).</p>
         </div>
         <div class="field">
-          <label for="in-notes">What does it do? (rough is fine)</label>
+          <label for="in-notes">What does it do? (optional)</label>
           <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="in-name">Your name</label>
-            <input type="text" id="in-name" placeholder="so we know who found it" required>
-          </div>
-          <div class="field" id="field-code">
-            <label for="in-code">Crew code</label>
-            <input type="text" id="in-code" placeholder="ask the group chat" required>
-            <p class="err">That code isn't right — ask in the group chat.</p>
-          </div>
         </div>
         <button type="submit" class="btn-primary submit-btn" id="submit-btn">Add skill →</button>
         <p class="submit-hint" id="submit-hint">goes straight to the bot — you'll see a confirmation right here</p>
@@ -620,28 +634,15 @@
     el._t = setTimeout(function () { el.classList.remove("show"); }, 6000);
   }
 
-  function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
-  function load(key) { try { return localStorage.getItem(key) || ""; } catch (e) { return ""; } }
-  document.getElementById("in-name").value = load("ss-name");
-  document.getElementById("in-code").value = load("ss-code");
-
   document.getElementById("submit-form").addEventListener("submit", function (e) {
     e.preventDefault();
     var urlField = document.getElementById("field-url");
-    var codeField = document.getElementById("field-code");
     var url = document.getElementById("in-url").value.trim();
     var notes = document.getElementById("in-notes").value.trim();
-    var name = document.getElementById("in-name").value.trim();
-    var code = document.getElementById("in-code").value.trim();
     urlField.classList.remove("invalid");
-    codeField.classList.remove("invalid");
     if (!GITHUB_URL_RE.test(url)) {
       urlField.classList.add("invalid");
       document.getElementById("in-url").focus();
-      return;
-    }
-    if (!name || !code) {
-      toast("Fill in your name and the crew code.", true);
       return;
     }
 
@@ -652,19 +653,20 @@
     fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ repo: url, notes: notes, name: name, code: code })
+      body: JSON.stringify({ repo: url, notes: notes })
     })
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
       .then(function (res) {
         if (res.j.ok) {
-          store("ss-name", name);
-          store("ss-code", code);
           document.getElementById("in-url").value = "";
           document.getElementById("in-notes").value = "";
           toast("Submitted! The bot is checking it now — it'll show up here after a quick OK.");
-        } else if (res.j.error === "wrong-code") {
-          codeField.classList.add("invalid");
-          document.getElementById("in-code").focus();
+        } else if (res.j.error === "already-listed") {
+          toast("That one's already in the catalog — nice taste though!", true);
+        } else if (res.j.error === "already-submitted") {
+          toast("Someone already submitted that one — it's being checked right now.", true);
+        } else if (res.j.error === "rate-limited") {
+          toast("Whoa, easy — you've added a lot just now. Try again in a bit.", true);
         } else {
           toast("Something went wrong — try again in a minute.", true);
         }
@@ -680,8 +682,16 @@
   document.getElementById("in-url").addEventListener("input", function () {
     document.getElementById("field-url").classList.remove("invalid");
   });
-  document.getElementById("in-code").addEventListener("input", function () {
-    document.getElementById("field-code").classList.remove("invalid");
+
+  Array.prototype.forEach.call(document.querySelectorAll(".sort-btn"), function (btn) {
+    btn.addEventListener("click", function () {
+      sortMode = btn.getAttribute("data-sort");
+      Array.prototype.forEach.call(document.querySelectorAll(".sort-btn"), function (b) {
+        b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
+      render();
+    });
   });
 
   var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
@@ -694,10 +704,52 @@
     "integrations": "Integrations", "subagents": "Subagents", "prompting": "Prompting",
     "llm-tooling": "LLM Tooling", "official": "Official", "other": "Other"
   };
+  var CATEGORY_COLORS = {
+    "ui-design": "#F472B6", "3d": "#A78BFA", "game-dev": "#F87171", "web": "#60A5FA",
+    "automation": "#FBBF24", "code-quality": "#34D399", "docs": "#C4B5FD",
+    "integrations": "#2DD4BF", "subagents": "#FB923C", "prompting": "#E879F9",
+    "llm-tooling": "#38BDF8", "official": "#22C55E", "other": "#94A3B8"
+  };
+  function catColor(c) { return CATEGORY_COLORS[c] || "#94A3B8"; }
 
   var allSkills = [];
   var activeCategory = "all";
   var query = "";
+  var sortMode = "new";
+  var starsMap = {};
+
+  function fmtStars(n) {
+    return n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(n);
+  }
+
+  // Star counts come from the GitHub API, cached in the browser for a day.
+  function fetchStars() {
+    var cache = {};
+    try { cache = JSON.parse(localStorage.getItem("ss-stars") || "{}"); } catch (e) {}
+    var now = Date.now();
+    var pending = allSkills.map(function (s) {
+      var c = cache[s.repo];
+      if (c && now - c.t < 86400000) {
+        starsMap[s.repo] = c.s;
+        return null;
+      }
+      var apiUrl = s.repo.replace("https://github.com/", "https://api.github.com/repos/");
+      return fetch(apiUrl)
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          if (j && typeof j.stargazers_count === "number") {
+            starsMap[s.repo] = j.stargazers_count;
+            cache[s.repo] = { s: j.stargazers_count, t: now };
+          }
+        })
+        .catch(function () {});
+    }).filter(Boolean);
+    if (!pending.length) { render(); return; }
+    Promise.all(pending).then(function () {
+      try { localStorage.setItem("ss-stars", JSON.stringify(cache)); } catch (e) {}
+      render();
+    });
+  }
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -711,8 +763,14 @@
     var visible = allSkills.filter(function (s) {
       if (activeCategory !== "all" && s.category !== activeCategory) return false;
       if (!q) return true;
-      var hay = (s.name + " " + s.description + " " + (s.tags || []).join(" ") + " " + s.submittedBy).toLowerCase();
+      var hay = (s.name + " " + s.description + " " + (s.tags || []).join(" ") + " " + (CATEGORY_LABELS[s.category] || "")).toLowerCase();
       return hay.indexOf(q) !== -1;
+    });
+    visible = visible.slice().sort(function (a, b) {
+      if (sortMode === "stars") {
+        return (starsMap[b.repo] || 0) - (starsMap[a.repo] || 0);
+      }
+      return String(b.addedAt || "").localeCompare(String(a.addedAt || ""));
     });
 
     if (!visible.length) {
@@ -725,8 +783,15 @@
       var badge = verified
         ? '<span class="badge verified" title="Checked — no sketchy stuff found">' + ICON_SHIELD + "checked</span>"
         : '<span class="badge pending" title="Still being checked">' + ICON_CLOCK + "checking</span>";
-      var tags = (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
+      var col = catColor(s.category);
+      var catPill = '<span class="tag cat-pill" style="color:' + col + ';border-color:' + col + '66;background:' + col + '1a">' +
+        esc(CATEGORY_LABELS[s.category] || s.category) + "</span>";
+      var tags = catPill + (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
       var repoShort = esc(s.repo.replace("https://github.com/", ""));
+      var stars = starsMap[s.repo];
+      var starHtml = '<span class="star-count">' +
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>' +
+        (stars == null ? "–" : fmtStars(stars)) + "</span>";
       return (
         '<a class="card" href="' + esc(s.repo) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.name) + ' on GitHub">' +
           '<div class="card-head"><h3>' + esc(s.name) + "</h3>" + badge + "</div>" +
@@ -734,7 +799,7 @@
           '<div class="tags">' + tags + "</div>" +
           '<div class="card-foot">' +
             '<span class="repo-link">' + ICON_EXT + repoShort + "</span>" +
-            "<span>by " + esc(s.submittedBy) + "</span>" +
+            starHtml +
           "</div>" +
         "</a>"
       );
@@ -745,8 +810,16 @@
     var cats = ["all"].concat(Object.keys(CATEGORY_LABELS));
     var chips = document.getElementById("chips");
     chips.innerHTML = cats.map(function (c) {
-      var label = c === "all" ? "Alle" : (CATEGORY_LABELS[c] || c);
-      return '<button class="chip' + (c === activeCategory ? " active" : "") + '" data-cat="' + esc(c) + '" aria-pressed="' + (c === activeCategory) + '">' + esc(label) + "</button>";
+      var label = c === "all" ? "All" : (CATEGORY_LABELS[c] || c);
+      var active = c === activeCategory;
+      var style = "";
+      if (c !== "all") {
+        var col = catColor(c);
+        style = active
+          ? 'style="color:#0B1120;background:' + col + ";border-color:" + col + ';font-weight:600"'
+          : 'style="color:' + col + ";border-color:" + col + '55"';
+      }
+      return '<button class="chip' + (active ? " active" : "") + '" ' + style + ' data-cat="' + esc(c) + '" aria-pressed="' + active + '">' + esc(label) + "</button>";
     }).join("");
     Array.prototype.forEach.call(chips.querySelectorAll(".chip"), function (btn) {
       btn.addEventListener("click", function () {
@@ -779,6 +852,7 @@
       animateCount(document.getElementById("stat-cats"), new Set(allSkills.map(function (s) { return s.category; })).size);
       renderChips();
       render();
+      fetchStars();
     })
     .catch(function () {
       document.getElementById("grid").innerHTML = '<div class="empty">Could not load skills.json.</div>';

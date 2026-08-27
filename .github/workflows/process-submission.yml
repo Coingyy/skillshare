@@ -104,8 +104,7 @@ jobs:
                - description: 1-2 clear English sentences (max 300 chars) describing what the skill does, based on what you read — not marketing fluff
                - category: the single best fit from the schema enum
                - tags: up to 8 short lowercase tags
-               - submittedBy: if the issue body contains a "Submitted by:" line, use that name;
-                 otherwise the submitter's GitHub login (above)
+               - submittedBy: always "anonymous" (submissions are anonymous by design)
                - addedAt: today's date
                - status: "pending"
             3. Add the entry to the end of the skills array in skills.json (valid JSON, keep formatting) and bump the top-level "updated" date.

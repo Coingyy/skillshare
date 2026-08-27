@@ -9,7 +9,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "repo", "description", "category", "submittedBy", "addedAt", "status"],
+        "required": ["id", "name", "repo", "description", "category", "addedAt", "status"],
         "additionalProperties": false,
         "properties": {
           "id": {

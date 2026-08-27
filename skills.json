@@ -8,8 +8,11 @@
       "repo": "https://github.com/anthropics/skills",
       "description": "Official skill collection by Anthropic: document creation (docx, xlsx, pptx, pdf), artifacts and more. Good starting point and reference for building your own skills.",
       "category": "official",
-      "tags": ["anthropic", "docs", "reference"],
-      "submittedBy": "marvin",
+      "tags": [
+        "anthropic",
+        "docs",
+        "reference"
+      ],
       "addedAt": "2026-08-27",
       "status": "verified"
     },
@@ -19,8 +22,15 @@
       "repo": "https://github.com/obra/superpowers",
       "description": "A composable skills library implementing a full software development methodology: brainstorming and design docs, TDD, systematic debugging, planning, subagent-driven execution, code review, and git worktree workflows.",
       "category": "code-quality",
-      "tags": ["workflow", "tdd", "debugging", "planning", "code-review", "git", "subagents"],
-      "submittedBy": "Coingyy",
+      "tags": [
+        "workflow",
+        "tdd",
+        "debugging",
+        "planning",
+        "code-review",
+        "git",
+        "subagents"
+      ],
       "addedAt": "2026-08-27",
       "status": "verified"
     },
@@ -30,10 +40,16 @@
       "repo": "https://github.com/pbakaus/impeccable",
       "description": "Design guidance skill for AI coding agents that provides 23 commands (init, craft, critique, audit, polish, animate, and more) plus 59 deterministic detector rules to steer AI-generated frontend UI away from common design tells and toward more distinctive, higher-quality craft.",
       "category": "ui-design",
-      "tags": ["ui-design", "frontend", "design-review", "accessibility", "css", "web"],
-      "submittedBy": "marvin",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "design-review",
+        "accessibility",
+        "css",
+        "web"
+      ],
       "addedAt": "2026-08-27",
-      "status": "pending"
+      "status": "verified"
     }
   ]
 }
