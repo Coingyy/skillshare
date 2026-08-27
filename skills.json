@@ -421,6 +421,24 @@
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "humanizer",
+      "name": "Humanizer",
+      "tagline": "Rewrites AI-sounding text so it reads like a human wrote it",
+      "repo": "https://github.com/blader/humanizer",
+      "description": "Rewrites text to remove common AI writing tells (inflated claims, sales language, em dashes, filler, chatbot phrasing) using 35 patterns from Wikipedia's \"Signs of AI writing\", while preserving the original facts and voice.",
+      "category": "prompting",
+      "tags": [
+        "writing",
+        "editing",
+        "prose",
+        "text-rewriting",
+        "content"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "verified"
     }
   ]
 }
