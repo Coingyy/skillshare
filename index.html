@@ -45,15 +45,6 @@
     min-height: 100vh;
     position: relative;
   }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image: radial-gradient(rgba(245, 244, 250, 0.04) 1px, transparent 1px);
-    background-size: 26px 26px;
-    pointer-events: none;
-  }
   #smoke {
     position: fixed;
     inset: 0;
@@ -437,14 +428,14 @@
   .tag {
     font-family: var(--mono);
     font-size: 11px;
-    color: #CBB8F7;
-    background: linear-gradient(180deg, rgba(139, 92, 246, 0.30), rgba(109, 51, 232, 0.16));
-    border: 1px solid rgba(167, 139, 250, 0.35);
+    color: #B9B6C6;
+    background: linear-gradient(180deg, rgba(245, 244, 250, 0.09), rgba(245, 244, 250, 0.025));
+    border: 1px solid rgba(245, 244, 250, 0.16);
     border-radius: 8px;
     padding: 3px 10px;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.16),
-      inset 0 -2px 4px rgba(45, 20, 105, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.22),
       0 2px 6px rgba(0, 0, 0, 0.25);
   }
   .card-foot {
@@ -937,7 +928,7 @@
         "box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),inset 0 -3px 7px rgba(0,0,0,0.3),0 4px 14px " + hexA(col, 0.5) + ',0 8px 28px ' + hexA(col, 0.3) + '"';
     }
     return 'style="color:' + shade(col, 0.25) + ";" +
-      "background:linear-gradient(180deg," + hexA(col, 0.26) + "," + hexA(col, 0.09) + ");" +
+      "background:linear-gradient(180deg," + hexA(col, 0.22) + "," + hexA(col, 0.07) + "),linear-gradient(#14121B,#14121B);" +
       "border:1px solid " + hexA(col, 0.45) + ";" +
       "box-shadow:inset 0 1px 0 rgba(255,255,255,0.16),inset 0 -2px 5px rgba(0,0,0,0.35),0 3px 10px " + hexA(col, 0.22) + '"';
   }
