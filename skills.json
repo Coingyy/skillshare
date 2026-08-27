@@ -353,37 +353,6 @@
       "status": "verified"
     },
     {
-      "id": "ai-music-skills",
-      "name": "AI Music Skills",
-      "tagline": "Make full songs with AI — from lyrics to Suno",
-      "repo": "https://github.com/bitwize-music-studio/claude-ai-music-skills",
-      "description": "Human + AI music production workflow for Suno: skills, templates and tools from writing to release.",
-      "category": "audio",
-      "tags": [
-        "suno",
-        "music-production",
-        "lyrics"
-      ],
-      "addedAt": "2026-08-27",
-      "status": "verified"
-    },
-    {
-      "id": "reaper-mcp",
-      "name": "REAPER MCP",
-      "tagline": "Mix and master in REAPER by talking to Claude",
-      "repo": "https://github.com/xDarkzx/Reaper-MCP",
-      "description": "MCP server with 172 tools for AI-powered music production and post-production in the REAPER DAW.",
-      "category": "audio",
-      "tags": [
-        "reaper",
-        "daw",
-        "mixing",
-        "mastering"
-      ],
-      "addedAt": "2026-08-27",
-      "status": "verified"
-    },
-    {
       "id": "taste-skill",
       "name": "Taste Skill",
       "tagline": "Stops AI-built websites from looking generic and templated",
