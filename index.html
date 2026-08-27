@@ -405,6 +405,33 @@
     padding: 14px 18px;
   }
   .submit-hint { font-size: 12.5px; color: var(--text-dim); margin-top: 10px; font-family: var(--mono); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    transform: translate(-50%, 20px);
+    background: var(--bg-deep);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(34, 197, 94, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 100;
+    max-width: calc(100vw - 32px);
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast .check { color: var(--accent); font-weight: 700; font-size: 18px; }
+  .toast.error { border-color: #F87171; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); }
+  .toast.error .check { color: #F87171; }
 
   /* ---------- Footer ---------- */
   footer {
@@ -515,8 +542,8 @@
         <p class="expl">You just paste the link and roughly say what it does. No fancy writing needed — the bot handles the rest.</p>
         <ol class="submit-steps">
           <li><span class="n">01</span><span>Paste the GitHub link + one rough sentence</span></li>
-          <li><span class="n">02</span><span>GitHub opens with everything pre-filled — just hit "Submit new issue" there (free GitHub account needed, that's it)</span></li>
-          <li><span class="n">03</span><span>The bot checks the skill for sketchy stuff and writes a proper description for you</span></li>
+          <li><span class="n">02</span><span>Your name + the crew code (type it once, the page remembers it)</span></li>
+          <li><span class="n">03</span><span>Hit the button — the bot checks the skill for sketchy stuff and writes a proper description</span></li>
           <li><span class="n">04</span><span>After a quick OK it shows up on this page</span></li>
         </ol>
       </div>
@@ -530,12 +557,25 @@
           <label for="in-notes">What does it do? (rough is fine)</label>
           <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
         </div>
-        <button type="submit" class="btn-primary submit-btn">Add skill →</button>
-        <p class="submit-hint">opens GitHub with everything filled in — one more click there and you're done</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="in-name">Your name</label>
+            <input type="text" id="in-name" placeholder="so we know who found it" required>
+          </div>
+          <div class="field" id="field-code">
+            <label for="in-code">Crew code</label>
+            <input type="text" id="in-code" placeholder="ask the group chat" required>
+            <p class="err">That code isn't right — ask in the group chat.</p>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary submit-btn" id="submit-btn">Add skill →</button>
+        <p class="submit-hint" id="submit-hint">goes straight to the bot — you'll see a confirmation right here</p>
       </form>
     </div>
   </section>
 </main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span class="check">✓</span><span class="msg"></span></div>
 
 <footer>
   <div class="foot-inner">
@@ -565,25 +605,83 @@
   }
   document.getElementById("nav-repo").href = repoUrl;
 
+  // Submissions go through a small Cloudflare Worker that opens the GitHub
+  // issue in the background, so nobody has to leave this page.
+  var WORKER_URL = "https://skillshare-submit.marvinhofmann77.workers.dev";
   var GITHUB_URL_RE = /^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/;
+
+  function toast(msg, isError) {
+    var el = document.getElementById("toast");
+    el.querySelector(".msg").textContent = msg;
+    el.querySelector(".check").textContent = isError ? "✕" : "✓";
+    el.classList.toggle("error", !!isError);
+    el.classList.add("show");
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove("show"); }, 6000);
+  }
+
+  function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
+  function load(key) { try { return localStorage.getItem(key) || ""; } catch (e) { return ""; } }
+  document.getElementById("in-name").value = load("ss-name");
+  document.getElementById("in-code").value = load("ss-code");
+
   document.getElementById("submit-form").addEventListener("submit", function (e) {
     e.preventDefault();
     var urlField = document.getElementById("field-url");
+    var codeField = document.getElementById("field-code");
     var url = document.getElementById("in-url").value.trim();
     var notes = document.getElementById("in-notes").value.trim();
+    var name = document.getElementById("in-name").value.trim();
+    var code = document.getElementById("in-code").value.trim();
+    urlField.classList.remove("invalid");
+    codeField.classList.remove("invalid");
     if (!GITHUB_URL_RE.test(url)) {
       urlField.classList.add("invalid");
       document.getElementById("in-url").focus();
       return;
     }
-    urlField.classList.remove("invalid");
-    var issueUrl = repoUrl + "/issues/new?template=submit-skill.yml" +
-      "&repo_url=" + encodeURIComponent(url) +
-      "&notes=" + encodeURIComponent(notes);
-    window.open(issueUrl, "_blank", "noopener");
+    if (!name || !code) {
+      toast("Fill in your name and the crew code.", true);
+      return;
+    }
+
+    var btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ repo: url, notes: notes, name: name, code: code })
+    })
+      .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
+      .then(function (res) {
+        if (res.j.ok) {
+          store("ss-name", name);
+          store("ss-code", code);
+          document.getElementById("in-url").value = "";
+          document.getElementById("in-notes").value = "";
+          toast("Submitted! The bot is checking it now — it'll show up here after a quick OK.");
+        } else if (res.j.error === "wrong-code") {
+          codeField.classList.add("invalid");
+          document.getElementById("in-code").focus();
+        } else {
+          toast("Something went wrong — try again in a minute.", true);
+        }
+      })
+      .catch(function () {
+        toast("Couldn't reach the bot — check your internet and try again.", true);
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = "Add skill →";
+      });
   });
   document.getElementById("in-url").addEventListener("input", function () {
     document.getElementById("field-url").classList.remove("invalid");
+  });
+  document.getElementById("in-code").addEventListener("input", function () {
+    document.getElementById("field-code").classList.remove("invalid");
   });
 
   var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
