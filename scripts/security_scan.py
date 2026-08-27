@@ -77,7 +77,13 @@ TRUSTED_API_HOSTS = re.compile(
 
 # Official installers that many legit dev repos pipe into a shell.
 TRUSTED_INSTALLERS = re.compile(
-    r"https://(claude\.ai/install\.(sh|ps1)|bun\.sh/install|sh\.rustup\.rs|get\.docker\.com)", re.I)
+    r"https://(claude\.ai/install\.(sh|ps1)|bun\.sh/install|sh\.rustup\.rs|get\.docker\.com|"
+    r"astral\.sh/uv/install\.sh)", re.I)
+
+DOC_EXTENSIONS = {".md", ".rst", ".txt"}
+# These classes describe commands to a human reader when found in docs; they
+# don't execute on install. Prompt-injection stays HIGH in docs on purpose.
+DOC_DOWNGRADE_CLASSES = ("piped", "SSH keys")
 
 # Findings inside test code don't run on an installer's machine — keep them
 # visible, but as WARN instead of HIGH.
@@ -116,6 +122,7 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
     findings = []
     if not REPO_URL_RE.match(url):
         return [("HIGH", "-", "Repo URL is not a valid GitHub URL", url)]
+    self_raw = url.replace("https://github.com/", "raw.githubusercontent.com/").rstrip("/")
     with tempfile.TemporaryDirectory() as tmp:
         clone = run(["git", "clone", "--depth", "1", "--no-tags", url, tmp], timeout=120)
         if clone.returncode != 0:
@@ -143,6 +150,13 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                         severity = "WARN"
                     if severity == "HIGH" and "piped" in desc and TRUSTED_INSTALLERS.search(context):
                         severity = "WARN"
+                    if severity == "HIGH" and "piped" in desc and self_raw.lower() in context.lower():
+                        severity = "WARN"
+                        desc = desc + " (self-install script from this repo — the script gets scanned too)"
+                    if severity == "HIGH" and f.suffix.lower() in DOC_EXTENSIONS \
+                            and any(c in desc for c in DOC_DOWNGRADE_CLASSES):
+                        severity = "WARN"
+                        desc = desc + " (in documentation — doesn't run on install)"
                     if severity == "HIGH" and TEST_PATH_RE.search(rel):
                         severity = "WARN"
                         desc = desc + " (in test code)"

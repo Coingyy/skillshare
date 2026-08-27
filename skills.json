@@ -71,6 +71,317 @@
       "addedAt": "2026-08-27",
       "status": "verified",
       "tagline": "Lets Claude work inside your GitHub repo automatically"
+    },
+    {
+      "id": "caveman",
+      "name": "Caveman",
+      "tagline": "Cuts your token bill by talking like a caveman",
+      "repo": "https://github.com/JuliusBrussee/caveman",
+      "description": "Communication mode that compresses Claude's replies by ~65% while keeping all technical substance. Levels from lite to ultra, plus compressed commit messages and code reviews.",
+      "category": "prompting",
+      "tags": [
+        "tokens",
+        "compression",
+        "modes"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "tagline": "Design intelligence so your UIs stop looking AI-made",
+      "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "description": "67 styles, 96 color palettes, 57 font pairings and UX guidelines as a searchable database Claude uses while building interfaces. Powers this very site.",
+      "category": "ui-design",
+      "tags": [
+        "design-system",
+        "palettes",
+        "typography"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "claude-plugins-official",
+      "name": "Official Claude Plugins",
+      "tagline": "Anthropic's official plugin directory",
+      "repo": "https://github.com/anthropics/claude-plugins-official",
+      "description": "Official, Anthropic-managed directory of high-quality Claude Code plugins — the safest starting point for extending Claude.",
+      "category": "official",
+      "tags": [
+        "anthropic",
+        "plugins",
+        "directory"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "awesome-claude-code",
+      "name": "Awesome Claude Code",
+      "tagline": "The big curated list of everything Claude Code",
+      "repo": "https://github.com/hesreallyhim/awesome-claude-code",
+      "description": "Hand-picked collection of commands, workflows, hooks and resources for Claude Code — great place to discover what exists.",
+      "category": "docs",
+      "tags": [
+        "awesome-list",
+        "resources"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "wshobson-agents",
+      "name": "Agents Marketplace",
+      "tagline": "A marketplace of ready-made expert agents",
+      "repo": "https://github.com/wshobson/agents",
+      "description": "Multi-harness plugin marketplace with dozens of specialized subagents — backend, security, data, DevOps — that drop straight into Claude Code.",
+      "category": "subagents",
+      "tags": [
+        "marketplace",
+        "agents",
+        "plugins"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "awesome-subagents",
+      "name": "Awesome Subagents",
+      "tagline": "100+ ready-to-use specialist subagents",
+      "repo": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "description": "Collection of 100+ specialized Claude Code subagents covering development, infrastructure, security, data and more.",
+      "category": "subagents",
+      "tags": [
+        "agents",
+        "collection"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "ecc",
+      "name": "ECC",
+      "tagline": "Tunes your whole agent setup for top performance",
+      "repo": "https://github.com/affaan-m/ECC",
+      "description": "Agent harness optimization system: skills, instincts, memory and session management that squeeze more capability out of Claude Code.",
+      "category": "llm-tooling",
+      "tags": [
+        "performance",
+        "memory",
+        "harness"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "karpathy-skills",
+      "name": "Karpathy Skills",
+      "tagline": "Karpathy's coding wisdom in one CLAUDE.md",
+      "repo": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "description": "A single CLAUDE.md file derived from Andrej Karpathy's guidance that measurably improves how Claude Code behaves.",
+      "category": "prompting",
+      "tags": [
+        "claude-md",
+        "best-practices"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "graphify",
+      "name": "Graphify",
+      "tagline": "Turns your codebase into a queryable knowledge graph",
+      "repo": "https://github.com/Graphify-Labs/graphify",
+      "description": "Ingests code, docs, SQL schemas, configs and PDFs into a graph Claude can query for deep codebase understanding.",
+      "category": "llm-tooling",
+      "tags": [
+        "knowledge-graph",
+        "codebase",
+        "rag"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "ruflo",
+      "name": "Ruflo",
+      "tagline": "Deploys whole swarms of agents that work together",
+      "repo": "https://github.com/ruvnet/ruflo",
+      "description": "Agent meta-harness for orchestrating multi-agent swarms with coordination, shared memory, guardrails and workflows.",
+      "category": "subagents",
+      "tags": [
+        "swarm",
+        "orchestration",
+        "security"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "planning-with-files",
+      "name": "Planning with Files",
+      "tagline": "Keeps long tasks on track with file-based plans",
+      "repo": "https://github.com/OthmanAdi/planning-with-files",
+      "description": "Persistent file-based planning for AI coding agents — plans survive crashes, compactions and very long-running tasks.",
+      "category": "automation",
+      "tags": [
+        "planning",
+        "persistence"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "claude-hud",
+      "name": "Claude HUD",
+      "tagline": "Shows you live what Claude is doing",
+      "repo": "https://github.com/jarrodwatts/claude-hud",
+      "description": "Plugin HUD that displays context usage, active tools and token spend while Claude Code works.",
+      "category": "llm-tooling",
+      "tags": [
+        "monitoring",
+        "tokens",
+        "plugin"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "codex-plugin",
+      "name": "Codex Plugin",
+      "tagline": "Lets Claude ask OpenAI's Codex for second opinions",
+      "repo": "https://github.com/openai/codex-plugin-cc",
+      "description": "Official OpenAI plugin to use Codex from inside Claude Code — review code or delegate tasks to a second model.",
+      "category": "integrations",
+      "tags": [
+        "openai",
+        "codex",
+        "review"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "cc-switch",
+      "name": "CC Switch",
+      "tagline": "One app to manage all your AI coding tools",
+      "repo": "https://github.com/farion1231/cc-switch",
+      "description": "Cross-platform desktop assistant for Claude Code, Codex, OpenCode and friends — providers, configs and MCP servers in one place.",
+      "category": "llm-tooling",
+      "tags": [
+        "desktop",
+        "config",
+        "providers"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "blender-mcp",
+      "name": "Blender MCP",
+      "tagline": "Control Blender by telling Claude what to build",
+      "repo": "https://github.com/ahujasid/blender-mcp",
+      "description": "Community plugin that connects Blender to any LLM — create scenes, materials and renders through chat.",
+      "category": "3d",
+      "tags": [
+        "blender",
+        "mcp",
+        "modeling"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "godogen",
+      "name": "Godogen",
+      "tagline": "Builds whole games in Godot on autopilot",
+      "repo": "https://github.com/htdt/godogen",
+      "description": "Autonomous game development for Godot, Bevy and Babylon.js driven by Claude Code and other agents.",
+      "category": "game-dev",
+      "tags": [
+        "godot",
+        "bevy",
+        "autonomous"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "awesome-gamedev-skills",
+      "name": "Awesome GameDev Skills",
+      "tagline": "67 game-dev skills for every major engine",
+      "repo": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+      "description": "Game development skills for AI coding agents across Godot, Unity, Unreal, Phaser, PixiJS and more.",
+      "category": "game-dev",
+      "tags": [
+        "unity",
+        "unreal",
+        "godot",
+        "collection"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "roblox-game-skill",
+      "name": "Roblox Game Skill",
+      "tagline": "Everything Claude needs to build Roblox games",
+      "repo": "https://github.com/brockmartin/roblox-game-skill",
+      "description": "Roblox development skill for Claude Code: Luau patterns, Studio workflows and game-building best practices.",
+      "category": "game-dev",
+      "tags": [
+        "roblox",
+        "luau"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "claude-sbox",
+      "name": "Claude s&box",
+      "tagline": "s&box game dev with a verified API reference",
+      "repo": "https://github.com/gavogavogavo/claude-sbox",
+      "description": "Claude Code skill for s&box game development — schema-verified API reference and workflows.",
+      "category": "game-dev",
+      "tags": [
+        "sbox",
+        "source2"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "ai-music-skills",
+      "name": "AI Music Skills",
+      "tagline": "Make full songs with AI — from lyrics to Suno",
+      "repo": "https://github.com/bitwize-music-studio/claude-ai-music-skills",
+      "description": "Human + AI music production workflow for Suno: skills, templates and tools from writing to release.",
+      "category": "audio",
+      "tags": [
+        "suno",
+        "music-production",
+        "lyrics"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "reaper-mcp",
+      "name": "REAPER MCP",
+      "tagline": "Mix and master in REAPER by talking to Claude",
+      "repo": "https://github.com/xDarkzx/Reaper-MCP",
+      "description": "MCP server with 172 tools for AI-powered music production and post-production in the REAPER DAW.",
+      "category": "audio",
+      "tags": [
+        "reaper",
+        "daw",
+        "mixing",
+        "mastering"
+      ],
+      "addedAt": "2026-08-27",
+      "status": "verified"
     }
   ]
 }
