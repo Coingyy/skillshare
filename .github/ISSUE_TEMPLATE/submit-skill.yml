@@ -1,0 +1,26 @@
+name: Submit a skill
+description: Paste a repo link and a rough note — the bot writes the catalog entry for you.
+title: "Skill submission"
+labels: ["skill-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Paste the GitHub repo link and roughly describe what it does.
+        The rest happens automatically: a security scan runs on the repo,
+        and Claude drafts the catalog entry (description, category, tags)
+        and opens a pull request for you.
+  - type: input
+    id: repo_url
+    attributes:
+      label: GitHub repo URL
+      placeholder: https://github.com/username/skill-repo
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What is it? (rough note is fine)
+      placeholder: e.g. "skill that helps with blender modeling, auto-generates materials"
+    validations:
+      required: true

@@ -332,6 +332,79 @@
     color: var(--text-dim);
   }
 
+  /* ---------- Submit ---------- */
+  .submit {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 24px 24px 88px;
+  }
+  .submit-box {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .submit-box h2 {
+    font-family: var(--mono);
+    font-size: 26px;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+  .submit-box h2 .green { color: var(--accent); }
+  .submit-box .expl { color: var(--text-muted); font-size: 15px; margin-bottom: 18px; }
+  .submit-steps { list-style: none; display: grid; gap: 10px; }
+  .submit-steps li {
+    display: flex;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .submit-steps .n {
+    font-family: var(--mono);
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 7px;
+  }
+  .field input, .field textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 13px 15px;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field textarea { resize: vertical; min-height: 96px; font-family: var(--sans); }
+  .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+  .field .err { display: none; color: #F87171; font-size: 13px; margin-top: 6px; }
+  .field.invalid input { border-color: #F87171; }
+  .field.invalid .err { display: block; }
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+    border: none;
+    font-size: 15px;
+    padding: 14px 18px;
+  }
+  .submit-hint { font-size: 12.5px; color: var(--text-dim); margin-top: 10px; font-family: var(--mono); }
+
   /* ---------- Footer ---------- */
   footer {
     border-top: 1px solid var(--border);
@@ -369,6 +442,7 @@
 
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; padding-top: 120px; gap: 36px; }
+    .submit-box { grid-template-columns: 1fr; padding: 26px; gap: 28px; }
     .nav { top: 10px; left: 10px; right: 10px; }
     .nav-link.hide-sm { display: none; }
   }
@@ -385,7 +459,7 @@
   <div class="nav-links">
     <a class="nav-link hide-sm" href="#catalog">Catalog</a>
     <a class="nav-link hide-sm" id="nav-repo" href="#" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn-primary" id="nav-submit" href="#" target="_blank" rel="noopener">
+    <a class="btn-primary" id="nav-submit" href="#submit">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
       Submit a skill
     </a>
@@ -430,17 +504,41 @@
     <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
   </div>
   <div class="grid" id="grid" aria-live="polite"></div>
+
+  <section class="submit" id="submit">
+    <div class="submit-box">
+      <div>
+        <h2>Submit a skill.<br><span class="green">The bot does the rest.</span></h2>
+        <p class="expl">Paste the repo link, roughly say what it is — you don't need to write anything fancy.</p>
+        <ol class="submit-steps">
+          <li><span class="n">01</span><span>Your submission opens as a GitHub issue (needs a GitHub account — that's your signature)</span></li>
+          <li><span class="n">02</span><span>The security scan checks the repo automatically</span></li>
+          <li><span class="n">03</span><span>Claude reads the repo, writes the description, picks category &amp; tags, and opens the pull request</span></li>
+          <li><span class="n">04</span><span>Maintainer merges → skill shows up here</span></li>
+        </ol>
+      </div>
+      <form id="submit-form" novalidate>
+        <div class="field" id="field-url">
+          <label for="in-url">GitHub repo URL</label>
+          <input type="url" id="in-url" placeholder="https://github.com/username/skill-repo" required>
+          <p class="err">That doesn't look like a GitHub repo URL (https://github.com/user/repo).</p>
+        </div>
+        <div class="field">
+          <label for="in-notes">What is it? (rough note is fine)</label>
+          <textarea id="in-notes" placeholder="e.g. skill that helps with blender modeling, auto-generates materials"></textarea>
+        </div>
+        <button type="submit" class="btn-primary submit-btn">Submit skill →</button>
+        <p class="submit-hint">$ opens a prefilled GitHub issue — just click "Submit new issue" there</p>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="foot-inner">
     <div>
       <h4>// Submit your own skill</h4>
-      <ol>
-        <li>Fork the repo &amp; add your entry to <code>skills.json</code></li>
-        <li>Open a pull request — the security scan runs automatically</li>
-        <li>After a green check &amp; review it gets merged → skill shows up here</li>
-      </ol>
+      <p>Use the <a href="#submit">form above</a> — repo link plus a rough note is all it takes. Prefer doing it by hand? Add an entry to <code>skills.json</code> via pull request; the scan runs either way.</p>
     </div>
     <div>
       <h4>// Security</h4>
@@ -456,21 +554,44 @@
 
   // Resolves to the correct repo automatically when the page runs on
   // *.github.io; locally the placeholder stays.
-  var host = location.hostname.split(".")[0];
-  var path = location.pathname.split("/").filter(Boolean)[0] || "skillshare";
-  var repoUrl = location.hostname.endsWith("github.io")
-    ? "https://github.com/" + host + "/" + path
-    : "#";
+  var repoUrl = "https://github.com/Coingyy/skillshare";
+  if (location.hostname.endsWith("github.io")) {
+    var host = location.hostname.split(".")[0];
+    var path = location.pathname.split("/").filter(Boolean)[0] || "skillshare";
+    repoUrl = "https://github.com/" + host + "/" + path;
+  }
   document.getElementById("nav-repo").href = repoUrl;
-  document.getElementById("nav-submit").href = repoUrl === "#" ? "#" : repoUrl + "/edit/main/skills.json";
+
+  var GITHUB_URL_RE = /^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/;
+  document.getElementById("submit-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var urlField = document.getElementById("field-url");
+    var url = document.getElementById("in-url").value.trim();
+    var notes = document.getElementById("in-notes").value.trim();
+    if (!GITHUB_URL_RE.test(url)) {
+      urlField.classList.add("invalid");
+      document.getElementById("in-url").focus();
+      return;
+    }
+    urlField.classList.remove("invalid");
+    var issueUrl = repoUrl + "/issues/new?template=submit-skill.yml" +
+      "&repo_url=" + encodeURIComponent(url) +
+      "&notes=" + encodeURIComponent(notes);
+    window.open(issueUrl, "_blank", "noopener");
+  });
+  document.getElementById("in-url").addEventListener("input", function () {
+    document.getElementById("field-url").classList.remove("invalid");
+  });
 
   var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
   var ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>';
   var ICON_EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
 
   var CATEGORY_LABELS = {
-    design: "Design", workflow: "Workflow", review: "Review", testing: "Testing",
-    mcp: "MCP", official: "Official", other: "Other"
+    "ui-design": "UI Design", "3d": "3D", "game-dev": "Game Dev", "web": "Web",
+    "automation": "Automation", "code-quality": "Code Quality", "docs": "Docs",
+    "integrations": "Integrations", "subagents": "Subagents", "prompting": "Prompting",
+    "llm-tooling": "LLM Tooling", "official": "Official", "other": "Other"
   };
 
   var allSkills = [];

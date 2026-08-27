@@ -1,6 +1,13 @@
 # Submitting a skill
 
-## Quick path (directly on GitHub)
+## Easiest path (via the website)
+
+1. Open [the catalog](https://coingyy.github.io/skillshare/) and scroll to **Submit a skill**.
+2. Paste the repo link, roughly say what it does, hit submit — a prefilled GitHub issue opens; confirm it with "Submit new issue".
+3. Everything else is automatic: the security scan checks the repo, Claude writes the catalog entry (description, category, tags) and opens a pull request in your name.
+4. A maintainer merges → skill shows up on the site.
+
+## Manual path (directly on GitHub)
 
 1. Open [`skills.json`](skills.json) and click the pencil (Edit).
 2. Add your entry to the end of the `skills` array:
@@ -26,7 +33,7 @@
 ## Rules
 
 - `id`: kebab-case, unique.
-- `category`: one of `design`, `workflow`, `review`, `testing`, `mcp`, `official`, `other`.
+- `category`: one of `ui-design`, `3d`, `game-dev`, `web`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
 - `status`: always `pending` when submitting — only maintainers set `verified`.
 - Public GitHub repos only.
 - Look at the repo yourself before submitting. Your name vouches for it.
