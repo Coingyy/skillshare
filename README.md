@@ -1,8 +1,21 @@
+<div align="center">
+
 # skillshare_
 
 Curated, security-checked collection of Claude Code skills and repos — by friends, for friends.
 
-**Website:** available via GitHub Pages after the first push (`https://<username>.github.io/skillshare/`)
+<br>
+
+## [&nbsp;🛡️&nbsp;&nbsp;**OPEN THE CATALOG →**&nbsp;&nbsp;](https://coingyy.github.io/skillshare/)
+
+### **https://coingyy.github.io/skillshare/**
+
+<br>
+
+[![Website](https://img.shields.io/badge/website-live-22C55E?style=for-the-badge)](https://coingyy.github.io/skillshare/)
+[![Submit a skill](https://img.shields.io/badge/submit-a_skill-0F172A?style=for-the-badge)](https://github.com/Coingyy/skillshare/edit/main/skills.json)
+
+</div>
 
 ## How it works
 
