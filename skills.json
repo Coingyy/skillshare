@@ -408,7 +408,7 @@
       "tagline": "Lets your AI assistant fetch real shadcn/ui component code on demand",
       "repo": "https://github.com/Jpisnice/shadcn-ui-mcp-server",
       "description": "An MCP server that gives AI assistants direct access to shadcn/ui v4 component source, demos, blocks, and metadata for React, Svelte, Vue, and React Native, pulled live from GitHub.",
-      "category": "llm-tooling",
+      "category": "ui-design",
       "tags": [
         "mcp",
         "shadcn",
