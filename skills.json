@@ -382,6 +382,27 @@
       ],
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "taste-skill",
+      "name": "Taste Skill",
+      "tagline": "Stops AI-built websites from looking generic and templated",
+      "repo": "https://github.com/leonxlnx/taste-skill",
+      "description": "A set of Agent Skills that guide AI coding tools away from generic \"AI slop\" interfaces, directing layout, typography, motion, and spacing for landing pages, portfolios, and redesigns, plus image-generation skills for design reference boards.",
+      "category": "ui-design",
+      "tags": [
+        "ui-design",
+        "frontend",
+        "web-design",
+        "css",
+        "anti-slop",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
