@@ -23,6 +23,17 @@
       "submittedBy": "Coingyy",
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "impeccable",
+      "name": "Impeccable",
+      "repo": "https://github.com/pbakaus/impeccable",
+      "description": "Design guidance skill for AI coding agents that provides 23 commands (init, craft, critique, audit, polish, animate, and more) plus 59 deterministic detector rules to steer AI-generated frontend UI away from common design tells and toward more distinctive, higher-quality craft.",
+      "category": "ui-design",
+      "tags": ["ui-design", "frontend", "design-review", "accessibility", "css", "web"],
+      "submittedBy": "marvin",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
