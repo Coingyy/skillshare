@@ -17,8 +17,8 @@
     --border: #2A2735;
     --border-strong: #453F58;
     --text: #F5F4FA;
-    --text-muted: #A5A1B3;
-    --text-dim: #6F6B7E;
+    --text-muted: #BCB8CB;
+    --text-dim: #8D89A0;
     --accent: #8B5CF6;
     --accent-bright: #A78BFA;
     --accent-deep: #6D33E8;
@@ -180,13 +180,13 @@
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--text-muted);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .kicker::before { content: ""; display: block; width: 24px; height: 1px; background: var(--border-strong); }
+  .kicker::before { content: ""; display: block; width: 24px; height: 1px; background: var(--text-dim); }
   h1 {
     font-family: var(--sans);
     font-size: clamp(38px, 5.4vw, 60px);
@@ -216,7 +216,7 @@
     font-family: var(--mono);
   }
   .stat .num { font-size: 28px; font-weight: 700; color: var(--accent); text-shadow: 0 0 20px rgba(139, 92, 246, 0.45); }
-  .stat .lbl { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); }
+  .stat .lbl { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
 
   /* Terminal-Fenster */
   .term {
@@ -428,7 +428,7 @@
     color: var(--accent);
     letter-spacing: -0.2px;
   }
-  .card .desc { color: var(--text-dim); font-size: 13.5px; flex: 1; }
+  .card .desc { color: var(--text-muted); font-size: 13.5px; flex: 1; }
   .badge {
     display: inline-flex;
     align-items: center;
