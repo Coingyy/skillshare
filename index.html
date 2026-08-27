@@ -791,6 +791,8 @@
           toast("Someone already submitted that one — it's being checked right now.", true);
         } else if (res.j.error === "rate-limited") {
           toast("Whoa, easy — you've added a lot just now. Try again in a bit.", true);
+        } else if (res.j.error === "daily-limit") {
+          toast("Today's submission limit is reached — try again tomorrow.", true);
         } else {
           toast("Something went wrong — try again in a minute.", true);
         }

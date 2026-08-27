@@ -73,6 +73,23 @@ export default {
       "User-Agent": "skillshare-submit-worker",
     };
 
+    // Global daily cap — protects the Claude subscription and Actions from
+    // being flooded when the link makes the rounds publicly.
+    const DAILY_CAP = 40;
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const q = encodeURIComponent(`repo:${REPO} label:skill-submission created:>=${today}`);
+      const res = await fetch(`https://api.github.com/search/issues?q=${q}&per_page=1`, { headers: gh });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.total_count >= DAILY_CAP) {
+          return reply(origin, 429, { ok: false, error: "daily-limit" });
+        }
+      }
+    } catch (e) {
+      console.log("daily cap check failed", String(e));
+    }
+
     // Already in the catalog?
     try {
       const cat = await fetch(
