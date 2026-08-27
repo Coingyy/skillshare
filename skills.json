@@ -382,6 +382,26 @@
       ],
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "skillui",
+      "name": "SkillUI",
+      "tagline": "Copies any website's look so Claude can build matching pages",
+      "repo": "https://github.com/amaancoderx/npxskillui",
+      "description": "CLI that crawls a website, git repo, or local codebase and extracts its design system (colors, typography, spacing, animations, components, screenshots) into a packaged skill folder Claude Code reads automatically.",
+      "category": "ui-design",
+      "tags": [
+        "design-system",
+        "design-tokens",
+        "css",
+        "cli",
+        "tailwind",
+        "reverse-engineer",
+        "screenshots"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "pending"
     }
   ]
 }
