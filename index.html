@@ -168,11 +168,11 @@
   .hero {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 140px 24px 56px;
+    padding: 120px 24px 48px;
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: 56px;
-    align-items: center;
+    align-items: start;
   }
   .kicker {
     font-family: var(--mono);
@@ -491,54 +491,21 @@
     color: var(--text-dim);
   }
 
-  /* ---------- Submit ---------- */
-  .submit {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 24px 24px 88px;
-  }
-  .submit-box {
+  /* ---------- Submit card (in hero) ---------- */
+  .hero-side { display: flex; flex-direction: column; gap: 16px; }
+  .submit-card {
     background: linear-gradient(160deg, #211C2E 0%, #161223 60%, #110F18 100%);
-    border: 1px solid rgba(250, 249, 245, 0.1);
+    border: 1px solid rgba(250, 249, 245, 0.12);
     border-radius: 14px;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
-      0 16px 48px rgba(0, 0, 0, 0.4),
-      0 8px 40px rgba(139, 92, 246, 0.1);
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
-    align-items: start;
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 16px 48px rgba(0, 0, 0, 0.45),
+      0 8px 40px rgba(139, 92, 246, 0.14);
+    padding: 24px;
   }
-  .submit-box h2 {
-    font-family: var(--sans);
-    font-size: 30px;
-    font-weight: 500;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
-    text-wrap: balance;
-  }
-  .submit-box h2 .green {
-    font-family: var(--mono);
-    font-weight: 600;
-    letter-spacing: -1px;
-    color: var(--accent);
-  }
-  .submit-box .expl { color: var(--text-muted); font-size: 15px; margin-bottom: 18px; }
-  .submit-steps { list-style: none; display: grid; gap: 10px; }
-  .submit-steps li {
-    display: flex;
-    gap: 10px;
-    color: var(--text-muted);
-    font-size: 14px;
-  }
-  .submit-steps .n {
-    font-family: var(--mono);
-    font-weight: 600;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
+  .term-mini { font-size: 11.5px; }
+  .term-mini .term-body { padding: 12px 16px; line-height: 1.8; }
+  .term-mini .term-bar { padding: 8px 12px; }
   .field { margin-bottom: 16px; }
   .field label {
     display: block;
@@ -677,29 +644,41 @@
     <div class="kicker">our skill collection</div>
     <h1>Spotted a cool skill<br>on X or Insta?<br><span class="green">Drop it here.</span></h1>
     <p class="sub">Paste the GitHub link, our bot checks it for sketchy stuff and writes the description for you. Takes 30 seconds — and everyone finds it here afterwards.</p>
-    <a class="btn-primary hero-cta" href="#submit">
-      <span class="icon-chip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
-      Add a skill
-    </a>
     <div class="stats" role="list">
       <div class="stat" role="listitem"><div class="num" id="stat-total">0</div><div class="lbl">Skills</div></div>
       <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Verified</div></div>
       <div class="stat" role="listitem"><div class="num" id="stat-cats">0</div><div class="lbl">Categories</div></div>
     </div>
   </div>
-  <div class="term" aria-hidden="true">
-    <div class="term-bar">
-      <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-      <span class="term-title">security_scan.py</span>
-    </div>
-    <div class="term-body">
-      <div><span class="p">$</span> checking new skill ...</div>
-      <div><span class="c"># reading 34 files</span></div>
-      <div><span class="ok">✓</span> no hidden commands</div>
-      <div><span class="ok">✓</span> doesn't steal your data</div>
-      <div><span class="ok">✓</span> doesn't touch your passwords</div>
-      <div><span class="w">!</span> 1 thing to double-check → done, all good</div>
-      <div><span class="ok">✓ SAFE</span> <span class="c">— added to the list</span></div>
+  <div class="hero-side" id="submit">
+    <form id="submit-form" class="submit-card" novalidate>
+      <div class="field" id="field-url">
+        <label for="in-url">GitHub repo URL</label>
+        <input type="url" id="in-url" placeholder="https://github.com/username/skill-repo" required>
+        <p class="err">That doesn't look like a GitHub repo URL (https://github.com/user/repo).</p>
+      </div>
+      <div class="field">
+        <label for="in-notes">What does it do? (optional)</label>
+        <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
+      </div>
+      <button type="submit" class="btn-primary submit-btn" id="submit-btn">
+        <span class="icon-chip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+        Add skill
+      </button>
+      <p class="submit-hint">anonymous · checked automatically · live in a few minutes</p>
+    </form>
+    <div class="term term-mini" aria-hidden="true">
+      <div class="term-bar">
+        <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+        <span class="term-title">security_scan.py</span>
+      </div>
+      <div class="term-body">
+        <div><span class="p">$</span> checking new skill ...</div>
+        <div><span class="ok">✓</span> no hidden commands</div>
+        <div><span class="ok">✓</span> doesn't steal your data</div>
+        <div><span class="ok">✓</span> doesn't touch your passwords</div>
+        <div><span class="ok">✓ SAFE</span> <span class="c">— added to the list</span></div>
+      </div>
     </div>
   </div>
 </header>
@@ -725,32 +704,6 @@
     </div>
   </div>
 
-  <section class="submit" id="submit">
-    <div class="submit-box">
-      <div>
-        <h2>Found something cool?<br><span class="green">Adding it is easy.</span></h2>
-        <p class="expl">You just paste the link and roughly say what it does. No fancy writing needed — the bot handles the rest.</p>
-        <ol class="submit-steps">
-          <li><span class="n">01</span><span>Paste the GitHub link (a rough note helps, but isn't needed)</span></li>
-          <li><span class="n">02</span><span>Hit the button — the bot checks the skill for sketchy stuff and writes a proper description</span></li>
-          <li><span class="n">03</span><span>Passes the check → it shows up here automatically, completely anonymous</span></li>
-        </ol>
-      </div>
-      <form id="submit-form" novalidate>
-        <div class="field" id="field-url">
-          <label for="in-url">GitHub repo URL</label>
-          <input type="url" id="in-url" placeholder="https://github.com/username/skill-repo" required>
-          <p class="err">That doesn't look like a GitHub repo URL (https://github.com/user/repo).</p>
-        </div>
-        <div class="field">
-          <label for="in-notes">What does it do? (optional)</label>
-          <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
-        </div>
-        <button type="submit" class="btn-primary submit-btn" id="submit-btn">Add skill →</button>
-        <p class="submit-hint" id="submit-hint">goes straight to the bot — you'll see a confirmation right here</p>
-      </form>
-    </div>
-  </section>
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"><span class="check">✓</span><span class="msg"></span></div>
