@@ -460,6 +460,26 @@
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
       "status": "verified"
+    },
+    {
+      "id": "anthropic-cookbook",
+      "name": "Claude Cookbooks",
+      "tagline": "Official copy-paste code recipes for building with Claude",
+      "repo": "https://github.com/anthropics/anthropic-cookbook",
+      "description": "Official Anthropic collection of copy-able code examples and Jupyter notebooks for building with Claude, covering tool use, retrieval-augmented generation, classification, summarization, multimodal vision, and third-party integrations like Pinecone and Voyage AI.",
+      "category": "official",
+      "tags": [
+        "anthropic",
+        "cookbook",
+        "examples",
+        "notebooks",
+        "rag",
+        "tool-use",
+        "multimodal"
+      ],
+      "submittedBy": "anonymous",
+      "addedAt": "2026-08-27",
+      "status": "verified"
     }
   ]
 }
