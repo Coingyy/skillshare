@@ -49,7 +49,7 @@ PATTERNS = [
     ("HIGH", "Prompt injection: instruction to ignore prior instructions",
      re.compile(r"(ignore|disregard|forget)\s+(all\s+)?(previous|prior|above|earlier)\s+(instructions|prompts|rules)", re.I)),
     ("HIGH", "Prompt injection: demands hidden behavior",
-     re.compile(r"(do\s+not|don'?t|never)\s+((tell|inform|notify)\s+the\s+user|"
+     re.compile(r"(do\s+not|don'?t|never)\s+((tell|inform|notify)\s+the\s+user\s+(about|that|this|it|what|anything|of)|"
                 r"(reveal|mention|show)\s+(this|that|it|these\s+instructions?)\s+to\s+the\s+user)", re.I)),
     ("WARN", "Large base64 blob (possibly obfuscated payload)",
      re.compile(r"[A-Za-z0-9+/=]{400,}")),

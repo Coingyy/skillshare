@@ -33,7 +33,7 @@
 ## Rules
 
 - `id`: kebab-case, unique.
-- `category`: one of `ui-design`, `3d`, `game-dev`, `web`, `audio`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
+- `category`: one of `ui-design`, `3d`, `3d-printing`, `game-dev`, `web`, `audio`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
 - `status`: `verified` is set automatically once the scan passes.
 - Public GitHub repos only.
 - Look at the repo yourself before submitting. Your name vouches for it.

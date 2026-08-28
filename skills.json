@@ -1,6 +1,6 @@
 {
   "$schema": "./schema/skills.schema.json",
-  "updated": "2026-08-27",
+  "updated": "2026-08-29",
   "skills": [
     {
       "id": "anthropic-skills",
@@ -479,6 +479,264 @@
       ],
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
+      "status": "verified"
+    },
+    {
+      "id": "bambu-mcp",
+      "name": "Bambu MCP (fleet)",
+      "tagline": "Manage one or many Bambu printers from Claude",
+      "repo": "https://github.com/griches/bambu-mcp",
+      "description": "MCP server for Bambu Lab printers with multi-printer fleet management, print control, file operations and AMS handling.",
+      "category": "3d-printing",
+      "tags": [
+        "bambu-lab",
+        "mcp",
+        "ams",
+        "fleet"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "cad-skill",
+      "name": "CAD Skill (CadQuery)",
+      "tagline": "Generates printable 3D models from a description",
+      "repo": "https://github.com/flowful-ai/cad-skill",
+      "description": "Claude Code skill for parametric, 3D-printable model generation with CadQuery — describe the part, get a ready-to-slice model.",
+      "category": "3d-printing",
+      "tags": [
+        "cadquery",
+        "parametric",
+        "stl"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "freecad-mcp",
+      "name": "FreeCAD MCP",
+      "tagline": "Model in FreeCAD by talking to Claude",
+      "repo": "https://github.com/neka-nat/freecad-mcp",
+      "description": "The most popular FreeCAD MCP server — lets Claude create and edit FreeCAD models through the Model Context Protocol.",
+      "category": "3d",
+      "tags": [
+        "freecad",
+        "mcp",
+        "cad"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "freecad-ai",
+      "name": "FreeCAD AI",
+      "tagline": "Natural-language 3D models inside FreeCAD",
+      "repo": "https://github.com/ghbalf/freecad-ai",
+      "description": "AI-powered assistant workbench for FreeCAD that generates 3D models from natural language.",
+      "category": "3d",
+      "tags": [
+        "freecad",
+        "workbench",
+        "text-to-3d"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "openscad-mcp",
+      "name": "OpenSCAD MCP",
+      "tagline": "OpenSCAD modeling and rendering from Claude",
+      "repo": "https://github.com/quellant/openscad-mcp",
+      "description": "Model Context Protocol server for OpenSCAD 3D modeling and rendering.",
+      "category": "3d",
+      "tags": [
+        "openscad",
+        "mcp",
+        "rendering"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "blender-skills-94",
+      "name": "Blender Skills (94)",
+      "tagline": "94 specialist Blender skills, MCP-powered",
+      "repo": "https://github.com/arjun988/blender-skills",
+      "description": "94 specialist Blender skills for Claude Code, Cursor, Kiro and Codex — an MCP-powered production pipeline from blockout to render.",
+      "category": "3d",
+      "tags": [
+        "blender",
+        "skills",
+        "pipeline"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "blender-skills-product",
+      "name": "Blender Product Skills",
+      "tagline": "3D product shots and camera animation in Blender",
+      "repo": "https://github.com/kevinbadi/blender-skills",
+      "description": "Blender skills for Claude Code focused on 3D product generation and camera animation workflows.",
+      "category": "3d",
+      "tags": [
+        "blender",
+        "product",
+        "animation"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "bambu-printer-mcp",
+      "name": "Bambu Printer MCP",
+      "tagline": "Control your Bambu Lab printer straight from Claude",
+      "repo": "https://github.com/DMontgomery40/bambu-printer-mcp",
+      "description": "MCP server for Bambu Lab printers: tweak STL files, slice with Bambu Studio and send jobs to the printer, all from chat.",
+      "category": "3d-printing",
+      "tags": [
+        "bambu-lab",
+        "mcp",
+        "slicing",
+        "stl"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "mcp-3d-printer-server",
+      "name": "3D Printer MCP Server",
+      "tagline": "One MCP for almost every 3D printer out there",
+      "repo": "https://github.com/DMontgomery40/mcp-3D-printer-server",
+      "description": "Connects Claude to the major printer APIs — Bambu/Orca, OctoPrint, Klipper, Prusa, Duet and more — for status, control and file handling.",
+      "category": "3d-printing",
+      "tags": [
+        "mcp",
+        "octoprint",
+        "klipper",
+        "bambu-lab"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "kiln",
+      "name": "Kiln",
+      "tagline": "Describe or sketch an object — Kiln prints it",
+      "repo": "https://github.com/codeofaxel/Kiln",
+      "description": "Open-source MCP server that takes a description or drawing, generates a printable model and drives the printer end to end.",
+      "category": "3d-printing",
+      "tags": [
+        "mcp",
+        "text-to-3d",
+        "printing"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "octoeverywhere-mcp",
+      "name": "OctoEverywhere MCP",
+      "tagline": "Live printer status and webcam snapshots in Claude",
+      "repo": "https://github.com/OctoEverywhere/mcp",
+      "description": "Free MCP server giving Claude live printer state, webcam snapshots and printer control through OctoEverywhere.",
+      "category": "3d-printing",
+      "tags": [
+        "mcp",
+        "webcam",
+        "monitoring"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "bambu-printing-skill",
+      "name": "Bambu 3D Printing Skill",
+      "tagline": "A Claude skill for the whole Bambu print loop",
+      "repo": "https://github.com/TrillyD13/3d-printing-skill",
+      "description": "Claude skill covering the Bambu Lab printing workflow: scaling that keeps hardware fits and magnet holes intact, print prep and iteration.",
+      "category": "3d-printing",
+      "tags": [
+        "bambu-lab",
+        "skill",
+        "workflow"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "meshwright",
+      "name": "Meshwright",
+      "tagline": "Finds out why a model won't print and fixes it",
+      "repo": "https://github.com/GeekatplayStudio/Meshwright",
+      "description": "Mesh analysis, repair and smart retopology for 3D printing — explains the problem, fixes it and proves the result.",
+      "category": "3d-printing",
+      "tags": [
+        "mesh-repair",
+        "stl",
+        "analysis"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "cad-agent",
+      "name": "CAD Agent",
+      "tagline": "AI-driven CAD modeling made for printing",
+      "repo": "https://github.com/Svetlana-DAO-LLC/cad-agent",
+      "description": "AI-driven CAD modeling for 3D printing built on build123d with an MCP interface.",
+      "category": "3d-printing",
+      "tags": [
+        "build123d",
+        "mcp",
+        "cad"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "openscad-mcp-server",
+      "name": "OpenSCAD MCP Server",
+      "tagline": "Prompt in, OpenSCAD model and preview out",
+      "repo": "https://github.com/jhacksman/OpenSCAD-MCP-Server",
+      "description": "MCP server that turns a prompt into OpenSCAD code, renders a preview image and exports the model.",
+      "category": "3d",
+      "tags": [
+        "openscad",
+        "mcp",
+        "parametric"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "fusion-360-mcp",
+      "name": "Fusion 360 MCP",
+      "tagline": "Control Fusion 360 with any AI",
+      "repo": "https://github.com/AuraFriday/Fusion-360-MCP-Server",
+      "description": "MCP server that lets Claude and other AIs drive Autodesk Fusion 360 for CAD modeling.",
+      "category": "3d",
+      "tags": [
+        "fusion360",
+        "mcp",
+        "cad"
+      ],
+      "addedAt": "2026-08-29",
+      "status": "verified"
+    },
+    {
+      "id": "cc-blender-skill",
+      "name": "CC Blender Skill",
+      "tagline": "Drive Blender like a senior 3D artist",
+      "repo": "https://github.com/RobLe3/cc-blender-skill",
+      "description": "Claude Code skill plugin with 10 chain-loadable skills to drive Blender 5.x via natural language.",
+      "category": "3d",
+      "tags": [
+        "blender",
+        "skill",
+        "plugin"
+      ],
+      "addedAt": "2026-08-29",
       "status": "verified"
     }
   ]
