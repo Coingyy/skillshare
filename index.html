@@ -1016,7 +1016,8 @@
         ? '<span class="badge verified" title="Checked — no sketchy stuff found">' + ICON_SHIELD + "Checked</span>"
         : '<span class="badge pending" title="Still being checked">' + ICON_CLOCK + "Checking</span>";
       var col = catColor(s.category);
-      var catPill = '<span class="tag cat-pill" style="color:' + col + ';border-color:' + col + '66;background:' + col + '1a">' +
+      var catPill = '<span class="tag cat-pill" style="color:' + shade(col, 0.3) + ';border-color:' + hexA(col, 0.5) + ';border-top-color:' + hexA(col, 0.75) +
+        ';background:linear-gradient(180deg,' + hexA(col, 0.34) + ',' + hexA(col, 0.10) + ' 60%,' + hexA(col, 0.16) + '),linear-gradient(#1C1A25,#1C1A25)">' +
         esc(CATEGORY_LABELS[s.category] || s.category) + "</span>";
       var tags = catPill + (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
       var repoShort = esc(s.repo.replace("https://github.com/", ""));
