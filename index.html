@@ -437,37 +437,27 @@
     font-family: var(--sans);
     font-size: 11.5px;
     font-weight: 600;
-    letter-spacing: 0.1px;
-    padding: 5px 11px 5px 9px;
-    border-radius: 9px;
+    letter-spacing: 0.15px;
+    color: #FFFFFF;
+    padding: 4px 10px 4px 5px;
+    border-radius: 999px;
     white-space: nowrap;
     flex-shrink: 0;
-    border: 1px solid transparent;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      inset 0 -2px 6px rgba(0, 0, 0, 0.35),
-      0 4px 12px rgba(0, 0, 0, 0.35),
-      0 1px 2px rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
   }
-  .badge svg { width: 13px; height: 13px; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4)); }
-  .badge.verified {
-    color: #B4F5C6;
-    background:
-      linear-gradient(180deg, rgba(74, 222, 128, 0.34), rgba(74, 222, 128, 0.10) 60%, rgba(74, 222, 128, 0.16)),
-      linear-gradient(#13201A, #13201A);
-    border-color: rgba(74, 222, 128, 0.45);
-    border-top-color: rgba(160, 255, 190, 0.6);
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  .badge .disc {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
-  .badge.pending {
-    color: #F6D27A;
-    background:
-      linear-gradient(180deg, rgba(240, 184, 64, 0.32), rgba(240, 184, 64, 0.10) 60%, rgba(240, 184, 64, 0.16)),
-      linear-gradient(#211C12, #211C12);
-    border-color: rgba(240, 184, 64, 0.45);
-    border-top-color: rgba(255, 225, 150, 0.6);
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-  }
+  .badge .disc svg { width: 10px; height: 10px; }
+  .badge.verified .disc { background: #22C55E; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset; }
+  .badge.pending .disc { background: #8D89A0; }
+  .badge.pending { color: var(--text-muted); }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
     font-family: var(--sans);
@@ -906,8 +896,8 @@
     });
   });
 
-  var ICON_SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>';
-  var ICON_CLOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>';
+  var ICON_VERIFIED = '<span class="disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>';
+  var ICON_PENDING = '<span class="disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg></span>';
   var ICON_EXT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
 
   var CATEGORY_LABELS = {
@@ -1013,8 +1003,8 @@
     grid.innerHTML = visible.map(function (s) {
       var verified = s.status === "verified";
       var badge = verified
-        ? '<span class="badge verified" title="Checked — no sketchy stuff found">' + ICON_SHIELD + "Checked</span>"
-        : '<span class="badge pending" title="Still being checked">' + ICON_CLOCK + "Checking</span>";
+        ? '<span class="badge verified" title="Passed the Skillshare security scan — not a guarantee, see footer">' + ICON_VERIFIED + "Skillshare Verified</span>"
+        : '<span class="badge pending" title="Still being checked">' + ICON_PENDING + "Pending check</span>";
       var col = catColor(s.category);
       var catPill = '<span class="tag cat-pill" style="color:' + shade(col, 0.3) + ';border-color:' + hexA(col, 0.5) + ';border-top-color:' + hexA(col, 0.75) +
         ';background:linear-gradient(180deg,' + hexA(col, 0.34) + ',' + hexA(col, 0.10) + ' 60%,' + hexA(col, 0.16) + '),linear-gradient(#1C1A25,#1C1A25)">' +
