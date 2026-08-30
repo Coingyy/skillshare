@@ -738,6 +738,24 @@
       ],
       "addedAt": "2026-08-29",
       "status": "verified"
+    },
+    {
+      "id": "sochildish-skills",
+      "name": "Verify-First Skills",
+      "tagline": "Six skills that check their own work",
+      "repo": "https://github.com/SOCHI-Co/skills",
+      "description": "Six Claude Code skills on one rule: don't claim something works until you've observed it working. Four ship tested Python scripts - proving a built artifact is the code you actually edited, proving an audio render has its FX chain on it, measuring real context usage from session transcripts, and scanning UI source for the design tells that read as AI-made. Two are adapted from obra/superpowers with its licence preserved.",
+      "category": "code-quality",
+      "tags": [
+        "verification",
+        "debugging",
+        "code-quality",
+        "audio",
+        "context"
+      ],
+      "submittedBy": "SOCHI-Co",
+      "addedAt": "2026-08-30",
+      "status": "pending"
     }
   ]
 }
