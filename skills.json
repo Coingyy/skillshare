@@ -738,6 +738,24 @@
       ],
       "addedAt": "2026-08-29",
       "status": "verified"
+    },
+    {
+      "id": "storage-cleanup",
+      "name": "Storage Cleanup",
+      "tagline": "Reclaim disk space without a one-way delete",
+      "repo": "https://github.com/SOCHI-Co/storage-cleanup",
+      "description": "Finds and safely reclaims disk space: regenerable build artifacts and caches, stale installers, content-hashed duplicates, big VM/Docker images, and the scratch trees AI coding sessions leave behind. Deletes through a reversible staging step - files are moved, verified, then purged - with a hardcoded denylist that refuses drive roots, system directories and whole user folders.",
+      "category": "automation",
+      "tags": [
+        "disk-space",
+        "cleanup",
+        "powershell",
+        "windows",
+        "duplicates"
+      ],
+      "submittedBy": "SOCHI-Co",
+      "addedAt": "2026-09-06",
+      "status": "pending"
     }
   ]
 }
