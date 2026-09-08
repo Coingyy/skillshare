@@ -376,6 +376,7 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
     gap: 18px;
   }
   .card {
@@ -670,7 +671,7 @@
   .submission-status:empty { display: none; }
   button:focus-visible, summary:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #dac8ff; outline-offset: 4px; }
   .sort-btn { min-height: 40px; }
-  .grid { align-items: start; }
+  .grid { align-items: stretch; }
   @media (max-width: 560px) {
     .listbar { flex-direction: column; align-items: flex-start; gap: 12px; }
     .filter-buttons .sort-btn { flex: 1 1 40%; }

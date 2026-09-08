@@ -28,6 +28,12 @@ const server=http.createServer((req,res)=>{
     });
     await page.goto(base);await page.waitForSelector('.card');
     assert.equal(await page.locator('.card').count(),data.skills.length);
+    async function assertUniformCards() {
+      const sizes=await page.locator('.card').evaluateAll(cards=>cards.map(card=>({width:card.offsetWidth,height:card.offsetHeight})));
+      assert.ok(Math.max(...sizes.map(s=>s.height))-Math.min(...sizes.map(s=>s.height))<=1,'Cards have equal heights across rows');
+      assert.ok(Math.max(...sizes.map(s=>s.width))-Math.min(...sizes.map(s=>s.width))<=1,'Cards have equal widths');
+    }
+    await assertUniformCards();
     // A clean scan alone, or an old Verified label, must not imply AI approval.
     for(const skill of data.skills) {
       const expected=['passed','warnings'].includes(skill.security.status) && skill.security.high===0 && skill.aiReview.status==='approved';
@@ -77,6 +83,7 @@ const server=http.createServer((req,res)=>{
     await page.locator('#reset-filters').click();
     for(const width of [390,320]) {
       await page.setViewportSize({width,height:844});await page.evaluate(()=>scrollTo(0,0));
+      await assertUniformCards();
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Overflow at '+width);
       await page.screenshot({path:path.join(out,'mobile-'+width+'.png')});
       await page.locator('#catalog-search').fill('Playwright MCP');
