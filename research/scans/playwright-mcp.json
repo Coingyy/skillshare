@@ -1,0 +1,9 @@
+{
+  "repo": "https://github.com/microsoft/playwright-mcp",
+  "revision": "8a13ef8e9f7385a0f89477922127f31cbfde9761",
+  "checkedAt": "2026-09-07T18:09:37.625269+00:00",
+  "filesScanned": 32,
+  "filesSkipped": 3,
+  "findings": [],
+  "result": "passed"
+}

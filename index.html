@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>skillshare_ — vetted Claude Code skills</title>
-<meta name="description" content="Curated, security-checked collection of Claude Code skills and repos.">
+<title>skillshare_ — Claude Code, Codex &amp; ChatGPT catalog</title>
+<meta name="description" content="Skills, plugins and MCP tools for Claude Code, Codex and ChatGPT, with documented setup and separate security checks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -637,6 +637,47 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
   }
+  .catalog-filters { margin-bottom: 22px; }
+  .search-field label, .submission-meta > label { display: block; margin-bottom: 8px; font-size: 14px; }
+  .search-field input, select { color: var(--text); background: #211e29; border: 1px solid #686070; border-radius: 8px; padding: 10px 12px; font: inherit; max-width: 100%; }
+  .search-field input { width: 100%; font-size: 16px; }
+  .search-field input::placeholder { color: #b8b0c5; }
+  fieldset { border: 0; padding: 0; margin: 18px 0; min-width: 0; }
+  legend { margin-bottom: 9px; font-size: 14px; }
+  .filter-buttons, .filter-options, .platform-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+  .filter-options { margin-top: 14px; gap: 14px; font-size: 14px; }
+  .filter-options label { display: flex; gap: 8px; align-items: center; }
+  .filter-note, .submission-status { font-size: 14px; color: #c7bfd2; line-height: 1.6; margin-top: 14px; }
+  .catalog-filters a, .setup-details a, .submission-status a { color: #cbb7fa; text-underline-offset: 3px; }
+  .platform-badges { margin-top: 16px; color: #ddd3f0; font-size: 13px; }
+  .platform-badges span { border: 1px solid #72677f; border-radius: 5px; padding: 4px 8px; }
+  .platform-badges .unknown { border-color: #514b5b; color: #bfb5cd; }
+  .card { min-width: 0; cursor: default; }
+  .card-head { flex-wrap: wrap; }
+  .card h3, .repo-link, .review-details { overflow-wrap: anywhere; }
+  .card-foot .repo-link { color: inherit; min-width: 0; }
+  .setup-details { margin-top: 18px; font-size: 14px; line-height: 1.6; }
+  summary { cursor: pointer; padding: 10px 0; color: #e4dbf4; }
+  .platform-setup, .review-details { padding: 16px 0; border-top: 1px solid #514756; }
+  .platform-setup h4, .review-details h4 { margin: 0 0 4px; font-size: 16px; }
+  .platform-setup p, .review-details p { color: #cfc5d9; margin: 8px 0; }
+  .platform-setup .evidence-label { color: #d8b6ff; font-weight: 600; }
+  .review-details ul { padding-left: 18px; }
+  .submission-meta { margin: 12px 0; font-size: 14px; }
+  .submission-meta fieldset label { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+  .submission-meta input[type=checkbox], .filter-options input[type=checkbox] { width: 18px; height: 18px; accent-color: #ac8ae5; }
+  .submission-meta select { width: 100%; margin-bottom: 14px; }
+  .submission-status:empty { display: none; }
+  button:focus-visible, summary:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #dac8ff; outline-offset: 4px; }
+  .sort-btn { min-height: 40px; }
+  .grid { align-items: start; }
+  @media (max-width: 560px) {
+    .listbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .filter-buttons .sort-btn { flex: 1 1 40%; }
+    .filter-options { align-items: flex-start; flex-direction: column; }
+    .setup-details, .submission-meta, .field input, .field textarea, select { font-size: 16px; }
+  }
+
 </style>
 </head>
 <body>
@@ -659,12 +700,12 @@
 
 <header class="hero">
   <div>
-    <div class="kicker">our skill collection</div>
+    <div class="kicker">our shared AI toolkit</div>
     <h1>Spotted a cool skill<br>on X or Insta?<br><span class="green">Drop it here.</span></h1>
-    <p class="sub">Paste the GitHub link. Our bot scans it for malicious code and writes the description for you. It takes 30 seconds to add a skill to the catalog. Once it's in, it's there for everyone.</p>
+    <p class="sub">Skills, plugins and tools for Claude Code, Codex and ChatGPT. Find the right fit, check the setup, or share a GitHub link. A security scanner and AI review every new submission before it can join the catalog.</p>
     <div class="stats" role="list">
-      <div class="stat" role="listitem"><div class="num" id="stat-total">0</div><div class="lbl">Skills</div></div>
-      <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Verified</div></div>
+      <div class="stat" role="listitem"><div class="num" id="stat-total">0</div><div class="lbl">Offerings</div></div>
+      <div class="stat" role="listitem"><div class="num" id="stat-verified">0</div><div class="lbl">Dated scans</div></div>
       <div class="stat" role="listitem"><div class="num" id="stat-cats">0</div><div class="lbl">Categories</div></div>
     </div>
   </div>
@@ -679,12 +720,22 @@
         <label for="in-notes">What does it do? (optional)</label>
         <textarea id="in-notes" placeholder="e.g. saw it on X, makes blender materials automatically"></textarea>
       </div>
+      <details class="submission-meta"><summary>Add platform details (optional)</summary>
+        <fieldset><legend>Suggested platforms — the bot checks these</legend>
+          <label><input type="checkbox" name="platform" value="claude-code"> Claude Code</label>
+          <label><input type="checkbox" name="platform" value="codex"> Codex</label>
+          <label><input type="checkbox" name="platform" value="chatgpt"> ChatGPT</label>
+        </fieldset>
+        <label for="in-type">Offering type</label><select id="in-type"><option value="">Not sure</option><option value="skill">Skill</option><option value="plugin">Plugin</option><option value="mcp">MCP connection</option><option value="tool">Tool</option><option value="collection">Collection</option><option value="reference">Reference</option><option value="workflow">Workflow</option></select>
+        <label for="in-source">Provider setup documentation (optional)</label><input type="url" id="in-source" placeholder="https://…" maxlength="500">
+      </details>
       <button type="submit" class="btn-primary submit-btn" id="submit-btn">
         <span class="icon-chip"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
         Add skill
       </button>
-      <p class="submit-hint">anonymous · checked automatically · live in a few minutes</p>
+      <p class="submit-hint">anonymous · scanner + AI review · track every submission</p>
     </form>
+    <p id="submission-status" class="submission-status" role="status" aria-live="polite"></p>
     <div class="term term-mini" aria-hidden="true">
       <div class="term-bar">
         <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
@@ -692,10 +743,10 @@
       </div>
       <div class="term-body">
         <div><span class="p">$</span> checking new skill ...</div>
-        <div><span class="ok">✓</span> no hidden commands</div>
-        <div><span class="ok">✓</span> doesn't steal your data</div>
-        <div><span class="ok">✓</span> doesn't touch your passwords</div>
-        <div><span class="ok">✓ SAFE</span> <span class="c">— added to the list</span></div>
+        <div><span class="p">1</span> scan repository text</div>
+        <div><span class="p">2</span> AI reviews findings + purpose</div>
+        <div><span class="p">3</span> validate entry + publish</div>
+        <div><span class="c">scan ≠ safety guarantee or compatibility test</span></div>
       </div>
     </div>
   </div>
@@ -708,8 +759,15 @@
       <nav class="cat-list" id="chips" aria-label="Filter by category"></nav>
     </aside>
     <div class="catalog-main">
+      <div class="catalog-filters">
+        <div class="search-field"><label for="catalog-search">Find an offering</label><input id="catalog-search" type="search" placeholder="Search by name, purpose or tag…"></div>
+        <fieldset class="platform-filter"><legend>Your AI program</legend><div id="platform-filters" class="filter-buttons"></div></fieldset>
+        <div class="filter-options"><label for="type-filter">Type <select id="type-filter"><option value="all">All types</option><option value="skill">Skill</option><option value="plugin">Plugin</option><option value="mcp">MCP connection</option><option value="tool">Tool</option><option value="collection">Collection</option><option value="reference">Reference</option><option value="workflow">Workflow</option></select></label>
+        <label><input type="checkbox" id="include-unverified"> Include unverified platform matches</label><button id="reset-filters" type="button" class="sort-btn">Reset filters</button></div>
+        <p class="filter-note">Platform matches need provider documentation or a recorded test. Stars show popularity, not safety. <a href="#checks-guide">What was checked?</a></p>
+      </div>
       <div class="listbar">
-        <span class="count" id="count"></span>
+        <span class="count" id="count" role="status" aria-live="polite"></span>
         <div class="sort" role="group" aria-label="Sort skills">
           <button class="sort-btn active" data-sort="stars" aria-pressed="true">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>
@@ -733,11 +791,11 @@
       <p>Use the <a href="#submit">form above</a> — link plus one sentence, done. If you know your way around GitHub you can also edit <code>skills.json</code> directly via pull request.</p>
     </div>
     <div>
-      <h4>// Is this stuff safe?</h4>
-      <p>Every skill gets checked automatically before it lands here: hidden commands, data stealing, password grabbing — all of that gets caught and rejected. <strong>But no scan is perfect, and "checked" is not a guarantee.</strong> We take no responsibility for what these third-party skills do — installing is your own decision, so take a quick look yourself before installing anything.</p>
+      <h4 id="checks-guide">// What was checked?</h4>
+      <p><strong>Security scan:</strong> looks for suspicious text patterns; it does not execute or test dependencies. <strong>AI review:</strong> assesses purpose, documentation and findings. <strong>Provider documented:</strong> the author describes support. <strong>Self-tested:</strong> a dated functional test is recorded. <strong>Not yet verified:</strong> evidence is missing. Historical scan labels prove none of these compatibility claims. No check is a safety guarantee.</p>
     </div>
   </div>
-  <div class="foot-note">skillshare_ — built by friends, for friends. Hosted for free on GitHub Pages. "Checked" means our scanner found nothing — it is not a safety guarantee; install at your own risk.</div>
+  <div class="foot-note">skillshare_ — built by friends, for friends. Hosted for free on GitHub Pages. <a href="https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md" target="_blank" rel="noopener">Read the dated research and review report</a>.</div>
 </footer>
 
 <script>
@@ -788,18 +846,20 @@
     fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ repo: url, notes: notes })
+      body: JSON.stringify({ repo: url, notes: notes, platforms: Array.from(document.querySelectorAll('input[name="platform"]:checked')).map(function (el) { return el.value; }), type: document.getElementById("in-type").value, source: document.getElementById("in-source").value.trim() })
     })
       .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
       .then(function (res) {
         if (res.j.ok) {
           document.getElementById("in-url").value = "";
           document.getElementById("in-notes").value = "";
-          toast("Submitted! The bot is checking it now — it'll show up here in a few minutes.");
+          toast("Received — scanner and AI review are pending. This is not published yet.");
+          trackSubmission(url, res.j.issue);
         } else if (res.j.error === "already-listed") {
-          toast("That one's already in the catalog — nice taste though!", true);
+          toast("This repository has already been accepted. Its website update may still be pending.", true);
         } else if (res.j.error === "already-submitted") {
-          toast("Someone already submitted that one — it's being checked right now.", true);
+          toast("This repository has an open submission. Its review may still need attention.", true);
+          trackSubmission(url, res.j.issue);
         } else if (res.j.error === "rate-limited") {
           toast("Whoa, easy — you've added a lot just now. Try again in a bit.", true);
         } else if (res.j.error === "daily-limit") {
@@ -885,10 +945,10 @@
     requestAnimationFrame(loop);
   })();
 
-  Array.prototype.forEach.call(document.querySelectorAll(".sort-btn"), function (btn) {
+  Array.prototype.forEach.call(document.querySelectorAll(".sort .sort-btn"), function (btn) {
     btn.addEventListener("click", function () {
       sortMode = btn.getAttribute("data-sort");
-      Array.prototype.forEach.call(document.querySelectorAll(".sort-btn"), function (b) {
+      Array.prototype.forEach.call(document.querySelectorAll(".sort .sort-btn"), function (b) {
         b.classList.toggle("active", b === btn);
         b.setAttribute("aria-pressed", String(b === btn));
       });
@@ -933,39 +993,17 @@
   var activeCategory = "all";
   var query = "";
   var sortMode = "stars";
+  var activePlatform = "all", activeType = "all", includeUnverified = false;
   var starsMap = {};
 
   function fmtStars(n) {
     return n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k" : String(n);
   }
 
-  // Star counts come from the GitHub API, cached in the browser for a day.
+  // Dated snapshots keep popularity reproducible and avoid per-visitor API limits.
   function fetchStars() {
-    var cache = {};
-    try { cache = JSON.parse(localStorage.getItem("ss-stars") || "{}"); } catch (e) {}
-    var now = Date.now();
-    var pending = allSkills.map(function (s) {
-      var c = cache[s.repo];
-      if (c && now - c.t < 86400000) {
-        starsMap[s.repo] = c.s;
-        return null;
-      }
-      var apiUrl = s.repo.replace("https://github.com/", "https://api.github.com/repos/");
-      return fetch(apiUrl)
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (j) {
-          if (j && typeof j.stargazers_count === "number") {
-            starsMap[s.repo] = j.stargazers_count;
-            cache[s.repo] = { s: j.stargazers_count, t: now };
-          }
-        })
-        .catch(function () {});
-    }).filter(Boolean);
-    if (!pending.length) { render(); return; }
-    Promise.all(pending).then(function () {
-      try { localStorage.setItem("ss-stars", JSON.stringify(cache)); } catch (e) {}
-      render();
-    });
+    allSkills.forEach(function (s) { if (s.popularity) starsMap[s.repo] = s.popularity.stars; });
+    render();
   }
 
   function esc(s) {
@@ -979,8 +1017,10 @@
     var q = query.toLowerCase();
     var visible = allSkills.filter(function (s) {
       if (activeCategory !== "all" && s.category !== activeCategory) return false;
+      if (activeType !== "all" && s.type !== activeType) return false;
+      if (activePlatform !== "all" && !includeUnverified && (!s.platforms || !s.platforms[activePlatform] || s.platforms[activePlatform].status === "unverified")) return false;
       if (!q) return true;
-      var hay = (s.name + " " + s.description + " " + (s.tags || []).join(" ") + " " + (CATEGORY_LABELS[s.category] || "")).toLowerCase();
+      var hay = (s.name + " " + (s.tagline || "") + " " + s.description + " " + (s.tags || []).join(" ") + " " + (CATEGORY_LABELS[s.category] || "")).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     visible = visible.slice().sort(function (a, b) {
@@ -992,19 +1032,17 @@
 
     var countEl = document.getElementById("count");
     if (countEl) {
-      countEl.textContent = visible.length + " skill" + (visible.length === 1 ? "" : "s") +
+      countEl.textContent = visible.length + " offering" + (visible.length === 1 ? "" : "s") +
         (activeCategory === "all" ? "" : " in " + (CATEGORY_LABELS[activeCategory] || activeCategory));
     }
     if (!visible.length) {
-      grid.innerHTML = '<div class="empty">Nothing in this category yet — be the first to <a href="#submit" style="color:var(--accent)">add one</a>.</div>';
+      grid.innerHTML = '<div class="empty">No matches for these filters. Try another platform, broaden your search, or reset the filters above.</div>';
       return;
     }
 
     grid.innerHTML = visible.map(function (s) {
-      var verified = s.status === "verified";
-      var badge = verified
-        ? '<span class="badge verified" title="Passed the Skillshare security scan — not a guarantee, see footer">' + ICON_VERIFIED + "Skillshare Verified</span>"
-        : '<span class="badge pending" title="Still being checked">' + ICON_PENDING + "Pending check</span>";
+      var scan = s.security || { status: "unverified" };
+      var badge = '<span class="badge ' + (scan.status === 'passed' ? 'verified' : 'pending') + '">' + esc(SCAN_LABELS[scan.status] || 'Scan unverified') + '</span>';
       var col = catColor(s.category);
       var catPill = '<span class="tag cat-pill" style="color:' + shade(col, 0.3) + ';border-color:' + hexA(col, 0.5) + ';border-top-color:' + hexA(col, 0.75) +
         ';background:linear-gradient(180deg,' + hexA(col, 0.34) + ',' + hexA(col, 0.10) + ' 60%,' + hexA(col, 0.16) + '),linear-gradient(#1C1A25,#1C1A25)">' +
@@ -1012,20 +1050,20 @@
       var tags = catPill + (s.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
       var repoShort = esc(s.repo.replace("https://github.com/", ""));
       var stars = starsMap[s.repo];
-      var starHtml = '<span class="star-count">' +
+      var starHtml = '<span class="star-count" title="' + esc(s.popularity ? s.popularity.stars + ' stars · observed ' + s.popularity.observedAt : 'Star count unavailable') + '">' +
         '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.56-5 4.4 1.5 6.5L12 16.3l-6 3.4 1.5-6.5-5-4.4 6.6-.56L12 2z"/></svg>' +
         (stars == null ? "–" : fmtStars(stars)) + "</span>";
       return (
-        '<a class="card" href="' + esc(s.repo) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.name) + ' on GitHub">' +
+        '<article class="card" id="offering-' + esc(s.id) + '">' +
           '<div class="card-head"><h3>' + esc(s.name) + "</h3>" + badge + "</div>" +
           (s.tagline ? '<p class="tagline">' + esc(s.tagline) + "</p>" : "") +
           '<p class="desc">' + esc(s.description) + "</p>" +
-          '<div class="tags">' + tags + "</div>" +
+          '<div class="tags"><span class="tag">' + esc(TYPE_LABELS[s.type] || 'Tool') + '</span>' + tags + "</div>" + platformBadges(s) + setupDetails(s) +
           '<div class="card-foot">' +
-            '<span class="repo-link">' + ICON_EXT + repoShort + "</span>" +
+            '<a class="repo-link" href="' + safeUrl(s.repo) + '" target="_blank" rel="noopener">' + ICON_EXT + repoShort + '</a>' +
             starHtml +
           "</div>" +
-        "</a>"
+        "</article>"
       );
     }).join("");
   }
@@ -1036,7 +1074,7 @@
     allSkills.forEach(function (s) { counts[s.category] = (counts[s.category] || 0) + 1; });
     var chips = document.getElementById("chips");
     chips.innerHTML = cats.map(function (c) {
-      var label = c === "all" ? "All skills" : (CATEGORY_LABELS[c] || c);
+      var label = c === "all" ? "All offerings" : (CATEGORY_LABELS[c] || c);
       var active = c === activeCategory;
       var col = c === "all" ? "#F5F4FA" : catColor(c);
       var count = c === "all" ? allSkills.length : (counts[c] || 0);
@@ -1071,14 +1109,15 @@
   var lastData = "";
   function loadSkills(initial) {
     fetch("skills.json?v=" + Date.now(), { cache: "no-store" })
-      .then(function (r) { return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error("Catalog unavailable"); return r.json(); })
       .then(function (data) {
         var raw = JSON.stringify(data);
         if (raw === lastData) return;
         lastData = raw;
         allSkills = data.skills || [];
+        updateSubmissionStatus();
         animateCount(document.getElementById("stat-total"), allSkills.length);
-        animateCount(document.getElementById("stat-verified"), allSkills.filter(function (s) { return s.status === "verified"; }).length);
+        animateCount(document.getElementById("stat-verified"), allSkills.filter(function (s) { return s.security && ["passed", "warnings"].indexOf(s.security.status) !== -1; }).length);
         animateCount(document.getElementById("stat-cats"), new Set(allSkills.map(function (s) { return s.category; })).size);
         renderChips();
         render();
@@ -1086,10 +1125,54 @@
       })
       .catch(function () {
         if (initial) {
-          document.getElementById("grid").innerHTML = '<div class="empty">Could not load skills.json.</div>';
+          document.getElementById("grid").innerHTML = '<div class="empty">Could not load the catalog. <button type="button" class="sort-btn" onclick="location.reload()">Try again</button></div>';
         }
       });
   }
+  var PLATFORM_LABELS = { 'claude-code': 'Claude Code', codex: 'Codex', chatgpt: 'ChatGPT' };
+  var TYPE_LABELS = { skill: 'Skill', plugin: 'Plugin', mcp: 'MCP connection', tool: 'Tool', collection: 'Collection', reference: 'Reference', workflow: 'Workflow' };
+  var SUPPORT_LABELS = { documented: 'Provider documented', tested: 'Self-tested', unverified: 'Not yet verified' };
+  var SCAN_LABELS = { passed: 'Scan: no findings', warnings: 'Scan: warnings reviewed', blocked: 'Scan: blocked', legacy: 'Historical scan label', unverified: 'Scan not verified' };
+  function safeUrl(value) { try { var u = new URL(value); return u.protocol === 'https:' ? esc(u.href) : '#'; } catch (_) { return '#'; } }
+  function platformBadges(s) {
+    var platforms = Object.keys(PLATFORM_LABELS).filter(function (p) { return s.platforms && s.platforms[p] && s.platforms[p].status !== 'unverified'; });
+    return '<div class="platform-badges">' + (platforms.length ? platforms.map(function (p) { return '<span title="' + esc(SUPPORT_LABELS[s.platforms[p].status]) + '">' + PLATFORM_LABELS[p] + '</span>'; }).join('') : '<span class="unknown">Platform support not yet verified</span>') + '</div>';
+  }
+  function setupDetails(s) {
+    return '<details class="setup-details"><summary>Setup &amp; checks</summary>' + Object.keys(PLATFORM_LABELS).map(function (p) {
+      var support = (s.platforms || {})[p] || {status:'unverified', instructions:'No documented setup verified.', prerequisites:[], sources:[]};
+      return '<section class="platform-setup"><h4>' + PLATFORM_LABELS[p] + '</h4><p class="evidence-label">' + esc(SUPPORT_LABELS[support.status]) + '</p><p>' + esc(support.instructions) + '</p>' + (support.prerequisites.length ? '<p><strong>Needs:</strong> ' + esc(support.prerequisites.join(' ')) + '</p>' : '') + (support.status === 'tested' ? '<p>Tested ' + esc(support.testedAt) + ' by ' + esc(support.testedBy) + ': ' + esc(support.testNotes) + '</p>' : '') + support.sources.map(function (url) { return '<a href="' + safeUrl(url) + '" target="_blank" rel="noopener">Provider setup source</a>'; }).join(' · ') + '</section>';
+    }).join('') + '<section class="review-details"><h4>Review record</h4><p><strong>' + esc(SCAN_LABELS[(s.security || {}).status] || 'Scan unverified') + '.</strong> ' + esc((s.security || {}).notes) + '</p>' + (s.security && s.security.report ? '<p><a href="' + safeUrl(s.security.report) + '" target="_blank" rel="noopener">Scan report</a> · ' + esc(s.security.checkedAt.slice(0,10)) + '<br>Commit <code>' + esc(s.security.revision.slice(0,12)) + '</code></p>' : '') + '<p><strong>AI review: ' + esc((s.aiReview || {}).status || 'not-reviewed') + '.</strong> ' + esc((s.aiReview || {}).summary) + '</p>' + aiReviewDetails(s) + '<p><strong>Repository: ' + esc((s.review || {}).status || 'unverified') + '.</strong> ' + esc((s.review || {}).notes) + '</p>' + (s.review && s.review.checkedAt ? '<p>Documentation reviewed ' + esc(s.review.checkedAt) + '.</p>' : '') + (s.popularity ? '<p>' + s.popularity.stars.toLocaleString('en-US') + ' stars, observed ' + esc(s.popularity.observedAt) + '. Popularity only.</p>' : '') + '<ul>' + (s.sources || []).map(function (source) { return '<li><a href="' + safeUrl(source.url) + '" target="_blank" rel="noopener">' + esc(source.title) + '</a> · ' + esc(source.checkedAt) + '</li>'; }).join('') + '</ul></section></details>';
+  }
+  function aiReviewDetails(s) {
+    var review = s.aiReview || {};
+    if (!review.report) return '';
+    return '<p><a href="' + safeUrl(review.report) + '" target="_blank" rel="noopener">AI review record</a> · ' + esc(review.checkedAt.slice(0,10)) + '<br>' + esc(review.model) + '</p>';
+  }
+  function renderPlatforms() {
+    document.getElementById('platform-filters').innerHTML = ['all'].concat(Object.keys(PLATFORM_LABELS)).map(function (p) { return '<button type="button" class="sort-btn' + (p === activePlatform ? ' active' : '') + '" data-platform="' + p + '" aria-pressed="' + (p === activePlatform) + '">' + (PLATFORM_LABELS[p] || 'All programs') + '</button>'; }).join('');
+  }
+  document.getElementById('platform-filters').addEventListener('click', function (event) { var button = event.target.closest('[data-platform]'); if (!button) return; activePlatform = button.dataset.platform; renderPlatforms(); render(); });
+  document.getElementById('catalog-search').addEventListener('input', function (event) { query = event.target.value; render(); });
+  document.getElementById('type-filter').addEventListener('change', function (event) { activeType = event.target.value; render(); });
+  document.getElementById('include-unverified').addEventListener('change', function (event) { includeUnverified = event.target.checked; render(); });
+  document.getElementById('reset-filters').addEventListener('click', function () { query = ''; activeCategory = activePlatform = activeType = 'all'; includeUnverified = false; document.getElementById('catalog-search').value = ''; document.getElementById('type-filter').value = 'all'; document.getElementById('include-unverified').checked = false; renderPlatforms(); renderChips(); render(); });
+  renderPlatforms();
+  var trackedSubmission = null;
+  try { trackedSubmission = JSON.parse(localStorage.getItem('ss-submission') || 'null'); } catch (_) {}
+  function trackSubmission(repo, issue) {
+    if (!/^https:\/\/github\.com\/Coingyy\/skillshare\/issues\/\d+$/i.test(issue || '')) return;
+    trackedSubmission = {repo:repo, issue:issue};
+    try { localStorage.setItem('ss-submission', JSON.stringify(trackedSubmission)); } catch (_) {}
+    updateSubmissionStatus();
+  }
+  function updateSubmissionStatus() {
+    if (!trackedSubmission || typeof trackedSubmission.repo !== 'string' || !/^https:\/\/github\.com\/Coingyy\/skillshare\/issues\/\d+$/i.test(trackedSubmission.issue || '')) return;
+    var norm = function (url) { return url.toLowerCase().replace(/\/+$/, '').replace(/\.git$/, ''); };
+    var live = allSkills.some(function (s) { return norm(s.repo) === norm(trackedSubmission.repo); });
+    document.getElementById('submission-status').innerHTML = (live ? 'Published in this catalog. ' : 'Submission received; publication is not confirmed. ') + '<a href="' + safeUrl(trackedSubmission.issue) + '" target="_blank" rel="noopener">Follow review status on GitHub</a>';
+  }
+
   loadSkills(true);
   setInterval(function () { loadSkills(false); }, 60000);
 

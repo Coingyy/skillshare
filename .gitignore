@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 security-report.md
 worker/.wrangler/
+.research/
+.test-output/

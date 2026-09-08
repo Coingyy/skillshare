@@ -1,0 +1,1503 @@
+[
+  {
+    "requested": "AaronGoldsmith/mcp-printable",
+    "observedAt": "2026-09-08T12:42:53.474779+00:00",
+    "source": "https://api.github.com/repos/AaronGoldsmith/mcp-printable",
+    "readmeUrl": "https://github.com/AaronGoldsmith/mcp-printable/blob/main/README.md",
+    "readmeBlob": "aae7b0e4609302aa6d168573635f73767bc8074b",
+    "repository": {
+      "full_name": "AaronGoldsmith/mcp-printable",
+      "html_url": "https://github.com/AaronGoldsmith/mcp-printable",
+      "description": "MCP server for AI-driven 3D modeling and print validation (FDM-focused). Agent-agnostic; works with any MCP client.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 2,
+      "pushed_at": "2026-07-05T21:43:39Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "affaan-m/ECC",
+    "observedAt": "2026-09-07T18:06:09.104074+00:00",
+    "source": "https://api.github.com/repos/affaan-m/ECC",
+    "readmeUrl": "https://github.com/affaan-m/ECC/blob/main/README.md",
+    "readmeBlob": "00d3a8ca7e6a9d602085fe9f9eebaa37e23513af",
+    "repository": {
+      "full_name": "affaan-m/ECC",
+      "html_url": "https://github.com/affaan-m/ECC",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 252562,
+      "pushed_at": "2026-09-07T12:14:52Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "ahujasid/ableton-mcp",
+    "observedAt": "2026-09-07T18:06:16.811173+00:00",
+    "source": "https://api.github.com/repos/ahujasid/ableton-mcp",
+    "readmeUrl": "https://github.com/ahujasid/ableton-mcp/blob/main/README.md",
+    "readmeBlob": "79d6deaea9f7102a14b4e90bb1f2fd8834a2eb72",
+    "repository": {
+      "full_name": "ahujasid/ableton-mcp",
+      "html_url": "https://github.com/ahujasid/ableton-mcp",
+      "description": "Control Ableton Live with any LLM: create tracks, arrange clips & compose music via MCP",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 2990,
+      "pushed_at": "2026-08-30T14:29:49Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "ahujasid/blender-mcp",
+    "observedAt": "2026-09-07T18:06:10.438876+00:00",
+    "source": "https://api.github.com/repos/ahujasid/blender-mcp",
+    "readmeUrl": "https://github.com/ahujasid/blender-mcp/blob/main/README.md",
+    "readmeBlob": "73964da17c2a7c8ca57e5065af13e3bf87be3bed",
+    "repository": {
+      "full_name": "ahujasid/blender-mcp",
+      "html_url": "https://github.com/ahujasid/blender-mcp",
+      "description": "Community plugin to control Blender 3D with any LLM of your choice",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 27518,
+      "pushed_at": "2026-09-07T15:51:01Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "amaancoderx/npxskillui",
+    "observedAt": "2026-09-07T18:06:11.333987+00:00",
+    "source": "https://api.github.com/repos/amaancoderx/npxskillui",
+    "readmeUrl": "https://github.com/amaancoderx/npxskillui/blob/main/README.md",
+    "readmeBlob": "d6820b89bf67b98613a4d58916c048a704522e4e",
+    "repository": {
+      "full_name": "amaancoderx/npxskillui",
+      "html_url": "https://github.com/amaancoderx/npxskillui",
+      "description": null,
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 1774,
+      "pushed_at": "2026-05-07T18:54:10Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "anthropics/anthropic-cookbook",
+    "observedAt": "2026-09-07T18:06:11.594032+00:00",
+    "source": "https://api.github.com/repos/anthropics/claude-cookbooks",
+    "readmeUrl": "https://github.com/anthropics/claude-cookbooks/blob/main/README.md",
+    "readmeBlob": "b6c1dee32ef16aade023b8c16ceeb82dff9b6699",
+    "repository": {
+      "full_name": "anthropics/claude-cookbooks",
+      "html_url": "https://github.com/anthropics/claude-cookbooks",
+      "description": "A collection of notebooks/recipes showcasing some fun and effective ways of using Claude.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 52507,
+      "pushed_at": "2026-09-03T22:18:29Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "anthropics/claude-code-action",
+    "observedAt": "2026-09-07T18:06:08.152806+00:00",
+    "source": "https://api.github.com/repos/anthropics/claude-code-action",
+    "readmeUrl": "https://github.com/anthropics/claude-code-action/blob/main/README.md",
+    "readmeBlob": "b0b5c73821c138b8aefe0b26dc9f269670b03b28",
+    "repository": {
+      "full_name": "anthropics/claude-code-action",
+      "html_url": "https://github.com/anthropics/claude-code-action",
+      "description": null,
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 8812,
+      "pushed_at": "2026-09-06T02:56:54Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "anthropics/claude-plugins-official",
+    "observedAt": "2026-09-07T18:06:08.878165+00:00",
+    "source": "https://api.github.com/repos/anthropics/claude-plugins-official",
+    "readmeUrl": "https://github.com/anthropics/claude-plugins-official/blob/main/README.md",
+    "readmeBlob": "43104e240ff500c762adebb0c31dc4b7ff7b50dd",
+    "repository": {
+      "full_name": "anthropics/claude-plugins-official",
+      "html_url": "https://github.com/anthropics/claude-plugins-official",
+      "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 36010,
+      "pushed_at": "2026-09-07T07:42:44Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "anthropics/skills",
+    "observedAt": "2026-09-07T18:06:08.151303+00:00",
+    "source": "https://api.github.com/repos/anthropics/skills",
+    "readmeUrl": "https://github.com/anthropics/skills/blob/main/README.md",
+    "readmeBlob": "eb54ee8b92f2d40b4b26569be0772be3c1e23156",
+    "repository": {
+      "full_name": "anthropics/skills",
+      "html_url": "https://github.com/anthropics/skills",
+      "description": "Public repository for Agent Skills",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 175005,
+      "pushed_at": "2026-09-03T16:37:14Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "arjun988/blender-skills",
+    "observedAt": "2026-09-07T18:06:12.687334+00:00",
+    "source": "https://api.github.com/repos/arjun988/blender-skills",
+    "readmeUrl": "https://github.com/arjun988/blender-skills/blob/main/README.md",
+    "readmeBlob": "fcd90068eb2dd4c4576d3af56418f3a5b5cbe6f2",
+    "repository": {
+      "full_name": "arjun988/blender-skills",
+      "html_url": "https://github.com/arjun988/blender-skills",
+      "description": "94 specialist Blender skills for Cursor, Claude Code, Kiro & Codex -> MCP-powered production pipeline from blockout to engine export.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 173,
+      "pushed_at": "2026-07-10T17:55:21Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "AuraFriday/Fusion-360-MCP-Server",
+    "observedAt": "2026-09-07T18:06:13.753450+00:00",
+    "source": "https://api.github.com/repos/AuraFriday/Fusion-360-MCP-Server",
+    "readmeUrl": "https://github.com/AuraFriday/Fusion-360-MCP-Server/blob/main/README.md",
+    "readmeBlob": "92f11f40eb44c0e281e7b19b566345934e1305c1",
+    "repository": {
+      "full_name": "AuraFriday/Fusion-360-MCP-Server",
+      "html_url": "https://github.com/AuraFriday/Fusion-360-MCP-Server",
+      "description": "Control Fusion 360 with any AI through Model Context Protocol (MCP)",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 123,
+      "pushed_at": "2026-01-28T03:53:58Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "blader/humanizer",
+    "observedAt": "2026-09-07T18:06:11.454444+00:00",
+    "source": "https://api.github.com/repos/blader/humanizer",
+    "readmeUrl": "https://github.com/blader/humanizer/blob/main/README.md",
+    "readmeBlob": "6ffe91a6ddcdaae4667f4a2195ff5f389593e935",
+    "repository": {
+      "full_name": "blader/humanizer",
+      "html_url": "https://github.com/blader/humanizer",
+      "description": "Agent skill that removes signs of AI-generated writing from text",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 44895,
+      "pushed_at": "2026-09-06T20:26:10Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "brockmartin/roblox-game-skill",
+    "observedAt": "2026-09-07T18:06:10.723460+00:00",
+    "source": "https://api.github.com/repos/brockmartin/roblox-game-skill",
+    "readmeUrl": "https://github.com/brockmartin/roblox-game-skill/blob/main/README.md",
+    "readmeBlob": "beb6fe80776eef97e9c77eba50f549aa6b4f470b",
+    "repository": {
+      "full_name": "brockmartin/roblox-game-skill",
+      "html_url": "https://github.com/brockmartin/roblox-game-skill",
+      "description": "The ultimate Roblox game development Claude Code skill",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 156,
+      "pushed_at": "2026-03-04T20:06:25Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "brs077/3dp-mcp-server",
+    "observedAt": "2026-09-08T12:42:52.543981+00:00",
+    "source": "https://api.github.com/repos/brs077/3dp-mcp-server",
+    "readmeUrl": "https://github.com/brs077/3dp-mcp-server/blob/main/README.MD",
+    "readmeBlob": "7466221ac9fb137198adb5bcc4756638d34a2772",
+    "repository": {
+      "full_name": "brs077/3dp-mcp-server",
+      "html_url": "https://github.com/brs077/3dp-mcp-server",
+      "description": "MCP server for 3D-printable CAD modeling with build123d, targeting Bambu Lab X1C",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 11,
+      "pushed_at": "2026-03-18T18:08:23Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "codeofaxel/Kiln",
+    "observedAt": "2026-09-07T18:06:12.992411+00:00",
+    "source": "https://api.github.com/repos/codeofaxel/Kiln",
+    "readmeUrl": "https://github.com/codeofaxel/Kiln/blob/main/README.md",
+    "readmeBlob": "686dce1c47d7aafe462e611c5a0eba4b99575cb6",
+    "repository": {
+      "full_name": "codeofaxel/Kiln",
+      "html_url": "https://github.com/codeofaxel/Kiln",
+      "description": "Describe it or draw it — Kiln makes it real. The open-source MCP server for 3D printing: AI agents (Claude, Codex, Cursor, or any MCP client) design, generate, slice & print on Bambu Lab, Creality, Prusa, Elegoo, Klipper/Moonraker, OctoPrint, Duet/RepRapFirmware & any Marlin printer.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 53,
+      "pushed_at": "2026-09-07T08:43:22Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "Coding-Solo/godot-mcp",
+    "observedAt": "2026-09-07T18:06:16.569439+00:00",
+    "source": "https://api.github.com/repos/Coding-Solo/godot-mcp",
+    "readmeUrl": "https://github.com/Coding-Solo/godot-mcp/blob/main/README.md",
+    "readmeBlob": "88f5a15671b2b0c3bdc727814060f6da5ed9bf13",
+    "repository": {
+      "full_name": "Coding-Solo/godot-mcp",
+      "html_url": "https://github.com/Coding-Solo/godot-mcp",
+      "description": "MCP server for interfacing with Godot game engine. Provides tools for launching the editor, running projects, and capturing debug output.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 5561,
+      "pushed_at": "2026-04-16T23:37:00Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "CoplayDev/unity-mcp",
+    "observedAt": "2026-09-07T18:06:16.562946+00:00",
+    "source": "https://api.github.com/repos/CoplayDev/unity-mcp",
+    "readmeUrl": "https://github.com/CoplayDev/unity-mcp/blob/beta/README.md",
+    "readmeBlob": "a804bd3b1959f1301b7baeeb254d680cf7da9c62",
+    "repository": {
+      "full_name": "CoplayDev/unity-mcp",
+      "html_url": "https://github.com/CoplayDev/unity-mcp",
+      "description": "Unity MCP acts as a bridge between AI assistants and your Unity Editor. Give your LLM tools to manage assets, control scenes, edit scripts, and automate tasks within Unity.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 13990,
+      "pushed_at": "2026-09-05T21:16:30Z",
+      "default_branch": "beta",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "coreyhaines31/marketingskills",
+    "observedAt": "2026-09-07T18:06:11.491475+00:00",
+    "source": "https://api.github.com/repos/coreyhaines31/marketingskills",
+    "readmeUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/README.md",
+    "readmeBlob": "92b3f28cabafc073c0dc810d4a3b434eba8d30c9",
+    "repository": {
+      "full_name": "coreyhaines31/marketingskills",
+      "html_url": "https://github.com/coreyhaines31/marketingskills",
+      "description": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 47988,
+      "pushed_at": "2026-09-05T04:48:10Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "czlonkowski/n8n-mcp",
+    "observedAt": "2026-09-07T18:06:17.243348+00:00",
+    "source": "https://api.github.com/repos/czlonkowski/n8n-mcp",
+    "readmeUrl": "https://github.com/czlonkowski/n8n-mcp/blob/main/README.md",
+    "readmeBlob": "5b7bb5a853ddd622e78cb175bfb6196c7c65827f",
+    "repository": {
+      "full_name": "czlonkowski/n8n-mcp",
+      "html_url": "https://github.com/czlonkowski/n8n-mcp",
+      "description": "A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you ",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 22844,
+      "pushed_at": "2026-09-07T10:04:14Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "davila7/claude-code-templates",
+    "observedAt": "2026-09-07T18:06:17.412321+00:00",
+    "source": "https://api.github.com/repos/davila7/claude-code-templates",
+    "readmeUrl": "https://github.com/davila7/claude-code-templates/blob/main/README.md",
+    "readmeBlob": "ac7190181a68aa980d4b1521dac6fd332a4ab9bd",
+    "repository": {
+      "full_name": "davila7/claude-code-templates",
+      "html_url": "https://github.com/davila7/claude-code-templates",
+      "description": "CLI tool for configuring and monitoring Claude Code",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 30557,
+      "pushed_at": "2026-09-07T15:50:15Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "DMontgomery40/bambu-printer-mcp",
+    "observedAt": "2026-09-07T18:06:12.887369+00:00",
+    "source": "https://api.github.com/repos/DMontgomery40/bambu-printer-mcp",
+    "readmeUrl": "https://github.com/DMontgomery40/bambu-printer-mcp/blob/main/README.md",
+    "readmeBlob": "55531d3d0a827476dc6fcaebe8bc0574ef6b4917",
+    "repository": {
+      "full_name": "DMontgomery40/bambu-printer-mcp",
+      "html_url": "https://github.com/DMontgomery40/bambu-printer-mcp",
+      "description": "MCP server for Bambu Lab 3D printers — STL manipulation, BambuStudio slicing, and direct printer control",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 128,
+      "pushed_at": "2026-07-30T20:57:48Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "DMontgomery40/mcp-3D-printer-server",
+    "observedAt": "2026-09-07T18:06:12.899360+00:00",
+    "source": "https://api.github.com/repos/DMontgomery40/mcp-3D-printer-server",
+    "readmeUrl": "https://github.com/DMontgomery40/mcp-3D-printer-server/blob/main/README.md",
+    "readmeBlob": "2f0a1d08db8eb721914d3148f4fab221d8b2c35e",
+    "repository": {
+      "full_name": "DMontgomery40/mcp-3D-printer-server",
+      "html_url": "https://github.com/DMontgomery40/mcp-3D-printer-server",
+      "description": "Connects MCP to major 3D printer APIs (Orca, FULU's Orca/Bambu, OctoPrint, Klipper, Duet, Repetier, Prusa, Creality). Control prints, monitor status, and perform advanced STL operations like scaling, rotation, sectional editing, and base extension. Includes slicing and visualization.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 231,
+      "pushed_at": "2026-07-30T20:57:46Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "elevenlabs/elevenlabs-mcp",
+    "observedAt": "2026-09-08T12:42:50.776142+00:00",
+    "source": "https://api.github.com/repos/elevenlabs/elevenlabs-mcp",
+    "readmeUrl": "https://github.com/elevenlabs/elevenlabs-mcp/blob/main/README.md",
+    "readmeBlob": "c53eeb773516290b622a9d7092d4850c81d6701a",
+    "repository": {
+      "full_name": "elevenlabs/elevenlabs-mcp",
+      "html_url": "https://github.com/elevenlabs/elevenlabs-mcp",
+      "description": "The official ElevenLabs MCP server",
+      "archived": true,
+      "disabled": false,
+      "stargazers_count": 1536,
+      "pushed_at": "2026-08-20T17:12:11Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "executeautomation/mcp-playwright",
+    "observedAt": "2026-09-07T18:06:15.047592+00:00",
+    "source": "https://api.github.com/repos/executeautomation/mcp-playwright",
+    "readmeUrl": "https://github.com/executeautomation/mcp-playwright/blob/main/README.md",
+    "readmeBlob": "8ca7b0993b56f1d7ecc5fe71226c2100d6f4362d",
+    "repository": {
+      "full_name": "executeautomation/mcp-playwright",
+      "html_url": "https://github.com/executeautomation/mcp-playwright",
+      "description": "Playwright Model Context Protocol Server - Tool to automate Browsers and APIs in Claude Desktop, Cline, Cursor IDE and More 🔌",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 5645,
+      "pushed_at": "2025-12-13T04:28:38Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "f/awesome-chatgpt-prompts",
+    "observedAt": "2026-09-07T18:06:17.516036+00:00",
+    "source": "https://api.github.com/repos/f/prompts.chat",
+    "readmeUrl": "https://github.com/f/prompts.chat/blob/main/README.md",
+    "readmeBlob": "2ef16acadbac7599287913d2e8cc6a39e0def3b5",
+    "repository": {
+      "full_name": "f/prompts.chat",
+      "html_url": "https://github.com/f/prompts.chat",
+      "description": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 169567,
+      "pushed_at": "2026-09-06T03:17:52Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "farion1231/cc-switch",
+    "observedAt": "2026-09-07T18:06:10.031361+00:00",
+    "source": "https://api.github.com/repos/farion1231/cc-switch",
+    "readmeUrl": "https://github.com/farion1231/cc-switch/blob/main/README.md",
+    "readmeBlob": "b564706a7e947160858685f51b69704220cc109a",
+    "repository": {
+      "full_name": "farion1231/cc-switch",
+      "html_url": "https://github.com/farion1231/cc-switch",
+      "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. Only official website: ccswitch.io",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 131532,
+      "pushed_at": "2026-09-07T14:03:57Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "flowful-ai/cad-skill",
+    "observedAt": "2026-09-07T18:06:12.086333+00:00",
+    "source": "https://api.github.com/repos/flowful-ai/cad-skill",
+    "readmeUrl": "https://github.com/flowful-ai/cad-skill/blob/main/README.md",
+    "readmeBlob": "a2cf6c97aebe7ca58c159619547cdcf58083afd6",
+    "repository": {
+      "full_name": "flowful-ai/cad-skill",
+      "html_url": "https://github.com/flowful-ai/cad-skill",
+      "description": "Claude Code skill for parametric 3D-printable model generation with CadQuery",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 563,
+      "pushed_at": "2026-07-14T10:40:03Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "gamedev-skills/awesome-gamedev-agent-skills",
+    "observedAt": "2026-09-07T18:06:10.677125+00:00",
+    "source": "https://api.github.com/repos/gamedev-skills/awesome-gamedev-agent-skills",
+    "readmeUrl": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/main/README.md",
+    "readmeBlob": "8813c1474f86f248efb73b2223080350adcd78c7",
+    "repository": {
+      "full_name": "gamedev-skills/awesome-gamedev-agent-skills",
+      "html_url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+      "description": "67 game-dev skills for AI coding agents — Godot, Unity, Unreal, Phaser, PixiJS, three.js, Bevy, pygame, LÖVE, Roblox. Portable SKILL.md Agent Skills (the format Anthropic launched as Claude Skills), with a router that loads the right skill for your engine and task. Runs in Claude Code, Cursor, Kiro, Codex, Copilot, Gemini CLI and more.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 865,
+      "pushed_at": "2026-08-24T12:21:02Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "gavogavogavo/claude-sbox",
+    "observedAt": "2026-09-07T18:06:10.766925+00:00",
+    "source": "https://api.github.com/repos/gavogavogavo/claude-sbox",
+    "readmeUrl": "https://github.com/gavogavogavo/claude-sbox/blob/main/README.md",
+    "readmeBlob": "308a775d24744f89e190b640e43c69da1236cd68",
+    "repository": {
+      "full_name": "gavogavogavo/claude-sbox",
+      "html_url": "https://github.com/gavogavogavo/claude-sbox",
+      "description": "Claude Code skill for s&box game development. Schema-verified API reference, 10 runnable examples, zero Unity hallucinations",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 46,
+      "pushed_at": "2026-06-23T12:33:13Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "GeekatplayStudio/Meshwright",
+    "observedAt": "2026-09-07T18:06:13.493513+00:00",
+    "source": "https://api.github.com/repos/GeekatplayStudio/Meshwright",
+    "readmeUrl": "https://github.com/GeekatplayStudio/Meshwright/blob/main/README.md",
+    "readmeBlob": "c27e0d43012a9f6a200cfc3bcb47f07a12f3ce02",
+    "repository": {
+      "full_name": "GeekatplayStudio/Meshwright",
+      "html_url": "https://github.com/GeekatplayStudio/Meshwright",
+      "description": "Know why your model won't print. Fix it. Prove it. — mesh analysis, repair and smart retopology for 3D printing, by Geekatplay Studio",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 35,
+      "pushed_at": "2026-09-05T04:46:29Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "ghbalf/freecad-ai",
+    "observedAt": "2026-09-07T18:06:12.176727+00:00",
+    "source": "https://api.github.com/repos/ghbalf/freecad-ai",
+    "readmeUrl": "https://github.com/ghbalf/freecad-ai/blob/master/README.md",
+    "readmeBlob": "f2824825744cc916c1df214477bf74de10b4cf96",
+    "repository": {
+      "full_name": "ghbalf/freecad-ai",
+      "html_url": "https://github.com/ghbalf/freecad-ai",
+      "description": "AI-powered assistant workbench for FreeCAD — generate 3D models from natural language",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 476,
+      "pushed_at": "2026-09-06T22:02:50Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "github/github-mcp-server",
+    "observedAt": "2026-09-07T18:06:14.682760+00:00",
+    "source": "https://api.github.com/repos/github/github-mcp-server",
+    "readmeUrl": "https://github.com/github/github-mcp-server/blob/main/README.md",
+    "readmeBlob": "5b90f64a5857330f78a10dc016183106b999db0e",
+    "repository": {
+      "full_name": "github/github-mcp-server",
+      "html_url": "https://github.com/github/github-mcp-server",
+      "description": "GitHub's official MCP Server",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 32785,
+      "pushed_at": "2026-09-07T16:24:34Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "google-labs-code/stitch-skills",
+    "observedAt": "2026-09-07T18:06:15.424141+00:00",
+    "source": "https://api.github.com/repos/google-labs-code/stitch-skills",
+    "readmeUrl": "https://github.com/google-labs-code/stitch-skills/blob/main/README.md",
+    "readmeBlob": "baecaabfa0fc08d596e3d5921479321eaacac02a",
+    "repository": {
+      "full_name": "google-labs-code/stitch-skills",
+      "html_url": "https://github.com/google-labs-code/stitch-skills",
+      "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 8266,
+      "pushed_at": "2026-08-17T20:20:23Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "Graphify-Labs/graphify",
+    "observedAt": "2026-09-07T18:06:09.656802+00:00",
+    "source": "https://api.github.com/repos/Graphify-Labs/graphify",
+    "readmeUrl": "https://github.com/Graphify-Labs/graphify/blob/v8/README.md",
+    "readmeBlob": "28a471f44bdffddb6aa30bbb8dbf0b3882772fa8",
+    "repository": {
+      "full_name": "Graphify-Labs/graphify",
+      "html_url": "https://github.com/Graphify-Labs/graphify",
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 115618,
+      "pushed_at": "2026-09-05T21:19:43Z",
+      "default_branch": "v8",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "griches/bambu-mcp",
+    "observedAt": "2026-09-07T18:06:11.995596+00:00",
+    "source": "https://api.github.com/repos/griches/bambu-mcp",
+    "readmeUrl": "https://github.com/griches/bambu-mcp/blob/main/README.md",
+    "readmeBlob": "1f2a4e447b058b293ad8e97406968db5b3d2236a",
+    "repository": {
+      "full_name": "griches/bambu-mcp",
+      "html_url": "https://github.com/griches/bambu-mcp",
+      "description": "MCP server for controlling Bambu Lab 3D printers — multi-printer fleet management, print control, file ops, AMS, camera, and more",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 44,
+      "pushed_at": "2026-03-08T20:52:54Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "hesreallyhim/awesome-claude-code",
+    "observedAt": "2026-09-07T18:06:08.902574+00:00",
+    "source": "https://api.github.com/repos/hesreallyhim/awesome-claude-code",
+    "readmeUrl": "https://github.com/hesreallyhim/awesome-claude-code/blob/main/README.md",
+    "readmeBlob": "e06991f14adfd879128eae87f29b3f2f94fb6c18",
+    "repository": {
+      "full_name": "hesreallyhim/awesome-claude-code",
+      "html_url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "description": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 53647,
+      "pushed_at": "2026-09-07T15:09:31Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "htdt/godogen",
+    "observedAt": "2026-09-07T18:06:10.471498+00:00",
+    "source": "https://api.github.com/repos/htdt/godogen",
+    "readmeUrl": "https://github.com/htdt/godogen/blob/master/README.md",
+    "readmeBlob": "a3601a4392f65fe2b3585a936614f9705ede57db",
+    "repository": {
+      "full_name": "htdt/godogen",
+      "html_url": "https://github.com/htdt/godogen",
+      "description": "Autonomous game development for Godot, Bevy, and Babylon.js with Claude Code and Codex",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 6753,
+      "pushed_at": "2026-09-04T17:30:18Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "idosal/mcp-ui",
+    "observedAt": "2026-09-07T18:06:16.070193+00:00",
+    "source": "https://api.github.com/repos/MCP-UI-Org/mcp-ui",
+    "readmeUrl": "https://github.com/MCP-UI-Org/mcp-ui/blob/main/README.md",
+    "readmeBlob": "b525c7d42a39e4545fe829ac6beba66567a34998",
+    "repository": {
+      "full_name": "MCP-UI-Org/mcp-ui",
+      "html_url": "https://github.com/MCP-UI-Org/mcp-ui",
+      "description": "UI over MCP. Create next-gen UI experiences with the protocol and SDK!",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 5128,
+      "pushed_at": "2026-07-08T04:21:59Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "jarrodwatts/claude-hud",
+    "observedAt": "2026-09-07T18:06:09.783345+00:00",
+    "source": "https://api.github.com/repos/jarrodwatts/claude-hud",
+    "readmeUrl": "https://github.com/jarrodwatts/claude-hud/blob/main/README.md",
+    "readmeBlob": "03ba415c6ac60051010283677ad5461a4fbde39f",
+    "repository": {
+      "full_name": "jarrodwatts/claude-hud",
+      "html_url": "https://github.com/jarrodwatts/claude-hud",
+      "description": "A Claude Code plugin that shows what's happening - context usage, active tools, running agents, and todo progress",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 27865,
+      "pushed_at": "2026-09-05T21:32:41Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "jaychempan/coding-with-beat",
+    "observedAt": "2026-09-08T12:42:51.631221+00:00",
+    "source": "https://api.github.com/repos/jaychempan/coding-with-beat",
+    "readmeUrl": "https://github.com/jaychempan/coding-with-beat/blob/main/README.md",
+    "readmeBlob": "b386bb83f8e3779aa8e5efcd113e47c304314769",
+    "repository": {
+      "full_name": "jaychempan/coding-with-beat",
+      "html_url": "https://github.com/jaychempan/coding-with-beat",
+      "description": "🎵 将音乐搬进AI终端 · 打造Coding专属智能DJ · 听歌新范式 · 交互式音乐 ｜A retro pixel DJ for Claude Code / Codex CLI / Terminal with Apple Music / QQ Music / Local Music — plays music, shows synced lyrics, and 😱 panics when your tests fail. ",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 114,
+      "pushed_at": "2026-06-30T05:04:06Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "jhacksman/OpenSCAD-MCP-Server",
+    "observedAt": "2026-09-07T18:06:13.736431+00:00",
+    "source": "https://api.github.com/repos/jhacksman/OpenSCAD-MCP-Server",
+    "readmeUrl": "https://github.com/jhacksman/OpenSCAD-MCP-Server/blob/main/README.md",
+    "readmeBlob": "d9d1e0e4c69be74f70211c22a32feb89e80ce8f8",
+    "repository": {
+      "full_name": "jhacksman/OpenSCAD-MCP-Server",
+      "html_url": "https://github.com/jhacksman/OpenSCAD-MCP-Server",
+      "description": "Devin's attempt at creating an OpenSCAD MCP Server that takes a user prompt and generates a preview image and 3d file.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 190,
+      "pushed_at": "2026-09-07T12:38:57Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "jlowin/fastmcp",
+    "observedAt": "2026-09-07T18:06:15.547696+00:00",
+    "source": "https://api.github.com/repos/PrefectHQ/fastmcp",
+    "readmeUrl": "https://github.com/PrefectHQ/fastmcp/blob/main/README.md",
+    "readmeBlob": "920996af91181938dfb5b49fcd2789d1f0510bd6",
+    "repository": {
+      "full_name": "PrefectHQ/fastmcp",
+      "html_url": "https://github.com/PrefectHQ/fastmcp",
+      "description": "🚀 The fast, Pythonic way to build MCP servers and clients.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 27553,
+      "pushed_at": "2026-09-07T15:40:16Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "Jpisnice/shadcn-ui-mcp-server",
+    "observedAt": "2026-09-07T18:06:11.433803+00:00",
+    "source": "https://api.github.com/repos/Jpisnice/shadcn-ui-mcp-server",
+    "readmeUrl": "https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/master/README.md",
+    "readmeBlob": "bc456c4df26fdaa6ea9dc6e7aea59d32840d62c5",
+    "repository": {
+      "full_name": "Jpisnice/shadcn-ui-mcp-server",
+      "html_url": "https://github.com/Jpisnice/shadcn-ui-mcp-server",
+      "description": "A mcp server to allow LLMS gain context about shadcn ui component structure,usage and installation,compaitable with react,svelte 5,vue & React Native",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 2976,
+      "pushed_at": "2026-05-16T13:09:07Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "JuliusBrussee/caveman",
+    "observedAt": "2026-09-07T18:06:08.152806+00:00",
+    "source": "https://api.github.com/repos/JuliusBrussee/caveman",
+    "readmeUrl": "https://github.com/JuliusBrussee/caveman/blob/main/README.md",
+    "readmeBlob": "ad4722fe28ddc5106941c4d633c4311dde8fa60a",
+    "repository": {
+      "full_name": "JuliusBrussee/caveman",
+      "html_url": "https://github.com/JuliusBrussee/caveman",
+      "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 104111,
+      "pushed_at": "2026-09-07T08:28:45Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "kevinbadi/blender-skills",
+    "observedAt": "2026-09-07T18:06:12.766332+00:00",
+    "source": "https://api.github.com/repos/kevinbadi/blender-skills",
+    "readmeUrl": "https://github.com/kevinbadi/blender-skills/blob/main/README.md",
+    "readmeBlob": "e6f337c49fcac74269bdfe4bf85846ca98b78d12",
+    "repository": {
+      "full_name": "kevinbadi/blender-skills",
+      "html_url": "https://github.com/kevinbadi/blender-skills",
+      "description": "Blender Skills for Claude Code - 3D product generation and camera animation workflows",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 89,
+      "pushed_at": "2026-04-04T20:50:50Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "leonxlnx/taste-skill",
+    "observedAt": "2026-09-07T18:06:10.772130+00:00",
+    "source": "https://api.github.com/repos/Leonxlnx/taste-skill",
+    "readmeUrl": "https://github.com/Leonxlnx/taste-skill/blob/main/README.md",
+    "readmeBlob": "5577b99d193716cb26467b0b0f1cfc506deb26a8",
+    "repository": {
+      "full_name": "Leonxlnx/taste-skill",
+      "html_url": "https://github.com/Leonxlnx/taste-skill",
+      "description": "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop ",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 85097,
+      "pushed_at": "2026-08-24T15:23:56Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "microsoft/markitdown",
+    "observedAt": "2026-09-07T18:06:17.174106+00:00",
+    "source": "https://api.github.com/repos/microsoft/markitdown",
+    "readmeUrl": "https://github.com/microsoft/markitdown/blob/main/README.md",
+    "readmeBlob": "62d526f681994d2725f462f6b88ba3cef9fcd70d",
+    "repository": {
+      "full_name": "microsoft/markitdown",
+      "html_url": "https://github.com/microsoft/markitdown",
+      "description": "Python tool for converting files and office documents to Markdown.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 179837,
+      "pushed_at": "2026-09-07T04:58:15Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "microsoft/playwright-mcp",
+    "observedAt": "2026-09-07T18:06:14.528350+00:00",
+    "source": "https://api.github.com/repos/microsoft/playwright-mcp",
+    "readmeUrl": "https://github.com/microsoft/playwright-mcp/blob/main/README.md",
+    "readmeBlob": "ddea67cd5145a2316cec75535edb1133062ecf61",
+    "repository": {
+      "full_name": "microsoft/playwright-mcp",
+      "html_url": "https://github.com/microsoft/playwright-mcp",
+      "description": "Playwright MCP server",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 36869,
+      "pushed_at": "2026-09-04T22:45:53Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "modelcontextprotocol/servers",
+    "observedAt": "2026-09-07T18:06:15.008542+00:00",
+    "source": "https://api.github.com/repos/modelcontextprotocol/servers",
+    "readmeUrl": "https://github.com/modelcontextprotocol/servers/blob/main/README.md",
+    "readmeBlob": "9c388c80a43c12db37f25049d031c98e1d26b5e0",
+    "repository": {
+      "full_name": "modelcontextprotocol/servers",
+      "html_url": "https://github.com/modelcontextprotocol/servers",
+      "description": "Model Context Protocol Servers",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 90138,
+      "pushed_at": "2026-09-03T01:42:26Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "multica-ai/andrej-karpathy-skills",
+    "observedAt": "2026-09-07T18:06:09.250199+00:00",
+    "source": "https://api.github.com/repos/multica-ai/andrej-karpathy-skills",
+    "readmeUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.md",
+    "readmeBlob": "7cf07a786532bebe01c65179c8e2c3a98cc0a09b",
+    "repository": {
+      "full_name": "multica-ai/andrej-karpathy-skills",
+      "html_url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 210846,
+      "pushed_at": "2026-04-20T10:05:04Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "n8n-io/n8n",
+    "observedAt": "2026-09-07T18:06:17.208536+00:00",
+    "source": "https://api.github.com/repos/n8n-io/n8n",
+    "readmeUrl": "https://github.com/n8n-io/n8n/blob/master/README.md",
+    "readmeBlob": "21909fae00cbad4f18af84d2948752445051a915",
+    "repository": {
+      "full_name": "n8n-io/n8n",
+      "html_url": "https://github.com/n8n-io/n8n",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 203647,
+      "pushed_at": "2026-09-07T17:57:07Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "neka-nat/freecad-mcp",
+    "observedAt": "2026-09-07T18:06:12.172207+00:00",
+    "source": "https://api.github.com/repos/neka-nat/freecad-mcp",
+    "readmeUrl": "https://github.com/neka-nat/freecad-mcp/blob/main/README.md",
+    "readmeBlob": "23d65ac31e618bd959cdf7c5737848bfc4c5749b",
+    "repository": {
+      "full_name": "neka-nat/freecad-mcp",
+      "html_url": "https://github.com/neka-nat/freecad-mcp",
+      "description": "FreeCAD MCP(Model Context Protocol) server",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 2069,
+      "pushed_at": "2026-09-05T05:19:25Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "observedAt": "2026-09-07T18:06:08.153814+00:00",
+    "source": "https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill",
+    "readmeUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.md",
+    "readmeBlob": "a9368937a85b780d0fbd6b77e189d084d710400d",
+    "repository": {
+      "full_name": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "html_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 125751,
+      "pushed_at": "2026-09-06T11:29:23Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "obra/superpowers",
+    "observedAt": "2026-09-07T18:06:08.151303+00:00",
+    "source": "https://api.github.com/repos/obra/superpowers",
+    "readmeUrl": "https://github.com/obra/superpowers/blob/main/README.md",
+    "readmeBlob": "09a91c6d03cfa3d874c5c33b6f8cc3d0b2d89645",
+    "repository": {
+      "full_name": "obra/superpowers",
+      "html_url": "https://github.com/obra/superpowers",
+      "description": "An agentic skills framework & software development methodology that works.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 282771,
+      "pushed_at": "2026-09-04T23:04:36Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "OctoEverywhere/mcp",
+    "observedAt": "2026-09-07T18:06:13.008636+00:00",
+    "source": "https://api.github.com/repos/OctoEverywhere/mcp",
+    "readmeUrl": "https://github.com/OctoEverywhere/mcp/blob/main/README.md",
+    "readmeBlob": "c5f1ba052960c659ec475b4bb91f4007ebe9c774",
+    "repository": {
+      "full_name": "OctoEverywhere/mcp",
+      "html_url": "https://github.com/OctoEverywhere/mcp",
+      "description": "A free 3D Printing MCP server that allows for getting live printer state, webcam snapshots, and printer control.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 36,
+      "pushed_at": "2025-07-03T21:06:12Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/codex-action",
+    "observedAt": "2026-09-07T18:06:14.399743+00:00",
+    "source": "https://api.github.com/repos/openai/codex-action",
+    "readmeUrl": "https://github.com/openai/codex-action/blob/main/README.md",
+    "readmeBlob": "f11d0095a108fea1b65d1f66453f8a99a72bcaeb",
+    "repository": {
+      "full_name": "openai/codex-action",
+      "html_url": "https://github.com/openai/codex-action",
+      "description": null,
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 1228,
+      "pushed_at": "2026-08-26T00:12:45Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/codex-plugin-cc",
+    "observedAt": "2026-09-07T18:06:09.828656+00:00",
+    "source": "https://api.github.com/repos/openai/codex-plugin-cc",
+    "readmeUrl": "https://github.com/openai/codex-plugin-cc/blob/main/README.md",
+    "readmeBlob": "937a3037b3fe6716f01b755d798255361af7287e",
+    "repository": {
+      "full_name": "openai/codex-plugin-cc",
+      "html_url": "https://github.com/openai/codex-plugin-cc",
+      "description": "Use Codex from Claude Code to review code or delegate tasks.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 32881,
+      "pushed_at": "2026-07-08T00:17:31Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/openai-apps-sdk-examples",
+    "observedAt": "2026-09-07T18:06:16.230766+00:00",
+    "source": "https://api.github.com/repos/openai/openai-apps-sdk-examples",
+    "readmeUrl": "https://github.com/openai/openai-apps-sdk-examples/blob/main/README.md",
+    "readmeBlob": "b4b55370f3bbb7cf7b3e9e63a634d03db444ee19",
+    "repository": {
+      "full_name": "openai/openai-apps-sdk-examples",
+      "html_url": "https://github.com/openai/openai-apps-sdk-examples",
+      "description": "Example apps for the Apps SDK",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 2325,
+      "pushed_at": "2026-04-15T17:01:42Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/openai-cookbook",
+    "observedAt": "2026-09-07T18:06:16.401636+00:00",
+    "source": "https://api.github.com/repos/openai/openai-cookbook",
+    "readmeUrl": "https://github.com/openai/openai-cookbook/blob/main/README.md",
+    "readmeBlob": "b48159e10216fa20260955d7316b98df32d735b9",
+    "repository": {
+      "full_name": "openai/openai-cookbook",
+      "html_url": "https://github.com/openai/openai-cookbook",
+      "description": "Examples and guides for using the OpenAI API",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 75831,
+      "pushed_at": "2026-09-05T01:42:43Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/plugins",
+    "observedAt": "2026-09-07T18:06:14.189415+00:00",
+    "source": "https://api.github.com/repos/openai/plugins",
+    "readmeUrl": "https://github.com/openai/plugins/blob/main/README.md",
+    "readmeBlob": "e901b40b9d643a5f878157158759fa0a6d3e2909",
+    "repository": {
+      "full_name": "openai/plugins",
+      "html_url": "https://github.com/openai/plugins",
+      "description": "OpenAI Plugins",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 5471,
+      "pushed_at": "2026-08-28T20:01:03Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "openai/skills",
+    "observedAt": "2026-09-07T18:06:14.253592+00:00",
+    "source": "https://api.github.com/repos/openai/skills",
+    "readmeUrl": "https://github.com/openai/skills/blob/main/README.md",
+    "readmeBlob": "c205d307226b98189c28cbcce6ff792cbb7b2d05",
+    "repository": {
+      "full_name": "openai/skills",
+      "html_url": "https://github.com/openai/skills",
+      "description": "Skills Catalog for Codex",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 25924,
+      "pushed_at": "2026-07-14T16:47:46Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "OthmanAdi/planning-with-files",
+    "observedAt": "2026-09-07T18:06:09.775955+00:00",
+    "source": "https://api.github.com/repos/OthmanAdi/planning-with-files",
+    "readmeUrl": "https://github.com/OthmanAdi/planning-with-files/blob/master/README.md",
+    "readmeBlob": "6491c881abddd0c6c920b03b3a490542cbd90318",
+    "repository": {
+      "full_name": "OthmanAdi/planning-with-files",
+      "html_url": "https://github.com/OthmanAdi/planning-with-files",
+      "description": "Persistent file-based planning for AI coding agents and long-running tasks. Crash-proof markdown plans, session recovery after /clear and compaction, per-turn re-injection against context rot, deterministic completion gate. Manus-style. Install from npm, the Claude Code plugin marketplace, or npx skills. Codex, Cursor, OpenCode, 60+ agents.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 26697,
+      "pushed_at": "2026-09-07T08:19:29Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "pbakaus/impeccable",
+    "observedAt": "2026-09-07T18:06:08.152806+00:00",
+    "source": "https://api.github.com/repos/pbakaus/impeccable",
+    "readmeUrl": "https://github.com/pbakaus/impeccable/blob/main/README.md",
+    "readmeBlob": "75200ec27a245295d65af6da5deb2eb6c5e06b9a",
+    "repository": {
+      "full_name": "pbakaus/impeccable",
+      "html_url": "https://github.com/pbakaus/impeccable",
+      "description": "The design language that makes your AI harness better at design.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 66291,
+      "pushed_at": "2026-09-07T17:58:58Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "PrefectHQ/fastmcp",
+    "observedAt": "2026-09-07T18:06:15.778175+00:00",
+    "source": "https://api.github.com/repos/PrefectHQ/fastmcp",
+    "readmeUrl": "https://github.com/PrefectHQ/fastmcp/blob/main/README.md",
+    "readmeBlob": "920996af91181938dfb5b49fcd2789d1f0510bd6",
+    "repository": {
+      "full_name": "PrefectHQ/fastmcp",
+      "html_url": "https://github.com/PrefectHQ/fastmcp",
+      "description": "🚀 The fast, Pythonic way to build MCP servers and clients.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 27553,
+      "pushed_at": "2026-09-07T15:40:16Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "punkpeye/awesome-mcp-servers",
+    "observedAt": "2026-09-07T18:06:15.806174+00:00",
+    "source": "https://api.github.com/repos/punkpeye/awesome-mcp-servers",
+    "readmeUrl": "https://github.com/punkpeye/awesome-mcp-servers/blob/main/README.md",
+    "readmeBlob": "71829ad59dbfbe5bc5ce7f4b75437c6542912489",
+    "repository": {
+      "full_name": "punkpeye/awesome-mcp-servers",
+      "html_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "description": "A collection of MCP servers.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 94565,
+      "pushed_at": "2026-09-07T17:59:01Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "quellant/openscad-mcp",
+    "observedAt": "2026-09-07T18:06:12.232462+00:00",
+    "source": "https://api.github.com/repos/quellant/openscad-mcp",
+    "readmeUrl": "https://github.com/quellant/openscad-mcp/blob/main/README.md",
+    "readmeBlob": "49dee6c7ec679b642acbd8c397a18e798c905b40",
+    "repository": {
+      "full_name": "quellant/openscad-mcp",
+      "html_url": "https://github.com/quellant/openscad-mcp",
+      "description": "A Model Context Protocol (MCP) server for OpenSCAD 3D modeling and rendering",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 131,
+      "pushed_at": "2026-08-05T19:40:06Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "remotion-dev/skills",
+    "observedAt": "2026-09-07T18:06:15.306746+00:00",
+    "source": "https://api.github.com/repos/remotion-dev/skills",
+    "readmeUrl": "https://github.com/remotion-dev/skills/blob/main/README.md",
+    "readmeBlob": "7718807e9e289dc95e66347fb96f11f20128508e",
+    "repository": {
+      "full_name": "remotion-dev/skills",
+      "html_url": "https://github.com/remotion-dev/skills",
+      "description": "Agent Skills",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 4501,
+      "pushed_at": "2026-09-07T09:39:00Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "RobLe3/cc-blender-skill",
+    "observedAt": "2026-09-07T18:06:13.847598+00:00",
+    "source": "https://api.github.com/repos/RobLe3/cc-blender-skill",
+    "readmeUrl": "https://github.com/RobLe3/cc-blender-skill/blob/main/README.md",
+    "readmeBlob": "47f1dd4541c134699d3b816da88814c844b4a942",
+    "repository": {
+      "full_name": "RobLe3/cc-blender-skill",
+      "html_url": "https://github.com/RobLe3/cc-blender-skill",
+      "description": "Claude Code skill plugin: drive Blender 5.x like a senior 3D artist via natural language. 10 chain-loadable skills (modeling, materials, lighting, cameras, rendering, animation, export, wireframe-to-3d, pro-workflow). Validated on 6 scene classes.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 53,
+      "pushed_at": "2026-05-01T10:34:49Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "ruvnet/ruflo",
+    "observedAt": "2026-09-07T18:06:09.694551+00:00",
+    "source": "https://api.github.com/repos/ruvnet/ruflo",
+    "readmeUrl": "https://github.com/ruvnet/ruflo/blob/main/README.md",
+    "readmeBlob": "92c8620461d17032a87d7c5c395e60fb27e6aafe",
+    "repository": {
+      "full_name": "ruvnet/ruflo",
+      "html_url": "https://github.com/ruvnet/ruflo",
+      "description": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, RAG integration, and native Claude Code / Codex / Hermes and many more Integrated",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 71293,
+      "pushed_at": "2026-09-07T17:41:45Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "SOCHI-Co/skills",
+    "observedAt": "2026-09-07T18:06:17.972312+00:00",
+    "source": "https://api.github.com/repos/SOCHI-Co/skills",
+    "readmeUrl": "https://github.com/SOCHI-Co/skills/blob/main/README.md",
+    "readmeBlob": "c7caf2c2030949325d4530814bb398364aefc22d",
+    "repository": {
+      "full_name": "SOCHI-Co/skills",
+      "html_url": "https://github.com/SOCHI-Co/skills",
+      "description": "Agent skills for Claude Code. Don't claim something works until you've observed it working.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 0,
+      "pushed_at": "2026-08-30T15:10:00Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "SOCHI-Co/storage-cleanup",
+    "observedAt": "2026-09-07T18:06:17.906323+00:00",
+    "source": "https://api.github.com/repos/SOCHI-Co/storage-cleanup",
+    "readmeUrl": "https://github.com/SOCHI-Co/storage-cleanup/blob/main/README.md",
+    "readmeBlob": "60e93390bfd022b334e2cc152adf672ad99d44b6",
+    "repository": {
+      "full_name": "SOCHI-Co/storage-cleanup",
+      "html_url": "https://github.com/SOCHI-Co/storage-cleanup",
+      "description": "A Claude skill for safely reclaiming disk space — measures top-down, classifies by safety, hash-verifies duplicates, reversible staged deletes, never deletes without confirmation.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 0,
+      "pushed_at": "2026-09-07T01:04:31Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "Svetlana-DAO-LLC/cad-agent",
+    "observedAt": "2026-09-07T18:06:13.606325+00:00",
+    "source": "https://api.github.com/repos/Svetlana-DAO-LLC/cad-agent",
+    "readmeUrl": "https://github.com/Svetlana-DAO-LLC/cad-agent/blob/master/README.md",
+    "readmeBlob": "0738841745a501dee4c0ba7008d4962bf0fe771e",
+    "repository": {
+      "full_name": "Svetlana-DAO-LLC/cad-agent",
+      "html_url": "https://github.com/Svetlana-DAO-LLC/cad-agent",
+      "description": "AI-driven CAD modeling for 3D printing (build123d + MCP)",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 40,
+      "pushed_at": "2026-02-17T13:18:22Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "TrillyD13/3d-printing-skill",
+    "observedAt": "2026-09-07T18:06:13.406079+00:00",
+    "source": "https://api.github.com/repos/TrillyD13/3d-printing-skill",
+    "readmeUrl": "https://github.com/TrillyD13/3d-printing-skill/blob/main/README.md",
+    "readmeBlob": "26c5683943d61b1359a4871e169de7011eea87f0",
+    "repository": {
+      "full_name": "TrillyD13/3d-printing-skill",
+      "html_url": "https://github.com/TrillyD13/3d-printing-skill",
+      "description": "Claude skill for the Bambu Lab 3D printing loop: scaling that preserves hardware fits and magnet holes, print prep and slicing, parametric design, and a queryable print log.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 1,
+      "pushed_at": "2026-08-19T01:34:18Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "upstash/context7",
+    "observedAt": "2026-09-07T18:06:14.617335+00:00",
+    "source": "https://api.github.com/repos/upstash/context7",
+    "readmeUrl": "https://github.com/upstash/context7/blob/master/README.md",
+    "readmeBlob": "aa34be9ba8eb98b5edc8dc8b9088a513275356ce",
+    "repository": {
+      "full_name": "upstash/context7",
+      "html_url": "https://github.com/upstash/context7",
+      "description": "Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 61738,
+      "pushed_at": "2026-09-07T16:55:16Z",
+      "default_branch": "master",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "vercel-labs/agent-skills",
+    "observedAt": "2026-09-07T18:06:15.407170+00:00",
+    "source": "https://api.github.com/repos/vercel-labs/agent-skills",
+    "readmeUrl": "https://github.com/vercel-labs/agent-skills/blob/main/README.md",
+    "readmeBlob": "04a1a5a46a22cfd430e2877b7c145e34fc2653ab",
+    "repository": {
+      "full_name": "vercel-labs/agent-skills",
+      "html_url": "https://github.com/vercel-labs/agent-skills",
+      "description": "Vercel's official collection of agent skills",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 30935,
+      "pushed_at": "2026-08-28T13:36:31Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "VoltAgent/awesome-claude-code-subagents",
+    "observedAt": "2026-09-07T18:06:09.012651+00:00",
+    "source": "https://api.github.com/repos/VoltAgent/awesome-claude-code-subagents",
+    "readmeUrl": "https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/README.md",
+    "readmeBlob": "e51d9121736ee3561580a25648c38a87dca9a09d",
+    "repository": {
+      "full_name": "VoltAgent/awesome-claude-code-subagents",
+      "html_url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "description": "A collection of 100+ specialized Claude Code subagents covering a wide range of development use cases",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 24909,
+      "pushed_at": "2026-09-07T08:53:31Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "VoltAgent/awesome-codex-subagents",
+    "observedAt": "2026-09-07T18:06:17.269938+00:00",
+    "source": "https://api.github.com/repos/VoltAgent/awesome-codex-subagents",
+    "readmeUrl": "https://github.com/VoltAgent/awesome-codex-subagents/blob/main/README.md",
+    "readmeBlob": "a19b1423ec5b9d97f5177c397dcd206948d16b9d",
+    "repository": {
+      "full_name": "VoltAgent/awesome-codex-subagents",
+      "html_url": "https://github.com/VoltAgent/awesome-codex-subagents",
+      "description": "A collection of 130+ specialized Codex subagents covering a wide range of development use cases.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 6108,
+      "pushed_at": "2026-09-07T08:53:34Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "voltagent/awesome-design-md",
+    "observedAt": "2026-09-07T18:06:11.251025+00:00",
+    "source": "https://api.github.com/repos/VoltAgent/awesome-design-md",
+    "readmeUrl": "https://github.com/VoltAgent/awesome-design-md/blob/main/README.md",
+    "readmeBlob": "3e989b4971ae2692190ae25119e7f8e0d63a558e",
+    "repository": {
+      "full_name": "VoltAgent/awesome-design-md",
+      "html_url": "https://github.com/VoltAgent/awesome-design-md",
+      "description": "A collection of DESIGN.md files analysis by popular brand design systems. Drop one into your project and let coding agents generate a matching UI.",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 114611,
+      "pushed_at": "2026-07-31T12:32:42Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  },
+  {
+    "requested": "wshobson/agents",
+    "observedAt": "2026-09-07T18:06:08.904152+00:00",
+    "source": "https://api.github.com/repos/wshobson/agents",
+    "readmeUrl": "https://github.com/wshobson/agents/blob/main/README.md",
+    "readmeBlob": "ad23a0c942ec9422ea087f14afb206c06e2c2e5e",
+    "repository": {
+      "full_name": "wshobson/agents",
+      "html_url": "https://github.com/wshobson/agents",
+      "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, and Google Antigravity",
+      "archived": false,
+      "disabled": false,
+      "stargazers_count": 39470,
+      "pushed_at": "2026-09-07T01:09:29Z",
+      "default_branch": "main",
+      "fork": false,
+      "parent": null
+    }
+  }
+]

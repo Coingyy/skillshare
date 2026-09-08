@@ -1,0 +1,1180 @@
+{
+  "repo": "https://github.com/openai/plugins",
+  "revision": "1e285826e604f66f7208f7ac4dba0fe8341d1f57",
+  "checkedAt": "2026-09-07T18:09:41.519385+00:00",
+  "filesScanned": 4957,
+  "filesSkipped": 419,
+  "findings": [
+    [
+      "WARN",
+      ".agents\\skills\\plugin-creator\\references\\plugin-json-spec.md:18",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      ".agents\\skills\\plugin-creator\\scripts\\create_basic_plugin.py:58",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "plugins\\figma\\hooks.json:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "plugins\\boltz-api-cli\\skills\\boltz-cli-setup\\SKILL.md:31",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://install.boltz.bio/boltz-api/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\boltz-api-cli\\skills\\boltz-cli-setup\\references\\sandbox.md:24",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://install.boltz.bio/boltz-api/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\building-ai-agent-on-cloudflare\\SKILL.md:388",
+      "Network request to non-GitHub host in script",
+      "curl https://my-agent.workers.dev"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\wrangler\\SKILL.md:855",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "HIGH",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\agents-sdk\\configuration.md:53",
+      "Reads API keys/tokens from environment with network call nearby",
+      "OPENAI_API_KEY ```  ## Agent Routing  **Recommended: Use route helpers**  ```typescript import { routeAgent } from \"agen"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-gateway\\configuration.md:73",
+      "Network request to non-GitHub host in script",
+      "curl https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-gateway\\configuration.md:58",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-gateway\\README.md:40",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-gateway\\sdk-integration.md:100",
+      "Network request to non-GitHub host in script",
+      "curl https://gateway.ai.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-gateway\\sdk-integration.md:13",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ai-search\\api.md:82",
+      "Network request to non-GitHub host in script",
+      "curl https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\api\\api.md:49",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\api\\api.md:11",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\api\\configuration.md:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "$env:CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\api\\gotchas.md:132",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\api-shield\\configuration.md:93",
+      "Network request to non-GitHub host in script",
+      "curl https://api.example.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\argo-smart-routing\\api.md:52",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\argo-smart-routing\\README.md:23",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cache-reserve\\configuration.md:43",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cron-triggers\\api.md:124",
+      "Network request to non-GitHub host in script",
+      "curl \"http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cron-triggers\\configuration.md:114",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cron-triggers\\gotchas.md:58",
+      "Network request to non-GitHub host in script",
+      "curl \"http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cron-triggers\\patterns.md:156",
+      "Network request to non-GitHub host in script",
+      "curl \"http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\cron-triggers\\README.md:71",
+      "Network request to non-GitHub host in script",
+      "curl \"http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\d1\\configuration.md:124",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\ddos\\api.md:32",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\graphql-api\\configuration.md:49",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\images\\configuration.md:47",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\kv\\configuration.md:109",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\miniflare\\gotchas.md:147",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\network-interconnect\\api.md:172",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\network-interconnect\\api.md:94",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\observability\\gotchas.md:15",
+      "Network request to non-GitHub host in script",
+      "curl https://your-worker.workers.dev"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\pulumi\\README.md:31",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\realtime-sfu\\patterns.md:76",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CALLS_APP_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\sandbox\\patterns.md:40",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://code-server.dev/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\snippets\\configuration.md:25",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\spectrum\\api.md:174",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\spectrum\\api.md:66",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOUDFLARE_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\tail-workers\\gotchas.md:176",
+      "Network request to non-GitHub host in script",
+      "curl https://producer.example.workers.dev"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\tunnel\\api.md:20",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\turnstile\\gotchas.md:198",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TURNSTILE_SITE_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\turnstile\\patterns.md:191",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TURNSTILE_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\waf\\api.md:9",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\waf\\configuration.md:26",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\waf\\patterns.md:163",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\waf\\README.md:27",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\web-analytics\\patterns.md:69",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\workers-ai\\api.md:94",
+      "Network request to non-GitHub host in script",
+      "curl https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\workers-ai\\README.md:93",
+      "Network request to non-GitHub host in script",
+      "curl https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\workers-for-platforms\\api.md:77",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\workers-for-platforms\\api.md:17",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\cloudflare\\references\\workflows\\api.md:179",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\cloudflare\\skills\\workers-best-practices\\references\\rules.md:186",
+      "Network request to non-GitHub host in script",
+      "fetch(   \"https://api.cloudflare.com"
+    ],
+    [
+      "WARN",
+      "plugins\\coderabbit\\skills\\coderabbit-review\\SKILL.md:24",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://cli.coderabbit.ai/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\creative-production\\mcp\\vendor\\ext-apps-app-with-deps.js:38",
+      "Zero-width characters (possible hidden text)",
+      "\u200c"
+    ],
+    [
+      "WARN",
+      "plugins\\creative-production\\skills\\produce\\helpers\\logos\\assets\\logo-explorer-app\\server.mjs:12",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BV_RUN_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\creative-production\\skills\\produce\\helpers\\styles\\assets\\style-explorer-app\\server.mjs:12",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BV_RUN_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\expo\\skills\\expo-api-routes\\SKILL.md:209",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\expo\\skills\\expo-api-routes\\SKILL.md:143",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\expo\\skills\\expo-deployment\\references\\app-store-metadata.md:272",
+      "Network request to non-GitHub host in script",
+      "fetch(     \"https://api.example.com"
+    ],
+    [
+      "WARN",
+      "plugins\\expo\\skills\\native-data-fetching\\references\\expo-router-loaders.md:204",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.STRIPE_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\figma\\scripts\\post_write_figma_parity_check.sh:7",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PostToolUse"
+    ],
+    [
+      "WARN",
+      "plugins\\figma\\skills\\figma-use\\references\\plugin-api-standalone.d.ts:8460",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "HIGH",
+      "plugins\\higgsfield\\skills\\narrator\\SKILL.md:158",
+      "Prompt injection: instruction to ignore prior instructions",
+      "ignore previous instructions"
+    ],
+    [
+      "HIGH",
+      "plugins\\higgsfield\\skills\\subtitles\\SKILL.md:151",
+      "Prompt injection: instruction to ignore prior instructions",
+      "ignore previous instructions"
+    ],
+    [
+      "WARN",
+      "plugins\\hyperframes\\skills\\hyperframes\\references\\transcript-guide.md:120",
+      "Reads API keys/tokens from environment with network call nearby",
+      "OPENAI_API_KEY\" \\   -F file=@audio.mp3 -F model=whisper-1 \\   -F response_format=verbose_json \\   -F \"timestamp_granular"
+    ],
+    [
+      "WARN",
+      "plugins\\hyperframes\\skills\\hyperframes\\references\\transcript-guide.md:119",
+      "Network request to non-GitHub host in script",
+      "curl https://api.openai.com"
+    ],
+    [
+      "WARN",
+      "plugins\\notion\\skills\\notion-knowledge-capture\\examples\\conversation-to-faq.md:111",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\notion\\skills\\notion-knowledge-capture\\examples\\conversation-to-faq.md:92",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env[key"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\cuopt-user-rules\\SKILL.md:171",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\nemoclaw-user-get-started\\SKILL.md:24",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://www.nvidia.com/nemoclaw.sh | bash"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\nemoclaw-user-get-started\\references\\quickstart-details.md:31",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl ... | bash"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\nemoclaw-user-get-started\\references\\quickstart-hermes.md:21",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://www.nvidia.com/nemoclaw.sh | bash"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\nemoclaw-user-get-started\\references\\windows-preparation.md:43",
+      "Download piped directly into a shell (curl|sh) (in documentation \u2014 doesn't run on install)",
+      "curl -fsSL https://www.nvidia.com/nemoclaw.sh | bash"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\omniverse-cad-to-simready\\references\\preflight\\README.md:178",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\omniverse-cad-to-simready\\references\\preflight\\scripts\\preflight.py:144",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "plugins\\nvidia\\skills\\omniverse-cad-to-simready\\references\\preflight\\scripts\\preflight.py:1370",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"NVIDIA_API_KEY"
+    ],
+    [
+      "HIGH",
+      "plugins\\public-equity-investing\\skills\\long-short-pitch\\references\\output-contract.md:123",
+      "Prompt injection: demands hidden behavior",
+      "Do not tell the user what"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-markup\\voiceover.md:36",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ELEVENLABS_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-markup\\voiceover.md:36",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ELEVENLABS_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-maps\\techniques\\mapbox\\TECHNIQUE.md:66",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPBOX_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-maps\\techniques\\maptiler\\assets\\MapTilerVectorElement.ts:63",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-maps\\techniques\\maptiler\\references\\map-data-sources.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-markup\\remotion-maps\\techniques\\mapbox\\TECHNIQUE.md:66",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPBOX_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-markup\\remotion-maps\\techniques\\maptiler\\assets\\MapTilerVectorElement.ts:63",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-best-practices\\remotion-markup\\remotion-maps\\techniques\\maptiler\\references\\map-data-sources.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-maps\\techniques\\mapbox\\TECHNIQUE.md:66",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPBOX_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-maps\\techniques\\maptiler\\assets\\MapTilerVectorElement.ts:63",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-maps\\techniques\\maptiler\\references\\map-data-sources.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-markup\\remotion-maps\\techniques\\mapbox\\TECHNIQUE.md:66",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPBOX_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-markup\\remotion-maps\\techniques\\maptiler\\assets\\MapTilerVectorElement.ts:63",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\remotion\\skills\\remotion-markup\\remotion-maps\\techniques\\maptiler\\references\\map-data-sources.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REMOTION_MAPTILER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\stripe\\skills\\upgrade-stripe\\SKILL.md:167",
+      "Network request to non-GitHub host in script",
+      "curl https://api.stripe.com"
+    ],
+    [
+      "WARN",
+      "plugins\\stripe\\skills\\stripe-apps\\references\\authentication.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.STRIPE_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\superpowers\\.codex-plugin\\plugin.json:9",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "plugins\\superpowers\\skills\\brainstorming\\scripts\\server.cjs:123",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BRAINSTORM_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\temporal\\skills\\temporal-serverless\\references\\aws-lambda\\setup.md:460",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TEMPORAL_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-account-setup\\SKILL.md:44",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-content-template-builder\\SKILL.md:43",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-conversation-intelligence\\SKILL.md:284",
+      "Network request to non-GitHub host in script",
+      "fetch(   'https://conversations.twilio.com"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-conversation-intelligence\\SKILL.md:216",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-conversation-orchestrator\\SKILL.md:308",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-conversations-classic-api\\SKILL.md:41",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-customer-memory\\SKILL.md:47",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-debugging-observability\\SKILL.md:36",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-enterprise-knowledge\\SKILL.md:55",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-iam-auth-setup\\SKILL.md:41",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-lookup-phone-intelligence\\SKILL.md:35",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-messaging-overview\\SKILL.md:48",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-messaging-services\\SKILL.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-messaging-webhooks\\SKILL.md:203",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-rcs-messaging\\SKILL.md:129",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-regulatory-compliance-bundles\\SKILL.md:43",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-security-api-auth\\SKILL.md:94",
+      "Network request to non-GitHub host in script",
+      "curl 'https://api.twilio.com"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-security-api-auth\\SKILL.md:46",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-security-hardening\\SKILL.md:56",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-send-message\\SKILL.md:49",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-sendgrid-email-send\\SKILL.md:27",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"SENDGRID_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-sendgrid-engagement-quality\\SKILL.md:63",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ['SENDGRID_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-sendgrid-suppressions\\SKILL.md:40",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ['SENDGRID_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-sms-send-message\\SKILL.md:48",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-taskrouter-routing\\SKILL.md:47",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-verify-send-otp\\SKILL.md:56",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-voice-outbound-calls\\SKILL.md:58",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-webhook-architecture\\SKILL.md:39",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-whatsapp-manage-senders\\SKILL.md:37",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\twilio-developer-kit\\skills\\twilio-whatsapp-send-message\\SKILL.md:49",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"TWILIO_AUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\commands\\status.md:148",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DRAIN_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\_chain-audit.md:130",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PostToolUse"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\cms\\SKILL.md:172",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SANITY_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\cron-jobs\\SKILL.md:44",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CRON_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\email\\SKILL.md:79",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.RESEND_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\observability\\SKILL.md:216",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.VERCEL_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\payments\\SKILL.md:76",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.STRIPE_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\shadcn\\SKILL.md:196",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\vercel-api\\SKILL.md:115",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.VERCEL_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\vercel-connect\\SKILL.md:263",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ['VERCEL_OIDC_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\vercel-functions\\SKILL.md:317",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CRON_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\vercel-sandbox\\SKILL.md:97",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.VERCEL_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\vercel-storage\\SKILL.md:294",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\ai-sdk\\references\\ai-gateway.md:50",
+      "Network request to non-GitHub host in script",
+      "curl https://ai-gateway.vercel.sh"
+    ],
+    [
+      "WARN",
+      "plugins\\vercel\\skills\\nextjs\\references\\self-hosting.md:365",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\references\\automatic-skill-chaining-rest-webhooks.md:76",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\ai-companion-integration.md:211",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\customer-support-cobrowsing.md:51",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_SDK_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\meeting-details-with-events.md:84",
+      "Network request to non-GitHub host in script",
+      "fetch(   'https://api.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\meeting-details-with-events.md:197",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_WEBHOOK_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\minutes-calculation.md:147",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "SessionStart"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\prebuilt-video-ui.md:83",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_VIDEO_SDK_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\retrieve-meeting-and-subscribe-events.md:91",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\saas-app-oauth-integration.md:128",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CIPHER_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\team-chat-llm-bot.md:117",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LLM_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\general\\use-cases\\user-and-meeting-creation.md:393",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\meeting-sdk\\linux\\meeting-sdk-bot.md:191",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\meeting-sdk\\references\\full-guide.md:88",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_SDK_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\meeting-sdk\\linux\\references\\linux-reference.md:450",
+      "Network request to non-GitHub host in script",
+      "wget http://security.ubuntu.com"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\meeting-sdk\\windows\\troubleshooting\\common-issues.md:315",
+      "Network request to non-GitHub host in script",
+      "curl https://zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\oauth\\concepts\\oauth-flows.md:86",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\oauth\\concepts\\pkce.md:171",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\concepts\\authentication-flows.md:119",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\examples\\meeting-lifecycle.md:199",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\examples\\webhook-server.md:23",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_WEBHOOK_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\references\\authentication.md:114",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\references\\full-guide.md:91",
+      "Network request to non-GitHub host in script",
+      "curl \"https://api.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rest-api\\references\\openapi.md:62",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rivet-sdk\\examples\\getting-started-pattern.md:11",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.RIVET_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rivet-sdk\\examples\\multi-client-pattern.md:15",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.RIVET_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rtms\\examples\\ai-integration.md:14",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DEEPGRAM_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rtms\\examples\\manual-websocket.md:26",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rtms\\references\\connection.md:222",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rtms\\references\\quickstart.md:44",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\rtms\\references\\webhooks.md:38",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\scribe\\examples\\fast-mode-node.md:20",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_API_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\team-chat\\concepts\\webhooks.md:100",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_VERIFICATION_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\team-chat\\examples\\chatbot-setup.md:67",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\team-chat\\references\\full-guide.md:335",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_VERIFICATION_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\team-chat\\troubleshooting\\common-issues.md:83",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_VERIFICATION_TOKEN"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\ui-toolkit\\references\\full-guide.md:170",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_VIDEO_SDK_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\video-sdk\\references\\full-guide.md:66",
+      "Network request to non-GitHub host in script",
+      "curl \"https://source.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\video-sdk\\web\\SKILL.md:104",
+      "Network request to non-GitHub host in script",
+      "curl \"https://source.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\video-sdk\\web\\examples\\framework-integrations.md:41",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_SDK_KEY"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\video-sdk\\web\\references\\web.md:29",
+      "Network request to non-GitHub host in script",
+      "curl \"https://source.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\video-sdk\\web\\troubleshooting\\common-issues.md:101",
+      "Network request to non-GitHub host in script",
+      "curl \"https://source.zoom.us"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\webhooks\\references\\subscriptions.md:168",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_WEBHOOK_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\websockets\\references\\connection.md:413",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\concepts\\architecture.md:180",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_APP_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\concepts\\security.md:50",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SESSION_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\examples\\in-client-oauth.md:125",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_APP_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\examples\\quick-start.md:57",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SESSION_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\references\\oauth.md:75",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOM_APP_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "plugins\\zoom\\skills\\zoom-apps-sdk\\references\\zmail-sdk.md:101",
+      "Network request to non-GitHub host in script",
+      "fetch(   'https://api.zoom.us"
+    ]
+  ],
+  "result": "blocked"
+}

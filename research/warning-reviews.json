@@ -1,0 +1,144 @@
+[
+  {
+    "repo": "https://github.com/upstash/context7",
+    "revision": "80e681a507c5287bc12e483367c40754e29461b9",
+    "reviewedAt": "2026-09-08T12:57:43.023792+00:00",
+    "reviewer": "Codex (GPT-6 Astra), documentary review",
+    "decision": "Accepted for catalog inclusion with disclosed limitations; not a runtime safety guarantee.",
+    "warnings": [
+      {
+        "index": 0,
+        "location": "packages/cli/src/utils/github.ts:85",
+        "assessment": "CLI reads an explicit GitHub token or the GitHub CLI token and uses it for api.github.com/raw.githubusercontent.com requests. Expected credential use; review the permissions of the supplied token."
+      },
+      {
+        "index": 1,
+        "location": "packages/cli/src/__tests__/installer.test.ts:102",
+        "assessment": "The hook JSON is a path-traversal rejection test fixture, not an installed hook."
+      },
+      {
+        "index": 2,
+        "location": "packages/mcp/test/encryption.test.ts:10",
+        "assessment": "Encryption test supplies and removes a fixed test key."
+      },
+      {
+        "index": 3,
+        "location": "packages/mcp/src/lib/constants.ts:35",
+        "assessment": "Application challenge-token configuration. This excerpt is a constant declaration, not an outbound transfer."
+      },
+      {
+        "index": 4,
+        "location": "packages/mcp/src/lib/encryption.ts:16",
+        "assessment": "Validates a configured 32-byte encryption key for authenticated client-IP assertions."
+      },
+      {
+        "index": 5,
+        "location": "packages/sdk/src/commands/get-context/index.test.ts:8",
+        "assessment": "command.exec is an SDK command method invoked with a test requester; not JavaScript eval or a shell execution."
+      },
+      {
+        "index": 6,
+        "location": "packages/sdk/src/commands/search-library/index.test.ts:24",
+        "assessment": "Same SDK method-name match in a test; maps a fixture response to library objects."
+      }
+    ]
+  },
+  {
+    "repo": "https://github.com/CoplayDev/unity-mcp",
+    "revision": "2fcc17957823f2494b7b1f7ade92c0fb56f4adb1",
+    "reviewedAt": "2026-09-08T12:57:43.023792+00:00",
+    "reviewer": "Codex (GPT-6 Astra), documentary review",
+    "decision": "Accepted for catalog inclusion with disclosed limitations; not a runtime safety guarantee.",
+    "warnings": [
+      {
+        "index": 0,
+        "location": "tools/local_harness.py:180",
+        "assessment": "The zero-width character is a BOM stripped from Unity version-file input."
+      },
+      {
+        "index": 1,
+        "location": "Server/src/main.py:874",
+        "assessment": "Assigns the explicit instance token to the environment for a Unity lifecycle handshake."
+      },
+      {
+        "index": 2,
+        "location": "website/scripts/fetch-stats.mjs:75",
+        "assessment": "Website statistics script authenticates GitHub statistics requests. This is separate from the Unity integration runtime."
+      },
+      {
+        "index": 3,
+        "location": "website/docs/guides/claude-code-cli.md:22",
+        "assessment": "Documented official Claude installer. No installer was executed during this review."
+      },
+      {
+        "index": 4,
+        "location": "website/docs/guides/troubleshooting.md:44",
+        "assessment": "Same official Claude installer in troubleshooting guidance."
+      },
+      {
+        "index": 5,
+        "location": "website/docs/guides/uv-setup.md:57",
+        "assessment": "Documented uv installer, with package-manager alternatives. No installer was executed."
+      }
+    ]
+  },
+  {
+    "repo": "https://github.com/PrefectHQ/fastmcp",
+    "revision": "e3fb4af36892e6477399df2597f0dd5abd469799",
+    "reviewedAt": "2026-09-08T12:57:43.023792+00:00",
+    "reviewer": "Codex (GPT-6 Astra), documentary review",
+    "decision": "Accepted for catalog inclusion with disclosed limitations; not a runtime safety guarantee.",
+    "warnings": [
+      {
+        "index": 0,
+        "location": ".claude/settings.json:2",
+        "assessment": "A real SessionStart hook invokes .claude/hooks/session-init.sh. It exits outside CLAUDE_CODE_REMOTE=true or when gh is installed; otherwise downloads the GitHub CLI release into ~/.local/bin and updates the session PATH. Cataloged as a Python framework, not a recommendation to enable repository development hooks. This network/install behavior remains visible."
+      },
+      {
+        "index": 1,
+        "location": ".github/workflows/marvin-dedupe-issues.yml:110",
+        "assessment": "Official Claude installer inside the provider issue-deduplication CI workflow, not an end-user package hook."
+      },
+      {
+        "index": 2,
+        "location": ".github/workflows/marvin-label-triage.yml:174",
+        "assessment": "Official Claude installer inside the provider issue-triage CI workflow."
+      },
+      {
+        "index": 3,
+        "location": "dev-docs/v3-notes/auth-provider-env-vars.md:47",
+        "assessment": "Migration example passes an explicit client secret to GitHub OAuth configuration."
+      },
+      {
+        "index": 4,
+        "location": "dev-docs/v3-notes/v3-features.md:1455",
+        "assessment": "Same explicit OAuth configuration in the v3 feature documentation."
+      },
+      {
+        "index": 5,
+        "location": "examples/auth/propelauth_oauth/server.py:31",
+        "assessment": "PropelAuth OAuth server example reads its configured introspection credentials."
+      },
+      {
+        "index": 6,
+        "location": "fastmcp_slim/fastmcp/utilities/mcp_server_config/v1/mcp_server_config.py:103",
+        "assessment": "Assigns interpolated user-provided environment configuration. Users must trust configuration they load."
+      },
+      {
+        "index": 7,
+        "location": "fastmcp_slim/fastmcp/utilities/mcp_server_config/v1/environments/uv.py:121",
+        "assessment": "The pipe-to-shell string is an error-message suggestion if uv is missing; this code raises an error rather than executing that string."
+      },
+      {
+        "index": 8,
+        "location": "tests/cli/test_config.py:243",
+        "assessment": "Restores environment variables after a configuration test; key is a loop variable."
+      },
+      {
+        "index": 9,
+        "location": "tests/integration_tests/auth/test_keycloak_provider_integration.py:264",
+        "assessment": "Keycloak integration test uses environment configuration with a mocked request; the KEY substring matches KEYCLOAK."
+      }
+    ]
+  }
+]

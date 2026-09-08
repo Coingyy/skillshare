@@ -1,0 +1,52 @@
+{
+  "repo": "https://github.com/upstash/context7",
+  "revision": "80e681a507c5287bc12e483367c40754e29461b9",
+  "checkedAt": "2026-09-07T18:09:39.064322+00:00",
+  "filesScanned": 248,
+  "filesSkipped": 226,
+  "findings": [
+    [
+      "WARN",
+      "packages\\cli\\src\\utils\\github.ts:85",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GITHUB_TOKEN"
+    ],
+    [
+      "WARN",
+      "packages\\cli\\src\\__tests__\\installer.test.ts:102",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "packages\\mcp\\test\\encryption.test.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.MCP_CLIENT_IP_ASSERTION_KEY"
+    ],
+    [
+      "WARN",
+      "packages\\mcp\\src\\lib\\constants.ts:35",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_APPS_CHALLENGE_TOKEN"
+    ],
+    [
+      "WARN",
+      "packages\\mcp\\src\\lib\\encryption.ts:16",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.MCP_CLIENT_IP_ASSERTION_KEY"
+    ],
+    [
+      "WARN",
+      "packages\\sdk\\src\\commands\\get-context\\index.test.ts:8",
+      "eval/exec on dynamic content",
+      "exec(       request"
+    ],
+    [
+      "WARN",
+      "packages\\sdk\\src\\commands\\search-library\\index.test.ts:24",
+      "eval/exec on dynamic content",
+      "exec(request"
+    ]
+  ],
+  "result": "warnings"
+}

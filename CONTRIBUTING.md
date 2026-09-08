@@ -1,50 +1,30 @@
-# Submitting a skill
+# Submit an offering
 
-## Easiest path (via the website)
+Use [the website form](https://coingyy.github.io/skillshare/#submit): paste a public GitHub repository URL and optionally add a note, platform suggestions, offering type and provider setup link. No GitHub account or API key is required for the form. Alternatively, use the repository's **Submit a skill** issue template.
 
-1. Open [the catalog](https://coingyy.github.io/skillshare/) and scroll to **Submit a skill**.
-2. Paste the repo link, roughly say what it does, hit submit — a prefilled GitHub issue opens; confirm it with "Submit new issue".
-3. Everything else is automatic: the security scan checks the repo, Claude writes the catalog entry (description, category, tags), opens a pull request, and merges it.
-4. The skill shows up on the site — no human review, the scan is the gate.
+Suggestions are evidence to investigate, not proof of compatibility. The automation resolves the repository, scans an exact commit, asks OpenAI to assess documentation and findings, and validates the metadata. HIGH findings always block acceptance. Every warning needs an acceptable assessment. Missing or failed AI review cannot be bypassed.
 
-## Manual path (directly on GitHub)
+**Received**, **scanning**, **AI review**, **merged**, and **published** are different states. Follow the GitHub issue linked by the form. Publication is confirmed only after checking the live catalog. Failure leaves the issue open; it does not promise an automatic addition later.
 
-1. Open [`skills.json`](skills.json) and click the pencil (Edit).
-2. Add your entry to the end of the `skills` array:
+## Compatibility and evidence
 
-```json
-{
-  "id": "my-skill",
-  "name": "My Skill",
-  "repo": "https://github.com/username/my-skill",
-  "description": "What the skill does, in 1-2 sentences.",
-  "category": "workflow",
-  "tags": ["example", "tag"],
-  "submittedBy": "your-github-name",
-  "addedAt": "2026-08-27",
-  "status": "pending"
-}
-```
+An entry has a topic category, one offering type, and separate records for `claude-code`, `codex` and `chatgpt`. Types are `skill`, `plugin`, `mcp`, `tool`, `collection`, `reference` and `workflow`. See [the schema](schema/skills.schema.json).
 
-3. "Propose changes" → open a pull request.
-4. Wait: the security scan comments on the PR automatically.
-5. On a green check the PR can be merged.
+- `documented` requires a provider source supporting the named program and setup.
+- `tested` requires a dated functional test, tester, notes and sources. A maintainer must assess new test claims; AI cannot invent them.
+- `unverified` means insufficient evidence. Claude Desktop is not Claude Code; Claude.ai is not ChatGPT. Local skills, plugins and remotely hosted MCP apps have distinct setup requirements.
+- Security, AI review, compatibility and popularity are separate records.
 
-## Rules
+## Direct pull requests
 
-- `id`: kebab-case, unique.
-- `category`: one of `ui-design`, `3d`, `3d-printing`, `game-dev`, `web`, `audio`, `automation`, `code-quality`, `docs`, `integrations`, `subagents`, `prompting`, `llm-tooling`, `official`, `other`.
-- `status`: `verified` is set automatically once the scan passes.
-- Public GitHub repos only.
-- Look at the repo yourself before submitting. Your name vouches for it.
+Prefer the issue route for new repositories: it enriches metadata and attaches actual scanner/AI evidence. Direct PRs must validate against schema version 2 and change at most one entry for automatic review. IDs and canonical repositories must remain unique.
 
-## What the scan rejects (HIGH)
+For a new manually authored entry, use `security.status: "unverified"`, `aiReview.status: "not-reviewed"` and `status: "pending"`. Supply the required platform, source and repository review fields. An existing entry is a structural reference, not evidence to copy. Do not reuse another entry's scans, dates or tests. The PR workflow reviews data but does not invent attestations inside your commit.
 
-- Downloads piped straight into a shell (`curl ... | sh`, `iwr ... | iex`)
-- Access to SSH keys, AWS credentials, browser cookies
-- Reading API keys combined with sending them over the network
-- Destructive commands (`rm -rf /`, `format c:`)
-- Prompt injection ("ignore previous instructions", "don't tell the user")
+Older issue formats still work. Old-format direct PRs receive a conservative `normalized-catalog.json` artifact to help the author migrate; it proves neither compatibility nor approval. Fork workflows cannot access the owner's API secret: submit the repository URL through an issue. Maintainers handle bulk migrations and functional-test claims separately.
 
-Warnings (WARN) don't block, but they get looked at in review — e.g. hooks,
-base64 blobs, or requests to unknown hosts.
+## Maintainer recovery
+
+Inspect the failed workflow artifact and issue state. Correct missing API credentials, access, quota, branch rules or publishing setup, then start **Process submission → Run workflow** with the existing issue number. Do not fabricate green statuses, remove HIGH rules or accept incomplete AI output. Retry dispatches count toward the daily limit; timeouts are never retried automatically.
+
+See [activation and stuck submissions](research/ACTIVATION.md) for this migration's rollout.

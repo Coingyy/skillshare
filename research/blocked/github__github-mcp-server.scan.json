@@ -1,0 +1,22 @@
+{
+  "repo": "https://github.com/github/github-mcp-server",
+  "revision": "8b3538ff8ae153c8a6168e9529d2b1ff6619a7a0",
+  "checkedAt": "2026-09-07T18:09:38.146528+00:00",
+  "filesScanned": 142,
+  "filesSkipped": 438,
+  "findings": [
+    [
+      "HIGH",
+      "script\\lint:12",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -sSfL https://golangci-lint.run/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "pkg\\octicons\\icons_data_uris.txt:2",
+      "Large base64 blob (possibly obfuscated payload)",
+      "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABQklEQVRIie2TT0rDYBBH3yRf/yildO3WLKTWVnDRk+heT6Fe"
+    ]
+  ],
+  "result": "blocked"
+}

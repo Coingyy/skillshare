@@ -1,0 +1,9 @@
+{
+  "repo": "https://github.com/openai/openai-apps-sdk-examples",
+  "revision": "18cc38e78a968712c357bacdc3c79fead5bfc6b4",
+  "checkedAt": "2026-09-07T18:09:51.666290+00:00",
+  "filesScanned": 80,
+  "filesSkipped": 58,
+  "findings": [],
+  "result": "passed"
+}

@@ -1,0 +1,59 @@
+name: Publish catalog
+on:
+  push:
+    branches: [main]
+    paths: [index.html, skills.json, 'research/**', 'schema/**', 'scripts/**', '.github/workflows/publish.yml']
+  workflow_run:
+    workflows: [Process submission]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalog-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      issues: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/requirements.txt
+      - name: Validate and stage only public catalog files
+        run: |
+          python scripts/catalog.py
+          mkdir -p _site
+          cp index.html skills.json _site/
+          cp -r schema research _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Confirm actual website content before notifying submitters
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+          NOTIFY_SUBMITTERS: ${{ github.event_name == 'workflow_run' }}
+        run: python scripts/confirm_publication.py

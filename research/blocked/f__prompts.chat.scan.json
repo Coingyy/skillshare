@@ -1,0 +1,280 @@
+{
+  "repo": "https://github.com/f/prompts.chat",
+  "revision": "eaab6b14a085f3b9e4461be90367fcd9a16d3204",
+  "checkedAt": "2026-09-07T18:09:58.276327+00:00",
+  "filesScanned": 345,
+  "filesSkipped": 1190,
+  "findings": [
+    [
+      "WARN",
+      "components.json:19",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "DOCKER.md:238",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "vitest.setup.ts:20",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.NEXTAUTH_SECRET"
+    ],
+    [
+      "WARN",
+      "messages\\fa.json:13",
+      "Zero-width characters (possible hidden text)",
+      "\u200c"
+    ],
+    [
+      "WARN",
+      "scripts\\docker-setup.js:40",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env[key"
+    ],
+    [
+      "WARN",
+      ".github\\workflows\\update-contributors.yml:49",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"HF_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "src\\data\\sql-examples.json:63",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\lib\\slug.ts:7",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\app\\api\\book\\demo\\route.ts:209",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\app\\api\\cron\\reset-credits\\route.ts:19",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CRON_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\app\\api\\prompt-builder\\chat\\route.ts:98",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\app\\api\\prompt-builder\\generate-example\\route.ts:177",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\ar.ts:303",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\az.ts:308",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\de.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\el.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "HIGH",
+      "src\\components\\book\\elements\\locales\\en.ts:200",
+      "Prompt injection: instruction to ignore prior instructions",
+      "Ignore all previous instructions"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\en.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\es.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\fa.ts:17",
+      "Zero-width characters (possible hidden text)",
+      "\u200c"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\fr.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\he.ts:303",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\it.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\ja.ts:308",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\ko.ts:308",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\nl.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\pt.ts:313",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\ru.ts:303",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\tr.ts:308",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\components\\book\\elements\\locales\\zh.ts:308",
+      "Zero-width characters (possible hidden text)",
+      "\u200d"
+    ],
+    [
+      "WARN",
+      "src\\lib\\ai\\embeddings.ts:13",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\ai\\generation.ts:12",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\ai\\improve-prompt.ts:14",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\ai\\quality-check.ts:13",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPENAI_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\apple.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AUTH_APPLE_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\azure.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AZURE_AD_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\github.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GITHUB_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\google.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GOOGLE_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\oauth.ts:19",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AUTH_OAUTH_TOKEN"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\auth\\oidc.ts:18",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AUTH_OIDC_TOKEN"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\media-generators\\fal.ts:110",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.FAL_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\media-generators\\wiro.ts:137",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.WIRO_API_KEY"
+    ],
+    [
+      "WARN",
+      "src\\lib\\plugins\\storage\\do-spaces.ts:60",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DO_SPACES_ACCESS_KEY"
+    ],
+    [
+      "WARN",
+      "src\\__tests__\\lib\\plugins\\auth\\oauth.test.ts:11",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AUTH_OAUTH_SECRET"
+    ],
+    [
+      "WARN",
+      "src\\__tests__\\lib\\plugins\\auth\\oidc.test.ts:11",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AUTH_OIDC_SECRET"
+    ]
+  ],
+  "result": "blocked"
+}

@@ -8,7 +8,7 @@ body:
       value: |
         Paste the GitHub repo link and roughly describe what it does.
         The rest happens automatically: a security scan runs on the repo,
-        and Claude drafts the catalog entry (description, category, tags)
+        and an OpenAI model reviews the findings and drafts the catalog entry
         and opens a pull request for you.
   - type: input
     id: repo_url
@@ -17,10 +17,26 @@ body:
       placeholder: https://github.com/username/skill-repo
     validations:
       required: true
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Suggested platforms
+      multiple: true
+      options: ["claude-code", "codex", "chatgpt"]
+  - type: dropdown
+    id: offering_type
+    attributes:
+      label: Offering type
+      options: ["Not sure", "skill", "plugin", "mcp", "tool", "collection", "reference", "workflow"]
+  - type: input
+    id: source
+    attributes:
+      label: Provider documentation
+      placeholder: https://github.com/owner/repo/blob/main/README.md
   - type: textarea
     id: notes
     attributes:
       label: What is it? (rough note is fine)
       placeholder: e.g. "skill that helps with blender modeling, auto-generates materials"
     validations:
-      required: true
+      required: false

@@ -19,6 +19,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import datetime as dt
 from pathlib import Path
 
 MAX_FILE_BYTES = 512 * 1024
@@ -130,28 +131,44 @@ def changed_repos(base_ref: str) -> list[dict]:
     return changed
 
 
-def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
+def scan_repo(url: str, *, revision=None, evidence=None, review_text=None) -> list[tuple[str, str, str, str]]:
     """Shallow-clones url and returns findings: (severity, file, desc, snippet)."""
     findings = []
     if not REPO_URL_RE.match(url):
         return [("HIGH", "-", "Repo URL is not a valid GitHub URL", url)]
     self_raw = url.replace("https://github.com/", "raw.githubusercontent.com/").rstrip("/")
-    with tempfile.TemporaryDirectory() as tmp:
-        clone = run(["git", "clone", "--depth", "1", "--no-tags", url, tmp], timeout=120)
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+        clone = run(["git", "-c", "core.hooksPath=/dev/null", "clone", "--depth", "1", "--no-tags", url, tmp], timeout=120)
         if clone.returncode != 0:
             return [("HIGH", "-", "Repo could not be cloned (private/deleted?)",
                      clone.stderr.strip()[:200])]
+        if revision:
+            if not re.fullmatch(r"[a-f0-9]{40}", revision):
+                raise ValueError("Expected a full commit SHA")
+            fetched = run(["git", "-C", tmp, "fetch", "--depth", "1", "origin", revision], timeout=120)
+            if fetched.returncode or run(["git", "-C", tmp, "checkout", "--detach", revision]).returncode:
+                raise RuntimeError("Could not check out the requested revision")
         root = Path(tmp)
+        if evidence is not None:
+            evidence.update(repo=url, revision=run(["git", "-C", tmp, "rev-parse", "HEAD"]).stdout.strip(),
+                            checkedAt=dt.datetime.now(dt.timezone.utc).isoformat(), filesScanned=0, filesSkipped=0)
         for f in root.rglob("*"):
-            if not f.is_file() or ".git" in f.parts:
+            if f.is_symlink() or not f.is_file() or ".git" in f.parts:
                 continue
             if f.suffix.lower() not in TEXT_EXTENSIONS or f.stat().st_size > MAX_FILE_BYTES:
+                if evidence is not None:
+                    evidence["filesSkipped"] += 1
                 continue
             try:
                 text = f.read_text(encoding="utf-8", errors="ignore")
             except OSError:
+                findings.append(("HIGH", str(f.relative_to(root)), "Text file could not be read", "Scan incomplete"))
                 continue
+            if evidence is not None:
+                evidence["filesScanned"] += 1
             rel = str(f.relative_to(root))
+            if review_text is not None and (f.name.lower() in ('readme.md', 'skill.md', 'package.json', 'pyproject.toml', 'plugin.json', 'hooks.json') or f.suffix.lower() in ('.sh', '.ps1')):
+                review_text.append({'path': rel.replace('\\', '/'), 'text': text[:12000], 'truncated': len(text) > 12000})
             for sev, desc, rx in PATTERNS:
                 m = rx.search(text)
                 if m:
@@ -188,6 +205,8 @@ def scan_repo(url: str) -> list[tuple[str, str, str, str]]:
                         desc = desc + " (in CI config — runs in the repo's own CI, not on your machine)"
                     snippet = full[:120].replace("\n", " ")
                     findings.append((severity, f"{rel}:{line}", desc, snippet))
+                    if review_text is not None:
+                        review_text.append({'path': rel.replace('\\', '/'), 'text': context, 'finding': len(findings)-1, 'truncated': True})
     return findings
 
 
@@ -196,6 +215,8 @@ def main() -> int:
     ap.add_argument("--base-ref", help="Base ref to diff skills.json against, e.g. origin/main")
     ap.add_argument("--repo", action="append", default=[], help="Scan a repo URL directly")
     ap.add_argument("--report", default="security-report.md")
+    ap.add_argument("--json-report", help="Write machine-readable scan evidence")
+    ap.add_argument("--revision", help="Scan an exact commit (single --repo only)")
     args = ap.parse_args()
 
     targets = list(args.repo)
@@ -203,17 +224,29 @@ def main() -> int:
         entries = changed_repos(args.base_ref)
         targets += [e["repo"] for e in entries]
     targets = sorted(set(targets))
+    if args.revision and len(targets) != 1:
+        ap.error("--revision requires exactly one target")
 
     lines = ["# Security Scan\n"]
     exit_code = 0
+    reports = []
     if not targets:
         lines.append("No new or changed repos in `skills.json` — nothing to scan.")
     for url in targets:
         print(f"::group::Scanning {url}")
-        findings = scan_repo(url)
+        evidence = {"repo": url}
+        try:
+            findings = scan_repo(url, revision=args.revision, evidence=evidence)
+        except (OSError, subprocess.TimeoutExpired, RuntimeError, ValueError) as exc:
+            findings = [("HIGH", "-", "Scan could not complete", str(exc)[:200])]
+        evidence["findings"] = findings
+        evidence["result"] = "blocked" if any(f[0] == "HIGH" for f in findings) else ("warnings" if findings else "passed")
+        reports.append(evidence)
         print(f"{len(findings)} finding(s)")
         print("::endgroup::")
         lines.append(f"\n## {url}\n")
+        lines.append(f"Revision: `{evidence.get('revision', 'unavailable')}`. Checked: {evidence.get('checkedAt', 'unavailable')}.")
+        lines.append(f"Text files scanned: {evidence.get('filesScanned', 0)}; unsupported/large files skipped: {evidence.get('filesSkipped', 0)}. Dependencies and runtime behavior are not tested.")
         if not findings:
             lines.append("No red flags found. (Automated scanning is no substitute for a human look — still skim hooks and shell scripts yourself.)")
             continue
@@ -232,6 +265,8 @@ def main() -> int:
             lines.append("\n**Result: review the warnings**, then this can be merged.")
 
     Path(args.report).write_text("\n".join(lines), encoding="utf-8")
+    if args.json_report:
+        Path(args.json_report).write_text(json.dumps(reports, indent=2), encoding="utf-8")
     print(f"Report: {args.report}")
     return exit_code
 

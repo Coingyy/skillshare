@@ -1,0 +1,70 @@
+{
+  "repo": "https://github.com/PrefectHQ/fastmcp",
+  "revision": "e3fb4af36892e6477399df2597f0dd5abd469799",
+  "checkedAt": "2026-09-07T18:09:52.527191+00:00",
+  "filesScanned": 1014,
+  "filesSkipped": 706,
+  "findings": [
+    [
+      "WARN",
+      ".claude\\settings.json:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      ".github\\workflows\\marvin-dedupe-issues.yml:110",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://claude.ai/install.sh | bash"
+    ],
+    [
+      "WARN",
+      ".github\\workflows\\marvin-label-triage.yml:174",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://claude.ai/install.sh | bash"
+    ],
+    [
+      "WARN",
+      "dev-docs\\v3-notes\\auth-provider-env-vars.md:47",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"GITHUB_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "dev-docs\\v3-notes\\v3-features.md:1455",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"GITHUB_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "examples\\auth\\propelauth_oauth\\server.py:31",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"PROPELAUTH_INTROSPECTION_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "fastmcp_slim\\fastmcp\\utilities\\mcp_server_config\\v1\\mcp_server_config.py:103",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[key"
+    ],
+    [
+      "WARN",
+      "fastmcp_slim\\fastmcp\\utilities\\mcp_server_config\\v1\\environments\\uv.py:121",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "tests\\cli\\test_config.py:243",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[key"
+    ],
+    [
+      "WARN",
+      "tests\\integration_tests\\auth\\test_keycloak_provider_integration.py:264",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"FASTMCP_SERVER_AUTH_KEY"
+    ]
+  ],
+  "result": "warnings"
+}

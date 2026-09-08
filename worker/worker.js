@@ -12,6 +12,12 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 const REPO_URL_RE = /^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/;
 
+function issueRepository(body) {
+  const match = String(body || "").match(/^### GitHub repo URL\r?\n+([^\r\n]+)/m);
+  const value = match ? match[1].trim() : "";
+  return REPO_URL_RE.test(value) ? value.replace(/\/+$/, "").replace(/\.git$/, "").toLowerCase() : "";
+}
+
 const RATE_LIMIT = 5;            // submissions...
 const RATE_WINDOW_MS = 3600_000; // ...per hour per IP
 const ipHits = new Map();        // per-isolate; resets on cold start, good enough
@@ -60,8 +66,20 @@ export default {
       return reply(origin, 400, { ok: false, error: "Invalid JSON" });
     }
 
-    const repo = String(body.repo || "").trim().replace(/\/+$/, "");
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return reply(origin, 400, { ok: false, error: "Invalid JSON object" });
+    }
+    const repo = String(body.repo || "").trim().replace(/\/+$/, "").replace(/\.git$/, "");
     const notes = String(body.notes || "").trim().slice(0, 1000);
+    const platforms = body.platforms ?? [];
+    const type = body.type || "";
+    const source = String(body.source || "").trim();
+    if (!Array.isArray(platforms) || platforms.length > 3 ||
+        platforms.some(p => !["claude-code", "codex", "chatgpt"].includes(p)) ||
+        !["", "skill", "plugin", "mcp", "tool", "collection", "reference", "workflow"].includes(type) ||
+        (source && (!/^https:\/\/[^\s]+$/.test(source) || source.length > 500))) {
+      return reply(origin, 400, { ok: false, error: "bad-metadata" });
+    }
 
     if (!REPO_URL_RE.test(repo)) {
       return reply(origin, 400, { ok: false, error: "bad-repo" });
@@ -73,13 +91,14 @@ export default {
       "User-Agent": "skillshare-submit-worker",
     };
 
-    // Global daily cap — protects the Claude subscription and Actions from
+    // Global daily intake cap — protects review capacity and Actions from
     // being flooded when the link makes the rounds publicly.
     const DAILY_CAP = 40;
     try {
       const today = new Date().toISOString().slice(0, 10);
       const q = encodeURIComponent(`repo:${REPO} label:skill-submission created:>=${today}`);
       const res = await fetch(`https://api.github.com/search/issues?q=${q}&per_page=1`, { headers: gh });
+      if (!res.ok) throw new Error('Daily cap unavailable');
       if (res.ok) {
         const data = await res.json();
         if (data.total_count >= DAILY_CAP) {
@@ -88,6 +107,7 @@ export default {
       }
     } catch (e) {
       console.log("daily cap check failed", String(e));
+      return reply(origin, 503, { ok: false, error: "intake-unavailable" });
     }
 
     // Already in the catalog?
@@ -100,7 +120,7 @@ export default {
         const data = await cat.json();
         const norm = repo.toLowerCase();
         if ((data.skills || []).some((s) => String(s.repo).replace(/\/+$/, "").toLowerCase() === norm)) {
-          return reply(origin, 409, { ok: false, error: "already-listed" });
+            return reply(origin, 409, { ok: false, error: "already-listed" });
         }
       }
     } catch (e) {
@@ -115,8 +135,9 @@ export default {
       );
       if (open.ok) {
         const issues = await open.json();
-        if (issues.some((i) => (i.body || "").toLowerCase().includes(repo.toLowerCase()))) {
-          return reply(origin, 409, { ok: false, error: "already-submitted" });
+        const existing = issues.find((i) => !i.pull_request && issueRepository(i.body) === repo.toLowerCase());
+        if (existing) {
+          return reply(origin, 409, { ok: false, error: "already-submitted", issue: existing.html_url });
         }
       }
     } catch (e) {
@@ -125,6 +146,9 @@ export default {
 
     const issueBody =
       `### GitHub repo URL\n\n${repo}\n\n` +
+      `### Suggested platforms\n\n${[...new Set(platforms)].join(", ") || "Not sure"}\n\n` +
+      `### Offering type\n\n${type || "Not sure"}\n\n` +
+      `### Provider documentation\n\n${source || "Not provided"}\n\n` +
       `### What is it? (rough note is fine)\n\n${notes || "(no note given)"}\n\n` +
       `Submitted by: anonymous (via website)`;
 
@@ -145,6 +169,6 @@ export default {
     }
 
     const issue = await res.json();
-    return reply(origin, 200, { ok: true, issue: issue.html_url });
+    return reply(origin, 202, { ok: true, state: "received", issue: issue.html_url });
   },
 };

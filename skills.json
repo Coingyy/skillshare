@@ -1,6 +1,6 @@
 {
   "$schema": "./schema/skills.schema.json",
-  "updated": "2026-08-29",
+  "updated": "2026-09-08",
   "skills": [
     {
       "id": "anthropic-skills",
@@ -15,12 +15,69 @@
         "reference"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Add anthropics/skills in Claude Code using /plugin marketplace add anthropics/skills; choose document-skills or example-skills in the plugin browser.",
+          "prerequisites": [
+            "Claude Code; individual document skills have their own runtime dependencies."
+          ],
+          "sources": [
+            "https://github.com/anthropics/skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/anthropics/skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/anthropics/skills",
+        "pushedAt": "2026-09-03T16:37:14Z",
+        "notes": "Claude.ai support is not ChatGPT support."
+      },
+      "popularity": {
+        "stars": 175005,
+        "observedAt": "2026-09-07T18:06:08.151303+00:00",
+        "source": "https://api.github.com/repos/anthropics/skills"
+      }
     },
     {
       "id": "superpowers",
       "name": "Superpowers",
-      "tagline": "A full workflow toolbox for coding with Claude",
+      "tagline": "A development workflow for Claude Code and Codex",
       "repo": "https://github.com/obra/superpowers",
       "description": "A composable skills library implementing a full software development methodology: brainstorming and design docs, TDD, systematic debugging, planning, subagent-driven execution, code review, and git worktree workflows.",
       "category": "code-quality",
@@ -34,14 +91,75 @@
         "subagents"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "plugin",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Open /plugin in Claude Code and install superpowers@claude-plugins-official, as described by the provider.",
+          "prerequisites": [
+            "Claude Code or Codex with plugin support."
+          ],
+          "sources": [
+            "https://github.com/obra/superpowers/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Open the Codex Plugins interface, find Superpowers and select +. In the CLI, the provider points to /plugins. Start a new session to load the plugin.",
+          "prerequisites": [
+            "Claude Code or Codex with plugin support."
+          ],
+          "sources": [
+            "https://github.com/obra/superpowers/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/obra/superpowers/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/obra/superpowers",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/obra/superpowers",
+        "pushedAt": "2026-09-04T23:04:36Z",
+        "notes": "Use the separate provider setup for each host; no compatibility tests were run."
+      },
+      "popularity": {
+        "stars": 282771,
+        "observedAt": "2026-09-07T18:06:08.151303+00:00",
+        "source": "https://api.github.com/repos/obra/superpowers"
+      }
     },
     {
       "id": "impeccable",
       "name": "Impeccable",
       "tagline": "Makes your AI-built websites look professional",
       "repo": "https://github.com/pbakaus/impeccable",
-      "description": "Design guidance skill for AI coding agents that provides 23 commands (init, craft, critique, audit, polish, animate, and more) plus 59 deterministic detector rules to steer AI-generated frontend UI away from common design tells and toward more distinctive, higher-quality craft.",
+      "description": "Design guidance and checking tools for AI coding agents, covering layout, typography, accessibility, motion and interface review.",
       "category": "ui-design",
       "tags": [
         "ui-design",
@@ -52,7 +170,68 @@
         "web"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "From your project run npx impeccable install, select Claude Code or Codex and your scope, then reload the agent. Run /impeccable init; approve native hooks when prompted.",
+          "prerequisites": [
+            "Node.js for the npx installer; the skill launcher uses the Impeccable engine."
+          ],
+          "sources": [
+            "https://github.com/pbakaus/impeccable/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "From your project run npx impeccable install, select Claude Code or Codex and your scope, then reload the agent. Run /impeccable init; approve native hooks when prompted.",
+          "prerequisites": [
+            "Node.js for the npx installer; the skill launcher uses the Impeccable engine."
+          ],
+          "sources": [
+            "https://github.com/pbakaus/impeccable/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/pbakaus/impeccable/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/pbakaus/impeccable",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/pbakaus/impeccable",
+        "pushedAt": "2026-09-07T17:58:58Z",
+        "notes": "Removed obsolete command and detector counts. Hooks and engine downloads are separate from the Markdown guidance."
+      },
+      "popularity": {
+        "stars": 66291,
+        "observedAt": "2026-09-07T18:06:08.152806+00:00",
+        "source": "https://api.github.com/repos/pbakaus/impeccable"
+      }
     },
     {
       "id": "claude-code-action",
@@ -70,14 +249,71 @@
       ],
       "addedAt": "2026-08-27",
       "status": "verified",
-      "tagline": "Lets Claude work inside your GitHub repo automatically"
+      "tagline": "Lets Claude work inside your GitHub repo automatically",
+      "type": "workflow",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use /install-github-app in Claude Code and follow the provider guide to install the GitHub app and configure authentication.",
+          "prerequisites": [
+            "Repository admin access; GitHub Actions; Anthropic API or a documented cloud provider."
+          ],
+          "sources": [
+            "https://github.com/anthropics/claude-code-action/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-code-action/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/anthropics/claude-code-action",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/anthropics/claude-code-action",
+        "pushedAt": "2026-09-06T02:56:54Z",
+        "notes": "This is an automation action, not a locally installed skill."
+      },
+      "popularity": {
+        "stars": 8812,
+        "observedAt": "2026-09-07T18:06:08.152806+00:00",
+        "source": "https://api.github.com/repos/anthropics/claude-code-action"
+      }
     },
     {
       "id": "caveman",
       "name": "Caveman",
       "tagline": "Cuts your token bill by talking like a caveman",
       "repo": "https://github.com/JuliusBrussee/caveman",
-      "description": "Communication mode that compresses Claude's replies by ~65% while keeping all technical substance. Levels from lite to ultra, plus compressed commit messages and code reviews.",
+      "description": "Communication skills for shorter agent responses, with optional proxy and workflow tools. Claimed token savings depend on the task and were not measured here.",
       "category": "prompting",
       "tags": [
         "tokens",
@@ -85,14 +321,75 @@
         "modes"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx skills add JuliusBrussee/caveman and select the intended agent; reload skills and invoke /caveman. The optional proxy has a separate setup.",
+          "prerequisites": [
+            "Node.js and npm for the skills installer."
+          ],
+          "sources": [
+            "https://github.com/JuliusBrussee/caveman/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use npx skills add JuliusBrussee/caveman and select the intended agent; reload skills and invoke /caveman. The optional proxy has a separate setup.",
+          "prerequisites": [
+            "Node.js and npm for the skills installer."
+          ],
+          "sources": [
+            "https://github.com/JuliusBrussee/caveman/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/JuliusBrussee/caveman/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/JuliusBrussee/caveman",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/JuliusBrussee/caveman",
+        "pushedAt": "2026-09-07T08:28:45Z",
+        "notes": "Token reductions are vendor claims, not a measured result of this review. Do not confuse the skill with the optional proxy."
+      },
+      "popularity": {
+        "stars": 104111,
+        "observedAt": "2026-09-07T18:06:08.152806+00:00",
+        "source": "https://api.github.com/repos/JuliusBrussee/caveman"
+      }
     },
     {
       "id": "ui-ux-pro-max",
       "name": "UI/UX Pro Max",
-      "tagline": "Design intelligence so your UIs stop looking AI-made",
+      "tagline": "Design guidance for your AI-built interfaces",
       "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
-      "description": "67 styles, 96 color palettes, 57 font pairings and UX guidelines as a searchable database Claude uses while building interfaces. Powers this very site.",
+      "description": "Searchable design guidance, palettes, typography and UX recommendations for building interfaces with Claude Code and Codex.",
       "category": "ui-design",
       "tags": [
         "design-system",
@@ -100,14 +397,75 @@
         "typography"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install the provider package ui-ux-pro-max-cli from npm, then run uipro init --ai claude in your project.",
+          "prerequisites": [
+            "Node.js/npm for the CLI; Python 3 for the search scripts."
+          ],
+          "sources": [
+            "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Install the provider package ui-ux-pro-max-cli from npm, then run uipro init --ai codex in your project.",
+          "prerequisites": [
+            "Node.js/npm for the CLI; Python 3 for the search scripts."
+          ],
+          "sources": [
+            "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "pushedAt": "2026-09-06T11:29:23Z",
+        "notes": "The provider now warns against the older uipro-cli package. Removed stale dataset counts and unproven site attribution."
+      },
+      "popularity": {
+        "stars": 125751,
+        "observedAt": "2026-09-07T18:06:08.153814+00:00",
+        "source": "https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill"
+      }
     },
     {
       "id": "claude-plugins-official",
       "name": "Official Claude Plugins",
       "tagline": "Anthropic's official plugin directory",
       "repo": "https://github.com/anthropics/claude-plugins-official",
-      "description": "Official, Anthropic-managed directory of high-quality Claude Code plugins — the safest starting point for extending Claude.",
+      "description": "Anthropic-managed directory of Claude Code plugins. Each plugin has its own capabilities, dependencies and trust requirements.",
       "category": "official",
       "tags": [
         "anthropic",
@@ -115,7 +473,64 @@
         "directory"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Open /plugin > Discover in Claude Code and select an individual plugin from the official marketplace.",
+          "prerequisites": [
+            "Claude Code; dependencies vary per plugin."
+          ],
+          "sources": [
+            "https://github.com/anthropics/claude-plugins-official/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-plugins-official/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/anthropics/claude-plugins-official",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/anthropics/claude-plugins-official",
+        "pushedAt": "2026-09-07T07:42:44Z",
+        "notes": "A curated directory is not a blanket safety guarantee; removed the claim that it is the safest option."
+      },
+      "popularity": {
+        "stars": 36010,
+        "observedAt": "2026-09-07T18:06:08.878165+00:00",
+        "source": "https://api.github.com/repos/anthropics/claude-plugins-official"
+      }
     },
     {
       "id": "awesome-claude-code",
@@ -129,14 +544,71 @@
         "resources"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "reference",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Browse the resource list and follow the linked project instructions for each selected tool. The list itself is not installed.",
+          "prerequisites": [
+            "Browser; selected projects have independent requirements."
+          ],
+          "sources": [
+            "https://github.com/hesreallyhim/awesome-claude-code/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/hesreallyhim/awesome-claude-code/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/hesreallyhim/awesome-claude-code",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/hesreallyhim/awesome-claude-code",
+        "pushedAt": "2026-09-07T15:09:31Z",
+        "notes": "Resource collection, not an executable skill bundle. No blanket compatibility claim for linked projects."
+      },
+      "popularity": {
+        "stars": 53647,
+        "observedAt": "2026-09-07T18:06:08.902574+00:00",
+        "source": "https://api.github.com/repos/hesreallyhim/awesome-claude-code"
+      }
     },
     {
       "id": "wshobson-agents",
       "name": "Agents Marketplace",
       "tagline": "A marketplace of ready-made expert agents",
       "repo": "https://github.com/wshobson/agents",
-      "description": "Multi-harness plugin marketplace with dozens of specialized subagents — backend, security, data, DevOps — that drop straight into Claude Code.",
+      "description": "Multi-host plugin marketplace of specialized agents, skills and commands, with documented native Claude Code and Codex installation routes.",
       "category": "subagents",
       "tags": [
         "marketplace",
@@ -144,7 +616,68 @@
         "plugins"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Claude Code: register wshobson/agents in the plugin marketplace and select a plugin. Codex: use the native registry instructions linked under Codex CLI in the README.",
+          "prerequisites": [
+            "Claude Code or Codex; selected plugins may require language runtimes and services."
+          ],
+          "sources": [
+            "https://github.com/wshobson/agents/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Claude Code: register wshobson/agents in the plugin marketplace and select a plugin. Codex: use the native registry instructions linked under Codex CLI in the README.",
+          "prerequisites": [
+            "Claude Code or Codex; selected plugins may require language runtimes and services."
+          ],
+          "sources": [
+            "https://github.com/wshobson/agents/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/wshobson/agents/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/wshobson/agents",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/wshobson/agents",
+        "pushedAt": "2026-09-07T01:09:29Z",
+        "notes": "Native multi-host support is documented. Skill-only installs omit agents, commands and hooks."
+      },
+      "popularity": {
+        "stars": 39470,
+        "observedAt": "2026-09-07T18:06:08.904152+00:00",
+        "source": "https://api.github.com/repos/wshobson/agents"
+      }
     },
     {
       "id": "awesome-subagents",
@@ -158,14 +691,71 @@
         "collection"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Copy selected agent Markdown files into ~/.claude/agents/ or project .claude/agents/, or choose a category through the documented plugin marketplace.",
+          "prerequisites": [
+            "Claude Code with subagent support."
+          ],
+          "sources": [
+            "https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/VoltAgent/awesome-claude-code-subagents",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+        "pushedAt": "2026-09-07T08:53:31Z",
+        "notes": "The separate VoltAgent Codex collection is the relevant Codex counterpart."
+      },
+      "popularity": {
+        "stars": 24909,
+        "observedAt": "2026-09-07T18:06:09.012651+00:00",
+        "source": "https://api.github.com/repos/VoltAgent/awesome-claude-code-subagents"
+      }
     },
     {
       "id": "ecc",
       "name": "ECC",
       "tagline": "Tunes your whole agent setup for top performance",
       "repo": "https://github.com/affaan-m/ECC",
-      "description": "Agent harness optimization system: skills, instincts, memory and session management that squeeze more capability out of Claude Code.",
+      "description": "Skills, plugins, rules, hooks and configuration tools for Claude Code and Codex, with a guided installer and host-specific setup.",
       "category": "llm-tooling",
       "tags": [
         "performance",
@@ -173,28 +763,146 @@
         "harness"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx ecc-universal install --guided to choose the host. Codex also documents codex plugin marketplace add affaan-m/ECC followed by codex plugin add ecc@ecc.",
+          "prerequisites": [
+            "Node.js 18+; Git; Claude Code 2.1+ for the Claude plugin."
+          ],
+          "sources": [
+            "https://github.com/affaan-m/ECC/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use npx ecc-universal install --guided to choose the host. Codex also documents codex plugin marketplace add affaan-m/ECC followed by codex plugin add ecc@ecc.",
+          "prerequisites": [
+            "Node.js 18+; Git; Claude Code 2.1+ for the Claude plugin."
+          ],
+          "sources": [
+            "https://github.com/affaan-m/ECC/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/affaan-m/ECC/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/affaan-m/ECC",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/affaan-m/ECC",
+        "pushedAt": "2026-09-07T12:14:52Z",
+        "notes": "The old Codex synchronization path is deprecated; current provider guidance uses native plugins."
+      },
+      "popularity": {
+        "stars": 252562,
+        "observedAt": "2026-09-07T18:06:09.104074+00:00",
+        "source": "https://api.github.com/repos/affaan-m/ECC"
+      }
     },
     {
       "id": "karpathy-skills",
       "name": "Karpathy Skills",
       "tagline": "Karpathy's coding wisdom in one CLAUDE.md",
       "repo": "https://github.com/multica-ai/andrej-karpathy-skills",
-      "description": "A single CLAUDE.md file derived from Andrej Karpathy's guidance that measurably improves how Claude Code behaves.",
+      "description": "Community-authored Claude Code guidelines inspired by Andrej Karpathy’s observations on common mistakes in AI-assisted coding.",
       "category": "prompting",
       "tags": [
         "claude-md",
         "best-practices"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Follow the README plugin route, or use its per-project CLAUDE.md instructions. Review the marketplace owner shown by the provider before installing.",
+          "prerequisites": [
+            "Claude Code."
+          ],
+          "sources": [
+            "https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/multica-ai/andrej-karpathy-skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/multica-ai/andrej-karpathy-skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/multica-ai/andrej-karpathy-skills",
+        "pushedAt": "2026-04-20T10:05:04Z",
+        "notes": "Karpathy-inspired community guidance, not authored or endorsed by Karpathy. README still uses the former forrestchang marketplace owner; retained as an explicit uncertainty."
+      },
+      "popularity": {
+        "stars": 210846,
+        "observedAt": "2026-09-07T18:06:09.250199+00:00",
+        "source": "https://api.github.com/repos/multica-ai/andrej-karpathy-skills"
+      }
     },
     {
       "id": "graphify",
       "name": "Graphify",
       "tagline": "Turns your codebase into a queryable knowledge graph",
       "repo": "https://github.com/Graphify-Labs/graphify",
-      "description": "Ingests code, docs, SQL schemas, configs and PDFs into a graph Claude can query for deep codebase understanding.",
+      "description": "Builds a queryable graph from code, documentation, schemas and other project files for Claude Code, Codex and other documented agents.",
       "category": "llm-tooling",
       "tags": [
         "knowledge-graph",
@@ -202,7 +910,68 @@
         "rag"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install the graphifyy CLI with uv tool install graphifyy, then run graphify install and select your agent.",
+          "prerequisites": [
+            "Python 3.10+; uv or pipx."
+          ],
+          "sources": [
+            "https://github.com/Graphify-Labs/graphify/blob/v8/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Install the graphifyy CLI with uv tool install graphifyy, then run graphify install and select your agent.",
+          "prerequisites": [
+            "Python 3.10+; uv or pipx."
+          ],
+          "sources": [
+            "https://github.com/Graphify-Labs/graphify/blob/v8/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/Graphify-Labs/graphify/blob/v8/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/Graphify-Labs/graphify",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/Graphify-Labs/graphify",
+        "pushedAt": "2026-09-05T21:19:43Z",
+        "notes": "The official package is graphifyy (double y), while the command is graphify."
+      },
+      "popularity": {
+        "stars": 115618,
+        "observedAt": "2026-09-07T18:06:09.656802+00:00",
+        "source": "https://api.github.com/repos/Graphify-Labs/graphify"
+      }
     },
     {
       "id": "ruflo",
@@ -217,7 +986,68 @@
         "security"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use the README installation section and choose the plugin or CLI path for your host. Claude Code and Codex have separate packages and setup instructions.",
+          "prerequisites": [
+            "Node.js/npm; selected integrations require their own credentials."
+          ],
+          "sources": [
+            "https://github.com/ruvnet/ruflo/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use the README installation section and choose the plugin or CLI path for your host. Claude Code and Codex have separate packages and setup instructions.",
+          "prerequisites": [
+            "Node.js/npm; selected integrations require their own credentials."
+          ],
+          "sources": [
+            "https://github.com/ruvnet/ruflo/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/ruvnet/ruflo/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/ruvnet/ruflo",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/ruvnet/ruflo",
+        "pushedAt": "2026-09-07T17:41:45Z",
+        "notes": "Plugin and CLI installation have different permissions and feature sets; no swarm performance claims were tested."
+      },
+      "popularity": {
+        "stars": 71293,
+        "observedAt": "2026-09-07T18:06:09.694551+00:00",
+        "source": "https://api.github.com/repos/ruvnet/ruflo"
+      }
     },
     {
       "id": "planning-with-files",
@@ -231,7 +1061,68 @@
         "persistence"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx skills add OthmanAdi/planning-with-files --skill planning-with-files -g and select your agent, or use the documented host plugin route for lifecycle hooks.",
+          "prerequisites": [
+            "Node.js/npm for the installer; hook scripts need the runtimes listed in the installation guide."
+          ],
+          "sources": [
+            "https://github.com/OthmanAdi/planning-with-files/blob/master/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use npx skills add OthmanAdi/planning-with-files --skill planning-with-files -g and select your agent, or use the documented host plugin route for lifecycle hooks.",
+          "prerequisites": [
+            "Node.js/npm for the installer; hook scripts need the runtimes listed in the installation guide."
+          ],
+          "sources": [
+            "https://github.com/OthmanAdi/planning-with-files/blob/master/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/OthmanAdi/planning-with-files/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/OthmanAdi/planning-with-files",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/OthmanAdi/planning-with-files",
+        "pushedAt": "2026-09-07T08:19:29Z",
+        "notes": "Skill-only and native plugin installs do not provide identical hooks."
+      },
+      "popularity": {
+        "stars": 26697,
+        "observedAt": "2026-09-07T18:06:09.775955+00:00",
+        "source": "https://api.github.com/repos/OthmanAdi/planning-with-files"
+      }
     },
     {
       "id": "claude-hud",
@@ -246,7 +1137,64 @@
         "plugin"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "plugin",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Add jarrodwatts/claude-hud to the plugin marketplace, install claude-hud, reload plugins, then run /claude-hud:setup.",
+          "prerequisites": [
+            "Claude Code; Node.js LTS on Windows."
+          ],
+          "sources": [
+            "https://github.com/jarrodwatts/claude-hud/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/jarrodwatts/claude-hud/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/jarrodwatts/claude-hud",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/jarrodwatts/claude-hud",
+        "pushedAt": "2026-09-05T21:32:41Z",
+        "notes": "Claude Code status-line plugin, not a Codex or ChatGPT dashboard."
+      },
+      "popularity": {
+        "stars": 27865,
+        "observedAt": "2026-09-07T18:06:09.783345+00:00",
+        "source": "https://api.github.com/repos/jarrodwatts/claude-hud"
+      }
     },
     {
       "id": "codex-plugin",
@@ -261,7 +1209,64 @@
         "review"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "plugin",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "In Claude Code add openai/codex-plugin-cc as a marketplace, install codex@openai-codex, reload plugins and run /codex:setup.",
+          "prerequisites": [
+            "Claude Code; Node.js 18.18+; Codex with ChatGPT sign-in or an OpenAI API key."
+          ],
+          "sources": [
+            "https://github.com/openai/codex-plugin-cc/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/openai/codex-plugin-cc/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/openai/codex-plugin-cc",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/openai/codex-plugin-cc",
+        "pushedAt": "2026-07-08T00:17:31Z",
+        "notes": "Codex is a dependency invoked from Claude Code. This is not a plugin to install in Codex itself."
+      },
+      "popularity": {
+        "stars": 32881,
+        "observedAt": "2026-09-07T18:06:09.828656+00:00",
+        "source": "https://api.github.com/repos/openai/codex-plugin-cc"
+      }
     },
     {
       "id": "cc-switch",
@@ -276,14 +1281,75 @@
         "providers"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Download the matching desktop release and follow the README setup to manage each installed agent and its provider configuration.",
+          "prerequisites": [
+            "Supported Windows, macOS or Linux desktop; the agents being managed."
+          ],
+          "sources": [
+            "https://github.com/farion1231/cc-switch/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Download the matching desktop release and follow the README setup to manage each installed agent and its provider configuration.",
+          "prerequisites": [
+            "Supported Windows, macOS or Linux desktop; the agents being managed."
+          ],
+          "sources": [
+            "https://github.com/farion1231/cc-switch/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/farion1231/cc-switch/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/farion1231/cc-switch",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/farion1231/cc-switch",
+        "pushedAt": "2026-09-07T14:03:57Z",
+        "notes": "A configuration manager. Sponsor advertisements mentioning ChatGPT do not establish ChatGPT integration."
+      },
+      "popularity": {
+        "stars": 131532,
+        "observedAt": "2026-09-07T18:06:10.031361+00:00",
+        "source": "https://api.github.com/repos/farion1231/cc-switch"
+      }
     },
     {
       "id": "blender-mcp",
       "name": "Blender MCP",
       "tagline": "Control Blender by telling Claude what to build",
       "repo": "https://github.com/ahujasid/blender-mcp",
-      "description": "Community plugin that connects Blender to any LLM — create scenes, materials and renders through chat.",
+      "description": "MCP server and Blender addon for creating and editing scenes, materials and renders through a connected AI client.",
       "category": "3d",
       "tags": [
         "blender",
@@ -291,14 +1357,75 @@
         "modeling"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install uv and the provider Blender addon, enable the addon and connect it inside Blender. Register the server with: claude mcp add blender uvx blender-mcp.",
+          "prerequisites": [
+            "Blender; uv; the repository Blender addon. Optional asset services may require accounts."
+          ],
+          "sources": [
+            "https://github.com/ahujasid/blender-mcp/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Install uv and the provider Blender addon, enable the addon and connect it inside Blender. Register the server with: codex mcp add blender -- uvx blender-mcp.",
+          "prerequisites": [
+            "Blender; uv; the repository Blender addon. Optional asset services may require accounts."
+          ],
+          "sources": [
+            "https://github.com/ahujasid/blender-mcp/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/ahujasid/blender-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/ahujasid/blender-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/ahujasid/blender-mcp",
+        "pushedAt": "2026-09-07T15:51:01Z",
+        "notes": "MCP server plus Blender addon, not a standalone skill."
+      },
+      "popularity": {
+        "stars": 27518,
+        "observedAt": "2026-09-07T18:06:10.438876+00:00",
+        "source": "https://api.github.com/repos/ahujasid/blender-mcp"
+      }
     },
     {
       "id": "godogen",
       "name": "Godogen",
       "tagline": "Builds whole games in Godot on autopilot",
       "repo": "https://github.com/htdt/godogen",
-      "description": "Autonomous game development for Godot, Bevy and Babylon.js driven by Claude Code and other agents.",
+      "description": "Project workflows for game development with Godot, Bevy and Babylon.js using Claude Code or Codex.",
       "category": "game-dev",
       "tags": [
         "godot",
@@ -306,7 +1433,68 @@
         "autonomous"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "workflow",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Clone the project and use its publish.sh with the chosen engine and agent to create a game project. Follow the README examples and use a new output directory.",
+          "prerequisites": [
+            "Godot 4 .NET, Rust/Cargo for Bevy, or Node.js 22.12+ for Babylon.js; Claude Code or Codex."
+          ],
+          "sources": [
+            "https://github.com/htdt/godogen/blob/master/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Clone the project and use its publish.sh with the chosen engine and agent to create a game project. Follow the README examples and use a new output directory.",
+          "prerequisites": [
+            "Godot 4 .NET, Rust/Cargo for Bevy, or Node.js 22.12+ for Babylon.js; Claude Code or Codex."
+          ],
+          "sources": [
+            "https://github.com/htdt/godogen/blob/master/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/htdt/godogen/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/htdt/godogen",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/htdt/godogen",
+        "pushedAt": "2026-09-04T17:30:18Z",
+        "notes": "Provider now explicitly documents both hosts. The force option can erase the destination; not needed for initial setup."
+      },
+      "popularity": {
+        "stars": 6753,
+        "observedAt": "2026-09-07T18:06:10.471498+00:00",
+        "source": "https://api.github.com/repos/htdt/godogen"
+      }
     },
     {
       "id": "awesome-gamedev-skills",
@@ -322,7 +1510,68 @@
         "collection"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx skills add gamedev-skills/awesome-gamedev-agent-skills and select your host and desired engine bundle.",
+          "prerequisites": [
+            "Node.js/npm; the engine and tools required by the selected skills."
+          ],
+          "sources": [
+            "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use npx skills add gamedev-skills/awesome-gamedev-agent-skills and select your host and desired engine bundle.",
+          "prerequisites": [
+            "Node.js/npm; the engine and tools required by the selected skills."
+          ],
+          "sources": [
+            "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/gamedev-skills/awesome-gamedev-agent-skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+        "pushedAt": "2026-08-24T12:21:02Z",
+        "notes": "No fixed skill count retained because the repository and description differ."
+      },
+      "popularity": {
+        "stars": 865,
+        "observedAt": "2026-09-07T18:06:10.677125+00:00",
+        "source": "https://api.github.com/repos/gamedev-skills/awesome-gamedev-agent-skills"
+      }
     },
     {
       "id": "roblox-game-skill",
@@ -336,7 +1585,64 @@
         "luau"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "The README identifies ~/.claude/skills/roblox-game/ as its location but assumes an existing installation. Review its layout before manually setting it up.",
+          "prerequisites": [
+            "Claude Code; Roblox Studio for engine workflows; MCP Studio integration for automation."
+          ],
+          "sources": [
+            "https://github.com/brockmartin/roblox-game-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/brockmartin/roblox-game-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/brockmartin/roblox-game-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/brockmartin/roblox-game-skill",
+        "pushedAt": "2026-03-04T20:06:25Z",
+        "notes": "Provider declares Claude Code support but the public installation instructions are incomplete."
+      },
+      "popularity": {
+        "stars": 156,
+        "observedAt": "2026-09-07T18:06:10.723460+00:00",
+        "source": "https://api.github.com/repos/brockmartin/roblox-game-skill"
+      }
     },
     {
       "id": "claude-sbox",
@@ -350,13 +1656,70 @@
         "source2"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Clone the skill into ~/.claude/skills/sbox/ as documented and restart Claude Code if this is your first personal skill directory; invoke /sbox.",
+          "prerequisites": [
+            "Claude Code; s&box for engine work."
+          ],
+          "sources": [
+            "https://github.com/gavogavogavo/claude-sbox/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/gavogavogavo/claude-sbox/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/gavogavogavo/claude-sbox",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/gavogavogavo/claude-sbox",
+        "pushedAt": "2026-06-23T12:33:13Z",
+        "notes": "Provider API validation is not a Skillshare functional test."
+      },
+      "popularity": {
+        "stars": 46,
+        "observedAt": "2026-09-07T18:06:10.766925+00:00",
+        "source": "https://api.github.com/repos/gavogavogavo/claude-sbox"
+      }
     },
     {
       "id": "taste-skill",
       "name": "Taste Skill",
       "tagline": "Stops AI-built websites from looking generic and templated",
-      "repo": "https://github.com/leonxlnx/taste-skill",
+      "repo": "https://github.com/Leonxlnx/taste-skill",
       "description": "A set of Agent Skills that guide AI coding tools away from generic \"AI slop\" interfaces, directing layout, typography, motion, and spacing for landing pages, portfolios, and redesigns, plus image-generation skills for design reference boards.",
       "category": "ui-design",
       "tags": [
@@ -370,13 +1733,78 @@
         "cursor"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Claude Code/Codex: use npx skills add https://github.com/Leonxlnx/taste-skill and choose the host. ChatGPT: the provider documents pasting a selected SKILL.md into a conversation as guidance.",
+          "prerequisites": [
+            "Node.js/npm for local installation; an image-capable ChatGPT session for reference-board workflows."
+          ],
+          "sources": [
+            "https://github.com/Leonxlnx/taste-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Claude Code/Codex: use npx skills add https://github.com/Leonxlnx/taste-skill and choose the host. ChatGPT: the provider documents pasting a selected SKILL.md into a conversation as guidance.",
+          "prerequisites": [
+            "Node.js/npm for local installation; an image-capable ChatGPT session for reference-board workflows."
+          ],
+          "sources": [
+            "https://github.com/Leonxlnx/taste-skill/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "documented",
+          "instructions": "Paste the chosen SKILL.md into a ChatGPT conversation as guidance, as the provider describes. This does not install or run the repository scripts. Reference-board workflows need a session that accepts images.",
+          "prerequisites": [
+            "Node.js/npm for local installation; an image-capable ChatGPT session for reference-board workflows."
+          ],
+          "sources": [
+            "https://github.com/Leonxlnx/taste-skill/blob/main/README.md"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/Leonxlnx/taste-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/Leonxlnx/taste-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/Leonxlnx/taste-skill",
+        "pushedAt": "2026-08-24T15:23:56Z",
+        "notes": "ChatGPT support is conversational guidance, not installation of local scripts or a ChatGPT plugin. The default frontend skill is experimental v2."
+      },
+      "popularity": {
+        "stars": 85097,
+        "observedAt": "2026-09-07T18:06:10.772130+00:00",
+        "source": "https://api.github.com/repos/Leonxlnx/taste-skill"
+      }
     },
     {
       "id": "awesome-design-md",
       "name": "Awesome DESIGN.md",
       "tagline": "Ready-made design style guides so AI builds UI that matches real sites",
-      "repo": "https://github.com/voltagent/awesome-design-md",
+      "repo": "https://github.com/VoltAgent/awesome-design-md",
       "description": "A curated collection of DESIGN.md files extracted from real websites; these plain-text design-system docs let AI coding agents generate UI that matches that site's visual style.",
       "category": "ui-design",
       "tags": [
@@ -385,7 +1813,60 @@
         "style-guide"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "reference",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/VoltAgent/awesome-design-md/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/VoltAgent/awesome-design-md",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/VoltAgent/awesome-design-md",
+        "pushedAt": "2026-07-31T12:32:42Z",
+        "notes": "Reference material. Generic claims about AI agents do not establish support for all three named platforms. General setup: Copy a chosen DESIGN.md into a project as described by the provider; no platform-specific integration was verified. Requirements: A project and an AI tool able to read the selected reference."
+      },
+      "popularity": {
+        "stars": 114611,
+        "observedAt": "2026-09-07T18:06:11.251025+00:00",
+        "source": "https://api.github.com/repos/VoltAgent/awesome-design-md"
+      }
     },
     {
       "id": "skillui",
@@ -400,7 +1881,64 @@
         "reverse-engineer"
       ],
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install the skillui npm package, follow its crawl example, then open the generated output folder with Claude Code.",
+          "prerequisites": [
+            "Node.js 18+; Playwright and Chromium for ultra mode."
+          ],
+          "sources": [
+            "https://github.com/amaancoderx/npxskillui/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/amaancoderx/npxskillui/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/amaancoderx/npxskillui",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/amaancoderx/npxskillui",
+        "pushedAt": "2026-05-07T18:54:10Z",
+        "notes": "CLI generates project context; it is not a plugin package."
+      },
+      "popularity": {
+        "stars": 1774,
+        "observedAt": "2026-09-07T18:06:11.333987+00:00",
+        "source": "https://api.github.com/repos/amaancoderx/npxskillui"
+      }
     },
     {
       "id": "shadcn-ui-mcp-server",
@@ -420,7 +1958,64 @@
       ],
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Follow the Claude Code Integration section to start the server and add its SSE endpoint. Choose the framework-specific configuration that matches the project.",
+          "prerequisites": [
+            "Node.js/npm or Docker for the server; optional GitHub token for higher limits."
+          ],
+          "sources": [
+            "https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/master/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/Jpisnice/shadcn-ui-mcp-server/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/Jpisnice/shadcn-ui-mcp-server",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/Jpisnice/shadcn-ui-mcp-server",
+        "pushedAt": "2026-05-16T13:09:07Z",
+        "notes": "Claude Desktop one-click bundles are a different installation path. Codex support was not specifically established."
+      },
+      "popularity": {
+        "stars": 2976,
+        "observedAt": "2026-09-07T18:06:11.433803+00:00",
+        "source": "https://api.github.com/repos/Jpisnice/shadcn-ui-mcp-server"
+      }
     },
     {
       "id": "humanizer",
@@ -438,14 +2033,71 @@
       ],
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx skills add blader/humanizer --global and select Claude Code, or use the documented humanizer plugin marketplace.",
+          "prerequisites": [
+            "Node.js/npm for the skills installer; Claude Code 2.1.142+ for the current plugin route."
+          ],
+          "sources": [
+            "https://github.com/blader/humanizer/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/blader/humanizer/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/blader/humanizer",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/blader/humanizer",
+        "pushedAt": "2026-09-06T20:26:10Z",
+        "notes": "Generic skill-format portability is not enough to claim Codex or ChatGPT compatibility."
+      },
+      "popularity": {
+        "stars": 44895,
+        "observedAt": "2026-09-07T18:06:11.454444+00:00",
+        "source": "https://api.github.com/repos/blader/humanizer"
+      }
     },
     {
       "id": "marketing-skills",
       "name": "Marketing Skills for AI Agents",
       "tagline": "50+ skills that teach AI agents how to do marketing tasks",
       "repo": "https://github.com/coreyhaines31/marketingskills",
-      "description": "A collection of over 50 skills covering marketing tasks like conversion optimization, copywriting, SEO, paid ads, email, analytics, and growth engineering, plus CLI/MCP integrations for tools like Google Ads, Mailchimp, and Segment.",
+      "description": "Skills for conversion optimization, copywriting, SEO, advertising, email, analytics and growth workflows, with optional service integrations.",
       "category": "other",
       "tags": [
         "marketing",
@@ -459,13 +2111,74 @@
       ],
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use npx skills add coreyhaines31/marketingskills and select the intended host. For Claude Code use the explicit -a claude-code option as advised by the provider.",
+          "prerequisites": [
+            "Node.js/npm; optional marketing services have their own credentials."
+          ],
+          "sources": [
+            "https://github.com/coreyhaines31/marketingskills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Use npx skills add coreyhaines31/marketingskills and select the intended host. For Claude Code use the explicit -a claude-code option as advised by the provider.",
+          "prerequisites": [
+            "Node.js/npm; optional marketing services have their own credentials."
+          ],
+          "sources": [
+            "https://github.com/coreyhaines31/marketingskills/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/coreyhaines31/marketingskills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/coreyhaines31/marketingskills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/coreyhaines31/marketingskills",
+        "pushedAt": "2026-09-05T04:48:10Z",
+        "notes": "Removed a stale skill count. Installation inside an agent can select a different folder unless the target is specified."
+      },
+      "popularity": {
+        "stars": 47988,
+        "observedAt": "2026-09-07T18:06:11.491475+00:00",
+        "source": "https://api.github.com/repos/coreyhaines31/marketingskills"
+      }
     },
     {
       "id": "anthropic-cookbook",
-      "name": "Claude Cookbooks",
+      "name": "Anthropic Claude Cookbooks",
       "tagline": "Official copy-paste code recipes for building with Claude",
-      "repo": "https://github.com/anthropics/anthropic-cookbook",
+      "repo": "https://github.com/anthropics/claude-cookbooks",
       "description": "Official Anthropic collection of copy-able code examples and Jupyter notebooks for building with Claude, covering tool use, retrieval-augmented generation, classification, summarization, multimodal vision, and third-party integrations like Pinecone and Voyage AI.",
       "category": "official",
       "tags": [
@@ -479,7 +2192,60 @@
       ],
       "submittedBy": "anonymous",
       "addedAt": "2026-08-27",
-      "status": "verified"
+      "status": "verified",
+      "type": "reference",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-cookbooks/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/anthropics/claude-cookbooks",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/anthropics/claude-cookbooks",
+        "pushedAt": "2026-09-03T22:18:29Z",
+        "notes": "Repository renamed to anthropics/claude-cookbooks. API examples do not establish Claude Code, Codex or ChatGPT installation support. General setup: Read the selected notebook and install its listed Python dependencies; this is an API cookbook rather than an installable agent extension. Requirements: Python/Jupyter for most examples; Claude API credentials."
+      },
+      "popularity": {
+        "stars": 52507,
+        "observedAt": "2026-09-07T18:06:11.594032+00:00",
+        "source": "https://api.github.com/repos/anthropics/claude-cookbooks"
+      }
     },
     {
       "id": "bambu-mcp",
@@ -495,7 +2261,64 @@
         "fleet"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Configure printer details as in the README, then use claude mcp add bambu -- npx @griches/bambu-mcp.",
+          "prerequisites": [
+            "Node.js 18+; compatible Bambu printer on the same LAN; LAN Only and Developer Mode."
+          ],
+          "sources": [
+            "https://github.com/griches/bambu-mcp/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/griches/bambu-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/griches/bambu-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/griches/bambu-mcp",
+        "pushedAt": "2026-03-08T20:52:54Z",
+        "notes": "Printer control can change physical devices; the scanner does not test hardware behavior."
+      },
+      "popularity": {
+        "stars": 44,
+        "observedAt": "2026-09-07T18:06:11.995596+00:00",
+        "source": "https://api.github.com/repos/griches/bambu-mcp"
+      }
     },
     {
       "id": "cad-skill",
@@ -510,14 +2333,71 @@
         "stl"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Clone into ~/.claude/skills/parametric-3d-printing and install the repository requirements in an appropriate Python environment.",
+          "prerequisites": [
+            "Python 3.10–3.12; CadQuery and the pinned requirements."
+          ],
+          "sources": [
+            "https://github.com/flowful-ai/cad-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/flowful-ai/cad-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/flowful-ai/cad-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/flowful-ai/cad-skill",
+        "pushedAt": "2026-07-14T10:40:03Z",
+        "notes": "PolyForm Noncommercial license; the README excludes Python 3.13+ for its OCC wheels."
+      },
+      "popularity": {
+        "stars": 563,
+        "observedAt": "2026-09-07T18:06:12.086333+00:00",
+        "source": "https://api.github.com/repos/flowful-ai/cad-skill"
+      }
     },
     {
       "id": "freecad-mcp",
       "name": "FreeCAD MCP",
       "tagline": "Model in FreeCAD by talking to Claude",
       "repo": "https://github.com/neka-nat/freecad-mcp",
-      "description": "The most popular FreeCAD MCP server — lets Claude create and edit FreeCAD models through the Model Context Protocol.",
+      "description": "FreeCAD addon and MCP server for exposing modeling tools to an external MCP client. The provider documents Claude Desktop setup.",
       "category": "3d",
       "tags": [
         "freecad",
@@ -525,7 +2405,60 @@
         "cad"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/neka-nat/freecad-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/neka-nat/freecad-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/neka-nat/freecad-mcp",
+        "pushedAt": "2026-09-05T05:19:25Z",
+        "notes": "Removed unsupported most-popular claim. Claude Desktop documentation does not prove Claude Code compatibility. General setup: Install the FreeCAD MCP addon, restart FreeCAD, select its workbench, then follow the provider MCP configuration. Only Claude Desktop setup was verified. Requirements: FreeCAD; uvx; the FreeCAD addon."
+      },
+      "popularity": {
+        "stars": 2069,
+        "observedAt": "2026-09-07T18:06:12.172207+00:00",
+        "source": "https://api.github.com/repos/neka-nat/freecad-mcp"
+      }
     },
     {
       "id": "freecad-ai",
@@ -540,7 +2473,64 @@
         "text-to-3d"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install the FreeCAD workbench, then follow the linked MCP Integration wiki to expose its tools to Claude Code. Restart Claude Code after adding the server.",
+          "prerequisites": [
+            "FreeCAD 1.0+; an LLM provider for the built-in panel; documented Python/transport setup for external MCP."
+          ],
+          "sources": [
+            "https://github.com/ghbalf/freecad-ai/blob/master/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/ghbalf/freecad-ai/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/ghbalf/freecad-ai",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/ghbalf/freecad-ai",
+        "pushedAt": "2026-09-06T22:02:50Z",
+        "notes": "The built-in chat panel and external MCP server are separate modes. Only the latter documents Claude Code."
+      },
+      "popularity": {
+        "stars": 476,
+        "observedAt": "2026-09-07T18:06:12.176727+00:00",
+        "source": "https://api.github.com/repos/ghbalf/freecad-ai"
+      }
     },
     {
       "id": "openscad-mcp",
@@ -555,7 +2545,64 @@
         "rendering"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use the README Claude Code setup and its uv command to register the OpenSCAD MCP server.",
+          "prerequisites": [
+            "OpenSCAD; uv or Python 3.10+."
+          ],
+          "sources": [
+            "https://github.com/quellant/openscad-mcp/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/quellant/openscad-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/quellant/openscad-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/quellant/openscad-mcp",
+        "pushedAt": "2026-08-05T19:40:06Z",
+        "notes": "Other MCP hosts may work, but their platform-specific setup has not been verified."
+      },
+      "popularity": {
+        "stars": 131,
+        "observedAt": "2026-09-07T18:06:12.232462+00:00",
+        "source": "https://api.github.com/repos/quellant/openscad-mcp"
+      }
     },
     {
       "id": "blender-skills-94",
@@ -570,7 +2617,68 @@
         "pipeline"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Clone the repository and copy selected skills to the intended host folder as described in Quick Start. The Codex example uses a placeholder path; resolve the actual local skills location from official Codex docs.",
+          "prerequisites": [
+            "Blender; Blender MCP; Claude Code or Codex."
+          ],
+          "sources": [
+            "https://github.com/arjun988/blender-skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Clone the repository and copy selected skills to the intended host folder as described in Quick Start. The Codex example uses a placeholder path; resolve the actual local skills location from official Codex docs.",
+          "prerequisites": [
+            "Blender; Blender MCP; Claude Code or Codex."
+          ],
+          "sources": [
+            "https://github.com/arjun988/blender-skills/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/arjun988/blender-skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/arjun988/blender-skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/arjun988/blender-skills",
+        "pushedAt": "2026-07-10T17:55:21Z",
+        "notes": "Provider explicitly supports both hosts, but its Codex path is illustrative rather than a literal install command."
+      },
+      "popularity": {
+        "stars": 173,
+        "observedAt": "2026-09-07T18:06:12.687334+00:00",
+        "source": "https://api.github.com/repos/arjun988/blender-skills"
+      }
     },
     {
       "id": "blender-skills-product",
@@ -585,7 +2693,64 @@
         "animation"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Copy the skills into project .claude/skills/, configure Blender MCP, then connect the addon inside Blender.",
+          "prerequisites": [
+            "Blender 5.x with Blender MCP; Meshy API key for generation; ffmpeg for video."
+          ],
+          "sources": [
+            "https://github.com/kevinbadi/blender-skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/kevinbadi/blender-skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/kevinbadi/blender-skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/kevinbadi/blender-skills",
+        "pushedAt": "2026-04-04T20:50:50Z",
+        "notes": "Distinct from arjun988/blender-skills: focuses on products and cameras."
+      },
+      "popularity": {
+        "stars": 89,
+        "observedAt": "2026-09-07T18:06:12.766332+00:00",
+        "source": "https://api.github.com/repos/kevinbadi/blender-skills"
+      }
     },
     {
       "id": "bambu-printer-mcp",
@@ -601,7 +2766,68 @@
         "stl"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Follow the README Usage configuration with @rowbotik/bambu-printer-mcp and your printer credentials. For Codex use the host MCP configuration format, not the README generic JSON verbatim.",
+          "prerequisites": [
+            "Node.js 18+; compatible Bambu printer; LAN credentials; BambuStudio for slicing."
+          ],
+          "sources": [
+            "https://github.com/DMontgomery40/bambu-printer-mcp/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Follow the README Usage configuration with @rowbotik/bambu-printer-mcp and your printer credentials. For Codex use the host MCP configuration format, not the README generic JSON verbatim.",
+          "prerequisites": [
+            "Node.js 18+; compatible Bambu printer; LAN credentials; BambuStudio for slicing."
+          ],
+          "sources": [
+            "https://github.com/DMontgomery40/bambu-printer-mcp/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/DMontgomery40/bambu-printer-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/DMontgomery40/bambu-printer-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/DMontgomery40/bambu-printer-mcp",
+        "pushedAt": "2026-07-30T20:57:48Z",
+        "notes": "Bambu-only fork of mcp-3D-printer-server, not a duplicate. README source clone points to rowbotik although the canonical repository remains DMontgomery40."
+      },
+      "popularity": {
+        "stars": 128,
+        "observedAt": "2026-09-07T18:06:12.887369+00:00",
+        "source": "https://api.github.com/repos/DMontgomery40/bambu-printer-mcp"
+      }
     },
     {
       "id": "mcp-3d-printer-server",
@@ -617,7 +2843,60 @@
         "bambu-lab"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/DMontgomery40/mcp-3D-printer-server/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/DMontgomery40/mcp-3D-printer-server",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/DMontgomery40/mcp-3D-printer-server",
+        "pushedAt": "2026-07-30T20:57:46Z",
+        "notes": "Generic Claude/MCP support is recorded conservatively; the Bambu-only fork remains a separate offering. General setup: Install mcp-3d-printer-server from npm and configure the relevant printer adapter as in the README. No named target-platform setup verified. Requirements: Node.js 18+; printer API credentials; a supported slicer for slicing."
+      },
+      "popularity": {
+        "stars": 231,
+        "observedAt": "2026-09-07T18:06:12.899360+00:00",
+        "source": "https://api.github.com/repos/DMontgomery40/mcp-3D-printer-server"
+      }
     },
     {
       "id": "kiln",
@@ -632,7 +2911,68 @@
         "printing"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Install kiln3d, then follow kiln signin and kiln install-mcp for your host. The README also supplies a manual MCP configuration.",
+          "prerequisites": [
+            "Python or the documented uvx/npx runner; supported printer and connection details; slicer for slicing."
+          ],
+          "sources": [
+            "https://github.com/codeofaxel/Kiln/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Install kiln3d, then follow kiln signin and kiln install-mcp for your host. The README also supplies a manual MCP configuration.",
+          "prerequisites": [
+            "Python or the documented uvx/npx runner; supported printer and connection details; slicer for slicing."
+          ],
+          "sources": [
+            "https://github.com/codeofaxel/Kiln/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/codeofaxel/Kiln/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/codeofaxel/Kiln",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/codeofaxel/Kiln",
+        "pushedAt": "2026-09-07T08:43:22Z",
+        "notes": "Documentation explicitly names Claude Code and Codex. Hardware and generated models were not tested."
+      },
+      "popularity": {
+        "stars": 53,
+        "observedAt": "2026-09-07T18:06:12.992411+00:00",
+        "source": "https://api.github.com/repos/codeofaxel/Kiln"
+      }
     },
     {
       "id": "octoeverywhere-mcp",
@@ -647,7 +2987,60 @@
         "monitoring"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/OctoEverywhere/mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/OctoEverywhere/mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/OctoEverywhere/mcp",
+        "pushedAt": "2025-07-03T21:06:12Z",
+        "notes": "Cloud MCP service. No recent code push since 2025-07-03; not proof of abandonment. General setup: Link the printer to OctoEverywhere and obtain an MCP token using the provider setup guide. Named host compatibility remains unverified. Requirements: OctoEverywhere account and linked printer; MCP access token."
+      },
+      "popularity": {
+        "stars": 36,
+        "observedAt": "2026-09-07T18:06:13.008636+00:00",
+        "source": "https://api.github.com/repos/OctoEverywhere/mcp"
+      }
     },
     {
       "id": "bambu-printing-skill",
@@ -662,14 +3055,71 @@
         "workflow"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Clone into ~/.claude/skills/3d-printing and install the listed mesh-processing dependencies; configure the printer profile.",
+          "prerequisites": [
+            "Python with trimesh, numpy, scipy, networkx, lxml, manifold3d, shapely and rtree; Bambu tooling as used."
+          ],
+          "sources": [
+            "https://github.com/TrillyD13/3d-printing-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/TrillyD13/3d-printing-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/TrillyD13/3d-printing-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/TrillyD13/3d-printing-skill",
+        "pushedAt": "2026-08-19T01:34:18Z",
+        "notes": "Claude Desktop/claude.ai upload instructions are not a ChatGPT installation guide."
+      },
+      "popularity": {
+        "stars": 1,
+        "observedAt": "2026-09-07T18:06:13.406079+00:00",
+        "source": "https://api.github.com/repos/TrillyD13/3d-printing-skill"
+      }
     },
     {
       "id": "meshwright",
       "name": "Meshwright",
       "tagline": "Finds out why a model won't print and fixes it",
       "repo": "https://github.com/GeekatplayStudio/Meshwright",
-      "description": "Mesh analysis, repair and smart retopology for 3D printing — explains the problem, fixes it and proves the result.",
+      "description": "Local mesh analysis, repair and retopology tools for preparing 3D prints, with a separate MCP interface.",
       "category": "3d-printing",
       "tags": [
         "mesh-repair",
@@ -677,7 +3127,60 @@
         "analysis"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/GeekatplayStudio/Meshwright/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/GeekatplayStudio/Meshwright",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/GeekatplayStudio/Meshwright",
+        "pushedAt": "2026-09-05T04:46:29Z",
+        "notes": "Removed the promise that repairs are proven. Local application and MCP bridge should be assessed separately. General setup: Follow the repository installation instructions for the local application. See docs/MCP.md for the separate MCP bridge; platform setup still needs verification. Requirements: Python 3.10+; optional mesh engines and platform dependencies."
+      },
+      "popularity": {
+        "stars": 35,
+        "observedAt": "2026-09-07T18:06:13.493513+00:00",
+        "source": "https://api.github.com/repos/GeekatplayStudio/Meshwright"
+      }
     },
     {
       "id": "cad-agent",
@@ -692,14 +3195,67 @@
         "cad"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/Svetlana-DAO-LLC/cad-agent/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/Svetlana-DAO-LLC/cad-agent",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/Svetlana-DAO-LLC/cad-agent",
+        "pushedAt": "2026-02-17T13:18:22Z",
+        "notes": "Generic AI/MCP description; named-platform support remains unverified. General setup: Follow the repository container setup to expose build123d modeling and rendering through MCP. No platform-specific setup verified. Requirements: Container runtime; build123d and VTK in the provided environment."
+      },
+      "popularity": {
+        "stars": 40,
+        "observedAt": "2026-09-07T18:06:13.606325+00:00",
+        "source": "https://api.github.com/repos/Svetlana-DAO-LLC/cad-agent"
+      }
     },
     {
       "id": "openscad-mcp-server",
       "name": "OpenSCAD MCP Server",
       "tagline": "Prompt in, OpenSCAD model and preview out",
       "repo": "https://github.com/jhacksman/OpenSCAD-MCP-Server",
-      "description": "MCP server that turns a prompt into OpenSCAD code, renders a preview image and exports the model.",
+      "description": "Local MCP server that compiles supplied OpenSCAD source or explicit primitive dimensions into SCAD, STL and preview images. The earlier reconstruction prototype is archived.",
       "category": "3d",
       "tags": [
         "openscad",
@@ -707,7 +3263,60 @@
         "parametric"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/jhacksman/OpenSCAD-MCP-Server/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/jhacksman/OpenSCAD-MCP-Server",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/jhacksman/OpenSCAD-MCP-Server",
+        "pushedAt": "2026-09-07T12:38:57Z",
+        "notes": "Current implementation compiles supplied SCAD and explicit primitives. CUDA/image reconstruction/printer prototypes are archived in legacy/ and not installed. General setup: Install the current src/openscad_mcp implementation and follow Connect an MCP client. Host-specific compatibility needs further review. Requirements: Python 3.11+; OpenSCAD; X display or xvfb on headless Linux."
+      },
+      "popularity": {
+        "stars": 190,
+        "observedAt": "2026-09-07T18:06:13.736431+00:00",
+        "source": "https://api.github.com/repos/jhacksman/OpenSCAD-MCP-Server"
+      }
     },
     {
       "id": "fusion-360-mcp",
@@ -722,14 +3331,67 @@
         "cad"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/AuraFriday/Fusion-360-MCP-Server/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/AuraFriday/Fusion-360-MCP-Server",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/AuraFriday/Fusion-360-MCP-Server",
+        "pushedAt": "2026-01-28T03:53:58Z",
+        "notes": "README claims ChatGPT compatibility generically, but lacks a concrete ChatGPT setup. No automatic compatibility promotion. General setup: Install MCP-Link Server and the Fusion add-in following the provider prerequisites. Named host transport/authentication setup has not been verified. Requirements: Autodesk Fusion 360; AuraFriday MCP-Link Server and add-in."
+      },
+      "popularity": {
+        "stars": 123,
+        "observedAt": "2026-09-07T18:06:13.753450+00:00",
+        "source": "https://api.github.com/repos/AuraFriday/Fusion-360-MCP-Server"
+      }
     },
     {
       "id": "cc-blender-skill",
       "name": "CC Blender Skill",
-      "tagline": "Drive Blender like a senior 3D artist",
+      "tagline": "Guide Claude through Blender production workflows",
       "repo": "https://github.com/RobLe3/cc-blender-skill",
-      "description": "Claude Code skill plugin with 10 chain-loadable skills to drive Blender 5.x via natural language.",
+      "description": "Claude Code plugin with linked Blender modeling, materials, lighting, camera, rendering and animation skills, using Blender MCP.",
       "category": "3d",
       "tags": [
         "blender",
@@ -737,7 +3399,784 @@
         "plugin"
       ],
       "addedAt": "2026-08-29",
-      "status": "verified"
+      "status": "verified",
+      "type": "plugin",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Use plugin/README.md for the installable package and connect Blender MCP before loading the skills into Claude Code.",
+          "prerequisites": [
+            "Blender with Blender MCP; Python 3.9+ and opencv-python, numpy, scipy, Pillow."
+          ],
+          "sources": [
+            "https://github.com/RobLe3/cc-blender-skill/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/RobLe3/cc-blender-skill/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/RobLe3/cc-blender-skill",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "legacy",
+        "notes": "Historical label only; no dated scan evidence attached."
+      },
+      "aiReview": {
+        "status": "not-reviewed",
+        "summary": "No recorded AI review."
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/RobLe3/cc-blender-skill",
+        "pushedAt": "2026-05-01T10:34:49Z",
+        "notes": "README disagrees on 10 versus 30 skills and Blender 4+ versus 5.x; removed fixed count and flag the prerequisite inconsistency."
+      },
+      "popularity": {
+        "stars": 53,
+        "observedAt": "2026-09-07T18:06:13.847598+00:00",
+        "source": "https://api.github.com/repos/RobLe3/cc-blender-skill"
+      }
+    },
+    {
+      "id": "playwright-mcp",
+      "name": "Microsoft Playwright MCP",
+      "repo": "https://github.com/microsoft/playwright-mcp",
+      "category": "web",
+      "tagline": "Lets your AI inspect and interact with websites",
+      "description": "Browser automation through Playwright and MCP, using structured accessibility snapshots to inspect pages and perform browser actions.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Register the server with: claude mcp add playwright npx @playwright/mcp@latest. Start a new Claude Code session and check that the Playwright tools are available.",
+          "prerequisites": [
+            "Node.js 18+; a supported browser and MCP host."
+          ],
+          "sources": [
+            "https://github.com/microsoft/playwright-mcp/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Register the server with: codex mcp add playwright npx \"@playwright/mcp@latest\". The README also supplies a ~/.codex/config.toml configuration. Start a new Codex session.",
+          "prerequisites": [
+            "Node.js 18+; a supported browser and MCP host."
+          ],
+          "sources": [
+            "https://github.com/microsoft/playwright-mcp/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/microsoft/playwright-mcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/microsoft/playwright-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:09:37.625269+00:00",
+        "revision": "8a13ef8e9f7385a0f89477922127f31cbfde9761",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/playwright-mcp.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/microsoft/playwright-mcp",
+        "pushedAt": "2026-09-04T22:45:53Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 36869,
+        "observedAt": "2026-09-07T18:06:14.528350+00:00",
+        "source": "https://api.github.com/repos/microsoft/playwright-mcp"
+      }
+    },
+    {
+      "id": "stitch-skills",
+      "name": "Google Stitch Skills",
+      "repo": "https://github.com/google-labs-code/stitch-skills",
+      "category": "ui-design",
+      "tagline": "Turn design ideas into interfaces with Google Stitch",
+      "description": "Provider-maintained design and build skills, packaged as plugins for coding agents working with Google Stitch.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "From the project directory, run: npx plugins add google-labs-code/stitch-skills --scope project --target claude-code. Follow the linked Stitch MCP setup to connect your account.",
+          "prerequisites": [
+            "Codex or Claude Code; Google Stitch access; Node.js for the npm installer."
+          ],
+          "sources": [
+            "https://github.com/google-labs-code/stitch-skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "In Settings > Plugin Marketplaces > Add, enter https://github.com/google-labs-code/stitch-skills with Git ref main. Install the desired stitch-design, stitch-build or stitch-utilities plugin, then complete the linked Stitch MCP setup.",
+          "prerequisites": [
+            "Codex or Claude Code; Google Stitch access; Node.js for the npm installer."
+          ],
+          "sources": [
+            "https://github.com/google-labs-code/stitch-skills/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/google-labs-code/stitch-skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/google-labs-code/stitch-skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:09:40.831262+00:00",
+        "revision": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/stitch-skills.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/google-labs-code/stitch-skills",
+        "pushedAt": "2026-08-17T20:20:23Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 8266,
+        "observedAt": "2026-09-07T18:06:15.424141+00:00",
+        "source": "https://api.github.com/repos/google-labs-code/stitch-skills"
+      }
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "repo": "https://github.com/upstash/context7",
+      "category": "docs",
+      "tagline": "Give your AI current library documentation",
+      "description": "Fetches current library documentation and examples through an MCP server or a documentation lookup skill.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "For a local server, run: claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY. Replace the placeholder with your Context7 key. The source also documents a hosted HTTP connection.",
+          "prerequisites": [
+            "MCP-capable host; network access; optional Context7 API key for higher limits."
+          ],
+          "sources": [
+            "https://context7.com/docs/resources/all-clients"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "For a local server, run: codex mcp add context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY. Use your Context7 key. For hosted access without copying a key, use the provider Codex plugin installation and complete OAuth.",
+          "prerequisites": [
+            "MCP-capable host; network access; optional Context7 API key for higher limits."
+          ],
+          "sources": [
+            "https://context7.com/docs/resources/all-clients"
+          ]
+        },
+        "chatgpt": {
+          "status": "documented",
+          "instructions": "On ChatGPT web, enable Developer Mode in Apps settings, create an app using https://mcp.context7.com/mcp/oauth, and authorize Context7. Select that app in a new conversation. Availability depends on your account and workspace permissions.",
+          "prerequisites": [
+            "ChatGPT account with permitted custom app/developer access; Context7 OAuth authorization."
+          ],
+          "sources": [
+            "https://context7.com/docs/resources/all-clients"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/upstash/context7/blob/master/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/upstash/context7",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://context7.com/docs/resources/all-clients",
+          "title": "Provider client installation guide",
+          "checkedAt": "2026-09-08"
+        }
+      ],
+      "security": {
+        "status": "warnings",
+        "checkedAt": "2026-09-07T18:09:39.064322+00:00",
+        "revision": "80e681a507c5287bc12e483367c40754e29461b9",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/context7.json",
+        "high": 0,
+        "warnings": 7,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/upstash/context7",
+        "pushedAt": "2026-09-07T16:55:16Z",
+        "notes": "Provider client guide explicitly documents Claude Code, Codex and ChatGPT OAuth setup. No functional platform test was performed."
+      },
+      "popularity": {
+        "stars": 61738,
+        "observedAt": "2026-09-07T18:06:14.617335+00:00",
+        "source": "https://api.github.com/repos/upstash/context7"
+      }
+    },
+    {
+      "id": "unity-mcp",
+      "name": "MCP for Unity",
+      "repo": "https://github.com/CoplayDev/unity-mcp",
+      "category": "game-dev",
+      "tagline": "Control Unity scenes and assets from your AI",
+      "description": "Connects the Unity Editor to coding agents for scene editing, asset management, C# work, testing and builds.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "mcp",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Add the repository MCPForUnity package using Unity Package Manager, then open Window > MCP for Unity > Configure All Detected Clients.",
+          "prerequisites": [
+            "Unity 2021.3 LTS–6.x; Python 3.10+ via uv; supported MCP host."
+          ],
+          "sources": [
+            "https://github.com/CoplayDev/unity-mcp/blob/beta/README.md"
+          ]
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Add the repository MCPForUnity package using Unity Package Manager, then open Window > MCP for Unity > Configure All Detected Clients.",
+          "prerequisites": [
+            "Unity 2021.3 LTS–6.x; Python 3.10+ via uv; supported MCP host."
+          ],
+          "sources": [
+            "https://github.com/CoplayDev/unity-mcp/blob/beta/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/CoplayDev/unity-mcp/blob/beta/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/CoplayDev/unity-mcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "warnings",
+        "checkedAt": "2026-09-07T18:09:44.319692+00:00",
+        "revision": "2fcc17957823f2494b7b1f7ade92c0fb56f4adb1",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/unity-mcp.json",
+        "high": 0,
+        "warnings": 6,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/CoplayDev/unity-mcp",
+        "pushedAt": "2026-09-05T21:16:30Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 13990,
+        "observedAt": "2026-09-07T18:06:16.562946+00:00",
+        "source": "https://api.github.com/repos/CoplayDev/unity-mcp"
+      }
+    },
+    {
+      "id": "codex-subagents",
+      "name": "Awesome Codex Subagents",
+      "repo": "https://github.com/VoltAgent/awesome-codex-subagents",
+      "category": "subagents",
+      "tagline": "Specialist agents written for Codex",
+      "description": "Task-specific Codex subagent configurations organized across development, security, infrastructure and other specialties.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "documented",
+          "instructions": "Copy selected .toml agent files into ~/.codex/agents/ or project .codex/agents/, refresh Codex, and explicitly request delegation.",
+          "prerequisites": [
+            "Codex with custom subagent support."
+          ],
+          "sources": [
+            "https://github.com/VoltAgent/awesome-codex-subagents/blob/main/README.md"
+          ]
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/VoltAgent/awesome-codex-subagents/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/VoltAgent/awesome-codex-subagents",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:09:48.092617+00:00",
+        "revision": "fbfd996d9f0572ab35487c00259d6c55aeb33e82",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/codex-subagents.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/VoltAgent/awesome-codex-subagents",
+        "pushedAt": "2026-09-07T08:53:34Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 6108,
+        "observedAt": "2026-09-07T18:06:17.269938+00:00",
+        "source": "https://api.github.com/repos/VoltAgent/awesome-codex-subagents"
+      }
+    },
+    {
+      "id": "apps-sdk-examples",
+      "name": "OpenAI Apps SDK Examples",
+      "repo": "https://github.com/openai/openai-apps-sdk-examples",
+      "category": "official",
+      "tagline": "Build interactive apps for ChatGPT",
+      "description": "Example MCP servers and embedded interfaces for building ChatGPT apps. This is a development starter, not a ready-to-install plugin collection.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "reference",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "documented",
+          "instructions": "Install workspace dependencies, build a selected example, run its MCP server and follow the README connection instructions to test it in ChatGPT.",
+          "prerequisites": [
+            "Node.js 18+; pnpm/npm; Python for Python examples; reachable MCP endpoint and permitted ChatGPT app/developer access."
+          ],
+          "sources": [
+            "https://github.com/openai/openai-apps-sdk-examples/blob/main/README.md"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/openai/openai-apps-sdk-examples/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/openai/openai-apps-sdk-examples",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:09:51.666290+00:00",
+        "revision": "18cc38e78a968712c357bacdc3c79fead5bfc6b4",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/apps-sdk-examples.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/openai/openai-apps-sdk-examples",
+        "pushedAt": "2026-04-15T17:01:42Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 2325,
+        "observedAt": "2026-09-07T18:06:16.230766+00:00",
+        "source": "https://api.github.com/repos/openai/openai-apps-sdk-examples"
+      }
+    },
+    {
+      "id": "fastmcp",
+      "name": "FastMCP",
+      "repo": "https://github.com/PrefectHQ/fastmcp",
+      "category": "integrations",
+      "tagline": "Build and connect your own MCP tools",
+      "description": "Python framework for building MCP servers and clients, with documented integration guides for Claude Code and ChatGPT.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "tool",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Create a FastMCP server file (server.py in the provider example), then register it with: fastmcp install claude-code server.py. Add the dependencies and environment variables required by your own server.",
+          "prerequisites": [
+            "Python and FastMCP; hosting/authentication for ChatGPT; permissions to add a connector."
+          ],
+          "sources": [
+            "https://gofastmcp.com/integrations/claude-code"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "documented",
+          "instructions": "Run your FastMCP server using HTTP transport and deploy it to a reachable HTTPS address. In ChatGPT developer settings, create a connector/app with your server MCP URL and its authentication. Enable it in the conversation. The provider guide uses a local server plus a tunnel for development.",
+          "prerequisites": [
+            "Python and FastMCP; hosting/authentication for ChatGPT; permissions to add a connector."
+          ],
+          "sources": [
+            "https://gofastmcp.com/integrations/chatgpt"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/PrefectHQ/fastmcp/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/PrefectHQ/fastmcp",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://gofastmcp.com/integrations/claude-code",
+          "title": "FastMCP claude-code integration",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://gofastmcp.com/integrations/chatgpt",
+          "title": "FastMCP chatgpt integration",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "warnings",
+        "checkedAt": "2026-09-07T18:09:52.527191+00:00",
+        "revision": "e3fb4af36892e6477399df2597f0dd5abd469799",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/fastmcp.json",
+        "high": 0,
+        "warnings": 10,
+        "notes": "Static text scan only. The repository includes a cloud-session hook that installs the GitHub CLI; package use and development hooks have different scope. See the warning review. Dependencies and runtime behavior were not tested."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-08",
+        "canonicalRepo": "https://github.com/PrefectHQ/fastmcp",
+        "pushedAt": "2026-09-07T15:40:16Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 27553,
+        "observedAt": "2026-09-07T18:06:15.778175+00:00",
+        "source": "https://api.github.com/repos/PrefectHQ/fastmcp"
+      }
+    },
+    {
+      "id": "storage-cleanup",
+      "name": "Storage Cleanup",
+      "repo": "https://github.com/SOCHI-Co/storage-cleanup",
+      "category": "other",
+      "tagline": "Find disk usage and review cleanup before deleting",
+      "description": "Guides disk-usage inspection and cleanup using Windows PowerShell helpers for measurement, duplicate detection and reversible staging before deletion.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "skill",
+      "platforms": {
+        "claude-code": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/SOCHI-Co/storage-cleanup/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/SOCHI-Co/storage-cleanup",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:10:08.138220+00:00",
+        "revision": "435f8a9c634f32e1dd3010b3e992a6a213c4a579",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/storage-cleanup.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/SOCHI-Co/storage-cleanup",
+        "pushedAt": "2026-09-07T01:04:31Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test. General setup: The README documents manual script usage but no explicit target-host installation. Review the skill layout and prerequisites before installing. Requirements: Windows and PowerShell 5.1+ for scripts; platform notes for manual macOS/Linux work."
+      },
+      "popularity": {
+        "stars": 0,
+        "observedAt": "2026-09-07T18:06:17.906323+00:00",
+        "source": "https://api.github.com/repos/SOCHI-Co/storage-cleanup"
+      }
+    },
+    {
+      "id": "verify-first-skills",
+      "name": "Verify-First Skills",
+      "repo": "https://github.com/SOCHI-Co/skills",
+      "category": "code-quality",
+      "tagline": "Check real results before claiming a task is finished",
+      "description": "Six Claude Code skills covering artifact verification, audio render proof, session handoffs, UI checks, debugging and planning.",
+      "tags": [],
+      "addedAt": "2026-09-07",
+      "status": "verified",
+      "type": "collection",
+      "platforms": {
+        "claude-code": {
+          "status": "documented",
+          "instructions": "Copy selected skill folders into ~/.claude/skills/ and start a new Claude Code session.",
+          "prerequisites": [
+            "Python 3.10+ for scripts; numpy and soundfile for audio render proof."
+          ],
+          "sources": [
+            "https://github.com/SOCHI-Co/skills/blob/main/README.md"
+          ]
+        },
+        "codex": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        },
+        "chatgpt": {
+          "status": "unverified",
+          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+          "prerequisites": [],
+          "sources": []
+        }
+      },
+      "sources": [
+        {
+          "url": "https://github.com/SOCHI-Co/skills/blob/main/README.md",
+          "title": "Provider README",
+          "checkedAt": "2026-09-07"
+        },
+        {
+          "url": "https://api.github.com/repos/SOCHI-Co/skills",
+          "title": "GitHub repository metadata",
+          "checkedAt": "2026-09-07"
+        }
+      ],
+      "security": {
+        "status": "passed",
+        "checkedAt": "2026-09-07T18:10:09.177510+00:00",
+        "revision": "f8b5882e68684f8885ae9c86cba629dde2e2d9b5",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/verify-first-skills.json",
+        "high": 0,
+        "warnings": 0,
+        "notes": "Static text scan only; no dependency execution or functional testing."
+      },
+      "aiReview": {
+        "status": "approved",
+        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
+        "model": "Codex (GPT-6 Astra), catalog research review",
+        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+      },
+      "review": {
+        "status": "active",
+        "checkedAt": "2026-09-07",
+        "canonicalRepo": "https://github.com/SOCHI-Co/skills",
+        "pushedAt": "2026-08-30T15:10:00Z",
+        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test."
+      },
+      "popularity": {
+        "stars": 0,
+        "observedAt": "2026-09-07T18:06:17.972312+00:00",
+        "source": "https://api.github.com/repos/SOCHI-Co/skills"
+      }
     }
-  ]
+  ],
+  "schemaVersion": 2
 }

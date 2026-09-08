@@ -1,0 +1,46 @@
+{
+  "repo": "https://github.com/CoplayDev/unity-mcp",
+  "revision": "2fcc17957823f2494b7b1f7ade92c0fb56f4adb1",
+  "checkedAt": "2026-09-07T18:09:44.319692+00:00",
+  "filesScanned": 467,
+  "filesSkipped": 1792,
+  "findings": [
+    [
+      "WARN",
+      "tools\\local_harness.py:180",
+      "Zero-width characters (possible hidden text)",
+      "\ufeff"
+    ],
+    [
+      "WARN",
+      "Server\\src\\main.py:874",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"UNITY_MCP_INSTANCE_TOKEN"
+    ],
+    [
+      "WARN",
+      "website\\scripts\\fetch-stats.mjs:75",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.STATS_GITHUB_TOKEN"
+    ],
+    [
+      "WARN",
+      "website\\docs\\guides\\claude-code-cli.md:22",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://claude.ai/install.sh | bash"
+    ],
+    [
+      "WARN",
+      "website\\docs\\guides\\troubleshooting.md:44",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://claude.ai/install.sh | bash"
+    ],
+    [
+      "WARN",
+      "website\\docs\\guides\\uv-setup.md:57",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ]
+  ],
+  "result": "warnings"
+}

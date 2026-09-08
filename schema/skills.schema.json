@@ -2,14 +2,35 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Skillshare Catalog",
   "type": "object",
-  "required": ["skills"],
+  "required": [
+    "schemaVersion",
+    "updated",
+    "skills"
+  ],
   "properties": {
-    "updated": { "type": "string", "format": "date" },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
     "skills": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "repo", "description", "category", "addedAt", "status"],
+        "required": [
+          "id",
+          "name",
+          "repo",
+          "description",
+          "category",
+          "addedAt",
+          "status",
+          "type",
+          "platforms",
+          "sources",
+          "security",
+          "review",
+          "aiReview"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": {
@@ -17,7 +38,11 @@
             "pattern": "^[a-z0-9][a-z0-9-]*$",
             "description": "Unique slug, kebab-case"
           },
-          "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          },
           "repo": {
             "type": "string",
             "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?$",
@@ -29,25 +54,589 @@
             "maxLength": 80,
             "description": "One plain-language line anyone understands - what is this for?"
           },
-          "description": { "type": "string", "minLength": 10, "maxLength": 300 },
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 300
+          },
           "category": {
             "type": "string",
-            "enum": ["ui-design", "3d", "3d-printing", "game-dev", "web", "audio", "automation", "code-quality", "docs", "integrations", "subagents", "prompting", "llm-tooling", "official", "other"]
+            "enum": [
+              "ui-design",
+              "3d",
+              "3d-printing",
+              "game-dev",
+              "web",
+              "audio",
+              "automation",
+              "code-quality",
+              "docs",
+              "integrations",
+              "subagents",
+              "prompting",
+              "llm-tooling",
+              "official",
+              "other"
+            ]
           },
           "tags": {
             "type": "array",
-            "items": { "type": "string", "maxLength": 30 },
+            "items": {
+              "type": "string",
+              "maxLength": 30
+            },
             "maxItems": 8
           },
-          "submittedBy": { "type": "string", "maxLength": 60 },
-          "addedAt": { "type": "string", "format": "date" },
+          "submittedBy": {
+            "type": "string",
+            "maxLength": 60
+          },
+          "addedAt": {
+            "type": "string",
+            "format": "date"
+          },
           "status": {
             "type": "string",
-            "enum": ["verified", "pending"],
-            "description": "verified = passed the security check and was approved by a maintainer"
+            "enum": [
+              "verified",
+              "pending"
+            ],
+            "description": "Legacy scan field only. Never proof of safety or tested compatibility."
+          },
+          "type": {
+            "enum": [
+              "skill",
+              "plugin",
+              "mcp",
+              "tool",
+              "collection",
+              "reference",
+              "workflow"
+            ]
+          },
+          "platforms": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claude-code",
+              "codex",
+              "chatgpt"
+            ],
+            "properties": {
+              "claude-code": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "instructions",
+                  "prerequisites",
+                  "sources"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "documented",
+                      "tested",
+                      "unverified"
+                    ]
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "prerequisites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    },
+                    "maxItems": 15
+                  },
+                  "sources": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "format": "uri",
+                      "pattern": "^https://[^\\s]+$"
+                    },
+                    "maxItems": 15
+                  },
+                  "testedAt": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "testNotes": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "testedBy": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "tested"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "testedAt",
+                        "testNotes",
+                        "testedBy"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "documented",
+                            "tested"
+                          ]
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "sources": {
+                          "minItems": 1
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "codex": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "instructions",
+                  "prerequisites",
+                  "sources"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "documented",
+                      "tested",
+                      "unverified"
+                    ]
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "prerequisites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    },
+                    "maxItems": 15
+                  },
+                  "sources": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "format": "uri",
+                      "pattern": "^https://[^\\s]+$"
+                    },
+                    "maxItems": 15
+                  },
+                  "testedAt": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "testNotes": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "testedBy": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "tested"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "testedAt",
+                        "testNotes",
+                        "testedBy"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "documented",
+                            "tested"
+                          ]
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "sources": {
+                          "minItems": 1
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "chatgpt": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "instructions",
+                  "prerequisites",
+                  "sources"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "documented",
+                      "tested",
+                      "unverified"
+                    ]
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "prerequisites": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    },
+                    "maxItems": 15
+                  },
+                  "sources": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "format": "uri",
+                      "pattern": "^https://[^\\s]+$"
+                    },
+                    "maxItems": 15
+                  },
+                  "testedAt": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "testNotes": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "testedBy": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "const": "tested"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "testedAt",
+                        "testNotes",
+                        "testedBy"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "documented",
+                            "tested"
+                          ]
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "sources": {
+                          "minItems": 1
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "sources": {
+            "type": "array",
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url",
+                "title",
+                "checkedAt"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://[^\\s]+$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 150
+                },
+                "checkedAt": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "notes"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "active",
+                  "archived",
+                  "deprecated",
+                  "unavailable",
+                  "unverified"
+                ]
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date"
+              },
+              "notes": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "canonicalRepo": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://[^\\s]+$"
+              },
+              "pushedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "successor": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://[^\\s]+$"
+              }
+            }
+          },
+          "popularity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "stars",
+              "observedAt",
+              "source"
+            ],
+            "properties": {
+              "stars": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "observedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "source": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://[^\\s]+$"
+              }
+            }
+          },
+          "security": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "notes"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "passed",
+                  "warnings",
+                  "blocked",
+                  "legacy",
+                  "unverified"
+                ]
+              },
+              "notes": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "revision": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "report": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://[^\\s]+$"
+              },
+              "high": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "warnings": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "passed",
+                        "warnings",
+                        "blocked"
+                      ]
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "checkedAt",
+                    "revision",
+                    "report",
+                    "high",
+                    "warnings"
+                  ]
+                }
+              }
+            ]
+          },
+          "aiReview": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "summary"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "approved",
+                  "needs-review",
+                  "not-reviewed"
+                ]
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "report": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://[^\\s]+$"
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "approved",
+                        "needs-review"
+                      ]
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "model",
+                    "checkedAt",
+                    "report"
+                  ]
+                }
+              }
+            ]
           }
         }
       }
+    },
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 2
     }
-  }
+  },
+  "additionalProperties": false
 }
