@@ -2095,7 +2095,7 @@
     {
       "id": "marketing-skills",
       "name": "Marketing Skills for AI Agents",
-      "tagline": "50+ skills that teach AI agents how to do marketing tasks",
+      "tagline": "Marketing workflows with optional service integrations",
       "repo": "https://github.com/coreyhaines31/marketingskills",
       "description": "Skills for conversion optimization, copywriting, SEO, advertising, email, analytics and growth workflows, with optional service integrations.",
       "category": "other",
@@ -2126,7 +2126,7 @@
         },
         "codex": {
           "status": "documented",
-          "instructions": "Use npx skills add coreyhaines31/marketingskills and select the intended host. For Claude Code use the explicit -a claude-code option as advised by the provider.",
+          "instructions": "Run npx skills add coreyhaines31/marketingskills and select Codex as the installation target. Review selected skills and optional service access before use.",
           "prerequisites": [
             "Node.js/npm; optional marketing services have their own credentials."
           ],
@@ -2154,12 +2154,20 @@
         }
       ],
       "security": {
-        "status": "legacy",
-        "notes": "Historical label only; no dated scan evidence attached."
+        "status": "warnings",
+        "checkedAt": "2026-09-08T18:31:04.081585+00:00",
+        "revision": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/marketing-skills.json",
+        "high": 0,
+        "warnings": 66,
+        "notes": "Static rule scan of supported text files; binaries, oversized files, dependencies and runtime behavior are outside scope. Read the separate AI decision."
       },
       "aiReview": {
-        "status": "not-reviewed",
-        "summary": "No recorded AI review."
+        "status": "approved",
+        "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+        "model": "Codex, interactive AI source review (no paid API call)",
+        "summary": "Approved for catalog inclusion with all 66 scanner warnings assessed. Optional CLIs use service credentials and can modify live accounts. Use trusted endpoint configuration, narrowly scoped keys and explicit approval for writes; some APIs put credentials in query strings.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/QUEUE-REVIEW.md"
       },
       "review": {
         "status": "active",
@@ -2227,12 +2235,20 @@
         }
       ],
       "security": {
-        "status": "legacy",
-        "notes": "Historical label only; no dated scan evidence attached."
+        "status": "warnings",
+        "checkedAt": "2026-09-08T18:31:10.881203+00:00",
+        "revision": "a97b9a2dc300635f0c26b5e05d0b54bbe0279ee5",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/anthropic-cookbook.json",
+        "high": 0,
+        "warnings": 39,
+        "notes": "Static rule scan of supported text files; binaries, oversized files, dependencies and runtime behavior are outside scope. Read the separate AI decision."
       },
       "aiReview": {
-        "status": "not-reviewed",
-        "summary": "No recorded AI review."
+        "status": "approved",
+        "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+        "model": "Codex, interactive AI source review (no paid API call)",
+        "summary": "Approved as an API reference collection with all 39 scanner warnings assessed. Examples can run paid APIs, deploy infrastructure and log local commands. Some hooks only warn and do not enforce protection. This is not a ready-to-run security boundary or a ChatGPT installation.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/QUEUE-REVIEW.md"
       },
       "review": {
         "status": "active",
@@ -4030,78 +4046,6 @@
       }
     },
     {
-      "id": "storage-cleanup",
-      "name": "Storage Cleanup",
-      "repo": "https://github.com/SOCHI-Co/storage-cleanup",
-      "category": "other",
-      "tagline": "Find disk usage and review cleanup before deleting",
-      "description": "Guides disk-usage inspection and cleanup using Windows PowerShell helpers for measurement, duplicate detection and reversible staging before deletion.",
-      "tags": [],
-      "addedAt": "2026-09-07",
-      "status": "verified",
-      "type": "skill",
-      "platforms": {
-        "claude-code": {
-          "status": "unverified",
-          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
-          "prerequisites": [],
-          "sources": []
-        },
-        "codex": {
-          "status": "unverified",
-          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
-          "prerequisites": [],
-          "sources": []
-        },
-        "chatgpt": {
-          "status": "unverified",
-          "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
-          "prerequisites": [],
-          "sources": []
-        }
-      },
-      "sources": [
-        {
-          "url": "https://github.com/SOCHI-Co/storage-cleanup/blob/main/README.md",
-          "title": "Provider README",
-          "checkedAt": "2026-09-07"
-        },
-        {
-          "url": "https://api.github.com/repos/SOCHI-Co/storage-cleanup",
-          "title": "GitHub repository metadata",
-          "checkedAt": "2026-09-07"
-        }
-      ],
-      "security": {
-        "status": "passed",
-        "checkedAt": "2026-09-07T18:10:08.138220+00:00",
-        "revision": "435f8a9c634f32e1dd3010b3e992a6a213c4a579",
-        "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/storage-cleanup.json",
-        "high": 0,
-        "warnings": 0,
-        "notes": "Static text scan only; no dependency execution or functional testing."
-      },
-      "aiReview": {
-        "status": "approved",
-        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
-        "model": "Codex (GPT-6 Astra), catalog research review",
-        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
-        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
-      },
-      "review": {
-        "status": "active",
-        "checkedAt": "2026-09-07",
-        "canonicalRepo": "https://github.com/SOCHI-Co/storage-cleanup",
-        "pushedAt": "2026-09-07T01:04:31Z",
-        "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test. General setup: The README documents manual script usage but no explicit target-host installation. Review the skill layout and prerequisites before installing. Requirements: Windows and PowerShell 5.1+ for scripts; platform notes for manual macOS/Linux work."
-      },
-      "popularity": {
-        "stars": 0,
-        "observedAt": "2026-09-07T18:06:17.906323+00:00",
-        "source": "https://api.github.com/repos/SOCHI-Co/storage-cleanup"
-      }
-    },
-    {
       "id": "verify-first-skills",
       "name": "Verify-First Skills",
       "repo": "https://github.com/SOCHI-Co/skills",
@@ -4150,19 +4094,19 @@
       ],
       "security": {
         "status": "passed",
-        "checkedAt": "2026-09-07T18:10:09.177510+00:00",
+        "checkedAt": "2026-09-08T18:31:03.677407+00:00",
         "revision": "f8b5882e68684f8885ae9c86cba629dde2e2d9b5",
         "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/verify-first-skills.json",
         "high": 0,
         "warnings": 0,
-        "notes": "Static text scan only; no dependency execution or functional testing."
+        "notes": "Static rule scan of supported text files; binaries, oversized files, dependencies and runtime behavior are outside scope. Read the separate AI decision."
       },
       "aiReview": {
         "status": "approved",
-        "checkedAt": "2026-09-08T12:57:43.023792+00:00",
-        "model": "Codex (GPT-6 Astra), catalog research review",
-        "summary": "Reviewed provider documentation and scanner findings. No HIGH findings. Warnings and scope limitations are recorded in the research report.",
-        "report": "https://github.com/Coingyy/skillshare/blob/main/research/REVIEW.md"
+        "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+        "model": "Codex, interactive AI source review (no paid API call)",
+        "summary": "Approved for catalog inclusion after static scan and targeted source review. Reads local artifacts, audio and Claude session usage. The optional lock probe opens an existing artifact for append; the debugging helper runs project tests. No runtime compatibility test performed.",
+        "report": "https://github.com/Coingyy/skillshare/blob/main/research/QUEUE-REVIEW.md"
       },
       "review": {
         "status": "active",

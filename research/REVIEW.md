@@ -1,3 +1,5 @@
+> Update 2026-09-08: Website and Worker are deployed. The active catalog now contains 55 entries. Storage Cleanup approval was withdrawn after source review and the entry moved to quarantine. See [current queue decisions](QUEUE-REVIEW.md). The migration observations below describe the earlier state. Automated API review remains unavailable without a key.
+
 # Skillshare: Recherche und Umsetzungsprüfung
 
 Stand: 8. September 2026. Die Umsetzung liegt **lokal** vor. Website, Worker, GitHub-Einstellungen und offene Issues wurden nicht verändert. Es gab keinen kostenpflichtigen API-Aufruf.

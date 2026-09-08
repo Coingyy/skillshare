@@ -1,3 +1,5 @@
+> Update 2026-09-08: Website and Worker are deployed. The active catalog now contains 55 entries. Storage Cleanup approval was withdrawn after source review and the entry moved to quarantine. See [current queue decisions](QUEUE-REVIEW.md). The migration observations below describe the earlier state. Automated API review remains unavailable without a key.
+
 # Einzelprüfung des Katalogs
 
 Alle 47 ursprünglichen IDs bleiben erhalten; neun neue Angebote folgen am Ende. D = Anbieter dokumentiert, U = noch ungeprüft. Kein Eintrag wurde funktional selbst getestet. Quellen und genaue Stern-Erhebungszeiten stehen zusätzlich direkt in skills.json und repositories.json.

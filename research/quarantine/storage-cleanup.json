@@ -1,0 +1,72 @@
+{
+  "id": "storage-cleanup",
+  "name": "Storage Cleanup",
+  "repo": "https://github.com/SOCHI-Co/storage-cleanup",
+  "category": "other",
+  "tagline": "Find disk usage and review cleanup before deleting",
+  "description": "Guides disk-usage inspection and cleanup using Windows PowerShell helpers for measurement, duplicate detection and reversible staging before deletion.",
+  "tags": [],
+  "addedAt": "2026-09-07",
+  "status": "pending",
+  "type": "skill",
+  "platforms": {
+    "claude-code": {
+      "status": "unverified",
+      "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+      "prerequisites": [],
+      "sources": []
+    },
+    "codex": {
+      "status": "unverified",
+      "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+      "prerequisites": [],
+      "sources": []
+    },
+    "chatgpt": {
+      "status": "unverified",
+      "instructions": "No platform-specific setup verified. Consult the provider documentation before installing.",
+      "prerequisites": [],
+      "sources": []
+    }
+  },
+  "sources": [
+    {
+      "url": "https://github.com/SOCHI-Co/storage-cleanup/blob/main/README.md",
+      "title": "Provider README",
+      "checkedAt": "2026-09-07"
+    },
+    {
+      "url": "https://api.github.com/repos/SOCHI-Co/storage-cleanup",
+      "title": "GitHub repository metadata",
+      "checkedAt": "2026-09-07"
+    }
+  ],
+  "security": {
+    "status": "passed",
+    "checkedAt": "2026-09-08T18:31:03.720035+00:00",
+    "revision": "435f8a9c634f32e1dd3010b3e992a6a213c4a579",
+    "report": "https://github.com/Coingyy/skillshare/blob/main/research/scans/storage-cleanup.json",
+    "high": 0,
+    "warnings": 0,
+    "notes": "Static rule scan of supported text files; binaries, oversized files, dependencies and runtime behavior are outside scope. Read the separate AI decision."
+  },
+  "aiReview": {
+    "status": "needs-review",
+    "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+    "model": "Codex, interactive AI source review (no paid API call)",
+    "summary": "Not approved: staging reuses existing directories and overwrites its restore manifest; purge deletes the entire staging directory rather than only manifest entries. Await upstream correction and a new review.",
+    "report": "https://github.com/Coingyy/skillshare/blob/main/research/QUEUE-REVIEW.md"
+  },
+  "review": {
+    "status": "active",
+    "checkedAt": "2026-09-07",
+    "canonicalRepo": "https://github.com/SOCHI-Co/storage-cleanup",
+    "pushedAt": "2026-09-07T01:04:31Z",
+    "notes": "Newly researched. Provider documentation and static scan only; no functional compatibility test. General setup: The README documents manual script usage but no explicit target-host installation. Review the skill layout and prerequisites before installing. Requirements: Windows and PowerShell 5.1+ for scripts; platform notes for manual macOS/Linux work."
+  },
+  "popularity": {
+    "stars": 0,
+    "observedAt": "2026-09-07T18:06:17.906323+00:00",
+    "source": "https://api.github.com/repos/SOCHI-Co/storage-cleanup"
+  }
+}

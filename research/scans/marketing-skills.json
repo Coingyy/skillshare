@@ -1,0 +1,406 @@
+{
+  "repo": "https://github.com/coreyhaines31/marketingskills",
+  "revision": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+  "checkedAt": "2026-09-08T18:31:04.081585+00:00",
+  "filesScanned": 465,
+  "filesSkipped": 1,
+  "findings": [
+    [
+      "WARN",
+      "skills\\ads\\references\\audit-guardrails.md:77",
+      "Prompt injection: instruction to ignore prior instructions (quoted as something to defend against)",
+      "ignore previous instructions"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\activecampaign.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ACTIVECAMPAIGN_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\adobe-analytics.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ADOBE_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\ahrefs.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AHREFS_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\airops.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AIROPS_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\amplitude.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.AMPLITUDE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\apollo.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.APOLLO_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\beehiiv.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BEEHIIV_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\brevo.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BREVO_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\buffer.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BUFFER_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\calendly.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CALENDLY_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\clay.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLAY_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\clearbit.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLEARBIT_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\close.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CLOSE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\coupler.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.COUPLER_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\crossbeam.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CROSSBEAM_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\customer-io.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CUSTOMERIO_APP_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\dataforseo.js:4",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DATAFORSEO_PASSWORD"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\demio.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DEMIO_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\dub.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.DUB_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\exa.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.EXA_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\github-prospects.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GITHUB_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\google-ads.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GOOGLE_ADS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\google-search-console.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.GSC_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\hotjar.js:4",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.HOTJAR_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\hunter.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.HUNTER_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\instantly.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.INSTANTLY_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\intercom.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.INTERCOM_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\keywords-everywhere.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\kit.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.KIT_API_SECRET"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\klaviyo.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.KLAVIYO_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\lemlist.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LEMLIST_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\linkedin-ads.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LINKEDIN_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\livestorm.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LIVESTORM_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\mailchimp.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.MAILCHIMP_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\mention-me.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.MENTIONME_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\meta-ads.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.META_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\mixpanel.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.MIXPANEL_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\onesignal.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ONESIGNAL_REST_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\optimizely.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OPTIMIZELY_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\outreach.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.OUTREACH_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\paddle.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.PADDLE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\partnerstack.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.PARTNERSTACK_PUBLIC_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\pendo.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.PENDO_INTEGRATION_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\plausible.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.PLAUSIBLE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\postmark.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.POSTMARK_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\rankparse.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.RANKPARSE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\resend.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.RESEND_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\rewardful.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.REWARDFUL_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\savvycal.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SAVVYCAL_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\segment.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SEGMENT_WRITE_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\semrush.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SEMRUSH_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\sendgrid.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SENDGRID_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\similarweb.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SIMILARWEB_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\snov.js:4",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SNOV_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\supermetrics.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SUPERMETRICS_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\tiktok-ads.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TIKTOK_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\tolt.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TOLT_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\trustpilot.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TRUSTPILOT_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\typeform.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.TYPEFORM_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\wistia.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.WISTIA_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\zapier.js:3",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZAPIER_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\clis\\zoominfo.js:5",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ZOOMINFO_ACCESS_TOKEN"
+    ],
+    [
+      "WARN",
+      "tools\\integrations\\browserbase.md:43",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.BROWSERBASE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\integrations\\firehose.md:98",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.FIREHOSE_API_KEY"
+    ],
+    [
+      "WARN",
+      "tools\\integrations\\heygen.md:76",
+      "Network request to non-GitHub host in script",
+      "curl https://api.heygen.com"
+    ]
+  ],
+  "result": "warnings"
+}

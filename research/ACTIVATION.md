@@ -1,3 +1,5 @@
+> Update 2026-09-08: Website and Worker are deployed. The active catalog now contains 55 entries. Storage Cleanup approval was withdrawn after source review and the entry moved to quarantine. See [current queue decisions](QUEUE-REVIEW.md). The migration observations below describe the earlier state. Automated API review remains unavailable without a key.
+
 # Live activation and recovery
 
 Prepared 2026-09-08. Changes are local: no push, deployment, issue comment or paid OpenAI request has been performed.

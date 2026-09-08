@@ -1,0 +1,244 @@
+{
+  "repo": "https://github.com/anthropics/anthropic-cookbook",
+  "revision": "a97b9a2dc300635f0c26b5e05d0b54bbe0279ee5",
+  "checkedAt": "2026-09-08T18:31:10.881203+00:00",
+  "filesScanned": 419,
+  "filesSkipped": 253,
+  "findings": [
+    [
+      "WARN",
+      "CONTRIBUTING.md:16",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\README.md:9",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -LsSf https://astral.sh/uv/install.sh | sh"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\README.md:109",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PreToolUse"
+    ],
+    [
+      "WARN",
+      ".claude\\agents\\code-reviewer.md:92",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_API_KEY"
+    ],
+    [
+      "WARN",
+      ".claude\\skills\\cookbook-audit\\SKILL.md:258",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"API_KEY"
+    ],
+    [
+      "WARN",
+      ".claude\\skills\\cookbook-audit\\style_guide.md:98",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_API_KEY"
+    ],
+    [
+      "WARN",
+      "capabilities\\retrieval_augmented_generation\\evaluation\\docs_evaluation_dataset.json:339",
+      "Access to SSH keys / credentials (string in a data file)",
+      ".aws/credentials"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\hosting\\Dockerfile:15",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://deb.nodesource.com/setup_20.x | bash"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\scheduled_repository_reviewer\\scheduled_review.py:199",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PreToolUse"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\site_reliability_agent\\infra_setup.py:1017",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PreToolUse"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\chief_of_staff_agent\\.claude\\settings.local.json:7",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\chief_of_staff_agent\\.claude\\hooks\\report-tracker.py:3",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PostToolUse"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\chief_of_staff_agent\\.claude\\hooks\\script-usage-logger.py:3",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PostToolUse"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\hosting\\docker\\README.md:41",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\hosting\\kubernetes\\kind-quickstart.sh:27",
+      "Reads API keys/tokens from environment with network call nearby",
+      "ANTHROPIC_API_KEY:?Must set ANTHROPIC_API_KEY (get one at https://console.anthropic.com/settings/keys)}\" # Preflight: ve"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\hosting\\kubernetes\\README.md:167",
+      "Network request to non-GitHub host in script",
+      "curl http://localhost"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\observability_agent\\docker\\Dockerfile:17",
+      "Download piped directly into a shell (curl|sh)",
+      "curl -fsSL https://deb.nodesource.com/setup_20.x | bash"
+    ],
+    [
+      "WARN",
+      "claude_agent_sdk\\site_reliability_agent\\examples\\sre_bot_slack.py:95",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"SLACK_BOT_TOKEN"
+    ],
+    [
+      "WARN",
+      "managed_agents\\sentry\\skill.md:28",
+      "Network request to non-GitHub host in script",
+      "curl https://evil.example.com"
+    ],
+    [
+      "WARN",
+      "managed_agents\\cma-mcp\\src\\server-http.ts:10",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.CMA_MCP_TOKEN"
+    ],
+    [
+      "WARN",
+      "managed_agents\\linear\\src\\main.ts:22",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LINEAR_WEBHOOK_SIGNING_SECRET"
+    ],
+    [
+      "WARN",
+      "managed_agents\\linear\\src\\oauth.ts:5",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.LINEAR_CLIENT_SECRET"
+    ],
+    [
+      "WARN",
+      "managed_agents\\roadtrip_planner\\setup\\create.ts:33",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ANTHROPIC_API_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\daytona\\daytona_webhook.py:49",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_ENVIRONMENT_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\docs\\upgrade-guide.md:186",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_ENV_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\docs\\usage-guide.md:181",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_ENVIRONMENT_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\modal\\modal_sandbox_webhook.py:78",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_ENVIRONMENT_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\modal\\sandbox_runner.py:54",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_ENVIRONMENT_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\vercel\\api\\webhook.ts:103",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.KV_REST_API_TOKEN"
+    ],
+    [
+      "WARN",
+      "managed_agents\\self_hosted_sandboxes\\vercel\\runner\\runner.mjs:42",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.ANTHROPIC_ENVIRONMENT_KEY"
+    ],
+    [
+      "WARN",
+      "managed_agents\\slack\\src\\cma-webhook.ts:5",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SLACK_BOT_TOKEN"
+    ],
+    [
+      "WARN",
+      "managed_agents\\slack\\src\\slack-events.ts:4",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "process.env.SLACK_SIGNING_SECRET"
+    ],
+    [
+      "WARN",
+      "patterns\\agents\\util.py:6",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ[\"ANTHROPIC_API_KEY"
+    ],
+    [
+      "WARN",
+      "skills\\.claude\\settings.json:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "\"hooks\":"
+    ],
+    [
+      "WARN",
+      "skills\\.claude\\hooks\\pre-bash.sh:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PreToolUse"
+    ],
+    [
+      "WARN",
+      "skills\\.claude\\hooks\\pre-write.sh:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "PreToolUse"
+    ],
+    [
+      "WARN",
+      "skills\\.claude\\hooks\\session-start.sh:2",
+      "Claude Code hook defined (runs commands automatically \u2014 review manually!)",
+      "SessionStart"
+    ],
+    [
+      "WARN",
+      "tests\\notebook_tests\\utils.py:212",
+      "Reads environment variables named KEY, TOKEN or SECRET",
+      "os.environ['ANTHROPIC_API_KEY"
+    ],
+    [
+      "WARN",
+      "third_party\\VoyageAI\\how_to_create_embeddings.md:68",
+      "Network request to non-GitHub host in script",
+      "curl https://api.voyageai.com"
+    ]
+  ],
+  "result": "warnings"
+}

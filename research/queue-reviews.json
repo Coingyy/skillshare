@@ -1,0 +1,674 @@
+[
+  {
+    "id": "marketing-skills",
+    "repo": "https://github.com/coreyhaines31/marketingskills",
+    "revision": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+    "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+    "reviewer": "Codex, interactive AI source review (no paid API call)",
+    "decision": "approved",
+    "summary": "Approved for catalog inclusion with all 66 scanner warnings assessed. Optional CLIs use service credentials and can modify live accounts. Use trusted endpoint configuration, narrowly scoped keys and explicit approval for writes; some APIs put credentials in query strings.",
+    "warnings": [
+      {
+        "index": 0,
+        "location": "skills\\ads\\references\\audit-guardrails.md:77",
+        "acceptableForCatalog": true,
+        "assessment": "Defensive guidance explicitly treats fetched content as untrusted and forbids following embedded instructions. Accepted defensive quotation."
+      },
+      {
+        "index": 1,
+        "location": "tools\\clis\\activecampaign.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional activecampaign CLI reads a service credential for its requested API operations. Inspected destination literals: https://yourname.api-us1.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Endpoint is configurable: use only the trusted HTTPS service endpoint, because the key is sent there."
+      },
+      {
+        "index": 2,
+        "location": "tools\\clis\\adobe-analytics.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional adobe-analytics CLI reads a service credential for its requested API operations. Inspected destination literals: https://analytics.adobe.io/api/${COMPANY_ID. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 3,
+        "location": "tools\\clis\\ahrefs.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional ahrefs CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.ahrefs.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 4,
+        "location": "tools\\clis\\airops.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional airops CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.airops.com/public_api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 5,
+        "location": "tools\\clis\\amplitude.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional amplitude CLI reads a service credential for its requested API operations. Inspected destination literals: https://amplitude.com/api/2, https://api2.amplitude.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 6,
+        "location": "tools\\clis\\apollo.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional apollo CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.apollo.io/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 7,
+        "location": "tools\\clis\\beehiiv.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional beehiiv CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.beehiiv.com/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 8,
+        "location": "tools\\clis\\brevo.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional brevo CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.brevo.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 9,
+        "location": "tools\\clis\\buffer.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional buffer CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.bufferapp.com/1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 10,
+        "location": "tools\\clis\\calendly.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional calendly CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.calendly.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 11,
+        "location": "tools\\clis\\clay.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional clay CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.clay.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 12,
+        "location": "tools\\clis\\clearbit.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional clearbit CLI reads a service credential for its requested API operations. Inspected destination literals: https://company-stream.clearbit.com, https://company.clearbit.com, https://person-stream.clearbit.com, https://prospector.clearbit.com, https://reveal.clearbit.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 13,
+        "location": "tools\\clis\\close.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional close CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.close.com/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 14,
+        "location": "tools\\clis\\coupler.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional coupler CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.coupler.io/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 15,
+        "location": "tools\\clis\\crossbeam.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional crossbeam CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.crossbeam.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 16,
+        "location": "tools\\clis\\customer-io.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional customer-io CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.customer.io/v1, https://track.customer.io/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 17,
+        "location": "tools\\clis\\dataforseo.js:4",
+        "acceptableForCatalog": true,
+        "assessment": "Optional dataforseo CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.dataforseo.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 18,
+        "location": "tools\\clis\\demio.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional demio CLI reads a service credential for its requested API operations. Inspected destination literals: https://my.demio.com/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 19,
+        "location": "tools\\clis\\dub.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional dub CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.dub.co. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 20,
+        "location": "tools\\clis\\exa.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional exa CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.exa.ai. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 21,
+        "location": "tools\\clis\\github-prospects.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional github-prospects CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.github.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Pagination follows GitHub Link headers and attaches the token; it assumes the API response is trusted. No arbitrary user endpoint is exposed by the reviewed command routes."
+      },
+      {
+        "index": 22,
+        "location": "tools\\clis\\google-ads.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional google-ads CLI reads a service credential for its requested API operations. Inspected destination literals: https://googleads.googleapis.com/v14. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 23,
+        "location": "tools\\clis\\google-search-console.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional google-search-console CLI reads a service credential for its requested API operations. Inspected destination literals: https://searchconsole.googleapis.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 24,
+        "location": "tools\\clis\\hotjar.js:4",
+        "acceptableForCatalog": true,
+        "assessment": "Optional hotjar CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.hotjar.io, https://api.hotjar.io/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 25,
+        "location": "tools\\clis\\hunter.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional hunter CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.hunter.io/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Credentials can occur in request query strings; keep request URLs out of shared logs."
+      },
+      {
+        "index": 26,
+        "location": "tools\\clis\\instantly.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional instantly CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.instantly.ai/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Credentials can occur in request query strings; keep request URLs out of shared logs."
+      },
+      {
+        "index": 27,
+        "location": "tools\\clis\\intercom.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional intercom CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.intercom.io. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 28,
+        "location": "tools\\clis\\keywords-everywhere.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional keywords-everywhere CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.keywordseverywhere.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 29,
+        "location": "tools\\clis\\kit.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional kit CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.convertkit.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Credentials can occur in request query strings; keep request URLs out of shared logs."
+      },
+      {
+        "index": 30,
+        "location": "tools\\clis\\klaviyo.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional klaviyo CLI reads a service credential for its requested API operations. Inspected destination literals: https://a.klaviyo.com/api. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 31,
+        "location": "tools\\clis\\lemlist.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional lemlist CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.lemlist.com/api. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 32,
+        "location": "tools\\clis\\linkedin-ads.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional linkedin-ads CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.linkedin.com/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 33,
+        "location": "tools\\clis\\livestorm.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional livestorm CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.livestorm.co/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 34,
+        "location": "tools\\clis\\mailchimp.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional mailchimp CLI reads a service credential for its requested API operations. Inspected destination literals: https://${dc. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Mailchimp region is derived from the operator-provided key."
+      },
+      {
+        "index": 35,
+        "location": "tools\\clis\\mention-me.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional mention-me CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.mention-me.com/api/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 36,
+        "location": "tools\\clis\\meta-ads.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional meta-ads CLI reads a service credential for its requested API operations. Inspected destination literals: https://graph.facebook.com/v18.0. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 37,
+        "location": "tools\\clis\\mixpanel.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional mixpanel CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.mixpanel.com, https://data.mixpanel.com/api/2.0, https://mixpanel.com/api/2.0. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 38,
+        "location": "tools\\clis\\onesignal.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional onesignal CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.onesignal.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 39,
+        "location": "tools\\clis\\optimizely.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional optimizely CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.optimizely.com/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 40,
+        "location": "tools\\clis\\outreach.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional outreach CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.outreach.io/api/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 41,
+        "location": "tools\\clis\\paddle.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional paddle CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.paddle.com, https://sandbox-api.paddle.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 42,
+        "location": "tools\\clis\\partnerstack.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional partnerstack CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.partnerstack.com/api/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 43,
+        "location": "tools\\clis\\pendo.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional pendo CLI reads a service credential for its requested API operations. Inspected destination literals: https://app.pendo.io/api/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 44,
+        "location": "tools\\clis\\plausible.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional plausible CLI reads a service credential for its requested API operations. Inspected destination literals: https://plausible.io. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Endpoint is configurable: use only the trusted HTTPS service endpoint, because the key is sent there."
+      },
+      {
+        "index": 45,
+        "location": "tools\\clis\\postmark.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional postmark CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.postmarkapp.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 46,
+        "location": "tools\\clis\\rankparse.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional rankparse CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.rankparse.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 47,
+        "location": "tools\\clis\\resend.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional resend CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.resend.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 48,
+        "location": "tools\\clis\\rewardful.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional rewardful CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.getrewardful.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 49,
+        "location": "tools\\clis\\savvycal.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional savvycal CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.savvycal.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 50,
+        "location": "tools\\clis\\segment.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional segment CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.segment.io/v1, https://profiles.segment.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 51,
+        "location": "tools\\clis\\semrush.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional semrush CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.semrush.com/. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Credentials can occur in request query strings; keep request URLs out of shared logs."
+      },
+      {
+        "index": 52,
+        "location": "tools\\clis\\sendgrid.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional sendgrid CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.sendgrid.com/v3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 53,
+        "location": "tools\\clis\\similarweb.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional similarweb CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.similarweb.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Credentials can occur in request query strings; keep request URLs out of shared logs."
+      },
+      {
+        "index": 54,
+        "location": "tools\\clis\\snov.js:4",
+        "acceptableForCatalog": true,
+        "assessment": "Optional snov CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.snov.io/v1, https://api.snov.io/v1/oauth/access_token. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 55,
+        "location": "tools\\clis\\supermetrics.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional supermetrics CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.supermetrics.com/enterprise/v2. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 56,
+        "location": "tools\\clis\\tiktok-ads.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional tiktok-ads CLI reads a service credential for its requested API operations. Inspected destination literals: https://business-api.tiktok.com/open_api/v1.3. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 57,
+        "location": "tools\\clis\\tolt.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional tolt CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.tolt.io/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 58,
+        "location": "tools\\clis\\trustpilot.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional trustpilot CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.trustpilot.com/v1, https://trustpilot.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 59,
+        "location": "tools\\clis\\typeform.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional typeform CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.typeform.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 60,
+        "location": "tools\\clis\\wistia.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional wistia CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.wistia.com/v1. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 61,
+        "location": "tools\\clis\\zapier.js:3",
+        "acceptableForCatalog": true,
+        "assessment": "Optional zapier CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.zapier.com/v1, https://hooks.zapier.com/hooks/catch/.... Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee. Webhook mode sends user data to an explicitly supplied URL without the API authentication header."
+      },
+      {
+        "index": 62,
+        "location": "tools\\clis\\zoominfo.js:5",
+        "acceptableForCatalog": true,
+        "assessment": "Optional zoominfo CLI reads a service credential for its requested API operations. Inspected destination literals: https://api.zoominfo.com. Accepted credential use for this optional integration, not permission to execute or a runtime/dependency guarantee."
+      },
+      {
+        "index": 63,
+        "location": "tools\\integrations\\browserbase.md:43",
+        "acceptableForCatalog": true,
+        "assessment": "Browserbase example passes the configured key to its SDK and connects to the returned browser session. Remote browsing can expose page data; review the service account and target page."
+      },
+      {
+        "index": 64,
+        "location": "tools\\integrations\\firehose.md:98",
+        "acceptableForCatalog": true,
+        "assessment": "Firehose example sends its configured bearer token to api.firehose.com for an event stream."
+      },
+      {
+        "index": 65,
+        "location": "tools\\integrations\\heygen.md:76",
+        "acceptableForCatalog": true,
+        "assessment": "HeyGen documentation requests api.heygen.com with an explicit placeholder API key."
+      }
+    ]
+  },
+  {
+    "id": "anthropic-cookbook",
+    "repo": "https://github.com/anthropics/claude-cookbooks",
+    "revision": "a97b9a2dc300635f0c26b5e05d0b54bbe0279ee5",
+    "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+    "reviewer": "Codex, interactive AI source review (no paid API call)",
+    "decision": "approved",
+    "summary": "Approved as an API reference collection with all 39 scanner warnings assessed. Examples can run paid APIs, deploy infrastructure and log local commands. Some hooks only warn and do not enforce protection. This is not a ready-to-run security boundary or a ChatGPT installation.",
+    "warnings": [
+      {
+        "index": 0,
+        "location": "CONTRIBUTING.md:16",
+        "acceptableForCatalog": true,
+        "assessment": "Documented uv installer from astral.sh; external installer remains outside this source review. Inspect separately before execution."
+      },
+      {
+        "index": 1,
+        "location": "claude_agent_sdk\\README.md:9",
+        "acceptableForCatalog": true,
+        "assessment": "Same uv installer in the SDK setup guide; optional setup command, not executed in this review."
+      },
+      {
+        "index": 2,
+        "location": "claude_agent_sdk\\README.md:109",
+        "acceptableForCatalog": true,
+        "assessment": "README describes SRE write-validation hooks. It is descriptive documentation, not a hook invocation."
+      },
+      {
+        "index": 3,
+        "location": ".claude\\agents\\code-reviewer.md:92",
+        "acceptableForCatalog": true,
+        "assessment": "Reviewer guidance explicitly forbids hardcoded secrets; the match is a negative example."
+      },
+      {
+        "index": 4,
+        "location": ".claude\\skills\\cookbook-audit\\SKILL.md:258",
+        "acceptableForCatalog": true,
+        "assessment": "Audit guidance lists the hardcoded key assignment as an anti-pattern."
+      },
+      {
+        "index": 5,
+        "location": ".claude\\skills\\cookbook-audit\\style_guide.md:98",
+        "acceptableForCatalog": true,
+        "assessment": "Style guide shows a placeholder credential as a bad example."
+      },
+      {
+        "index": 6,
+        "location": "capabilities\\retrieval_augmented_generation\\evaluation\\docs_evaluation_dataset.json:339",
+        "acceptableForCatalog": true,
+        "assessment": "Evaluation answer text describes AWS credential providers; it does not read local credentials."
+      },
+      {
+        "index": 7,
+        "location": "claude_agent_sdk\\hosting\\Dockerfile:15",
+        "acceptableForCatalog": true,
+        "assessment": "Container build installs Node from NodeSource and the Claude CLI. External supply-chain dependencies are not covered by this scan."
+      },
+      {
+        "index": 8,
+        "location": "claude_agent_sdk\\scheduled_repository_reviewer\\scheduled_review.py:199",
+        "acceptableForCatalog": true,
+        "assessment": "Scheduled reviewer builds a PreToolUse denial response. Accepted as an example; not a proof of complete sandboxing."
+      },
+      {
+        "index": 9,
+        "location": "claude_agent_sdk\\site_reliability_agent\\infra_setup.py:1017",
+        "acceptableForCatalog": true,
+        "assessment": "SRE setup writes validation hooks and infrastructure files. Run only in a disposable demo project; configuration checks are limited."
+      },
+      {
+        "index": 10,
+        "location": "claude_agent_sdk\\chief_of_staff_agent\\.claude\\settings.local.json:7",
+        "acceptableForCatalog": true,
+        "assessment": "Chief-of-staff configuration activates local audit hooks. The Edit hook names a missing report-tracker.py123; not reliable audit enforcement."
+      },
+      {
+        "index": 11,
+        "location": "claude_agent_sdk\\chief_of_staff_agent\\.claude\\hooks\\report-tracker.py:3",
+        "acceptableForCatalog": true,
+        "assessment": "Local report tracker records file paths, action and word count under audit/. It does not upload records in the inspected code."
+      },
+      {
+        "index": 12,
+        "location": "claude_agent_sdk\\chief_of_staff_agent\\.claude\\hooks\\script-usage-logger.py:3",
+        "acceptableForCatalog": true,
+        "assessment": "Local script logger records full matching commands and descriptions. Commands can contain secrets: do not pass secrets on the command line or publish these logs."
+      },
+      {
+        "index": 13,
+        "location": "claude_agent_sdk\\hosting\\docker\\README.md:41",
+        "acceptableForCatalog": true,
+        "assessment": "Documentation requests a localhost health endpoint for the demo."
+      },
+      {
+        "index": 14,
+        "location": "claude_agent_sdk\\hosting\\kubernetes\\kind-quickstart.sh:27",
+        "acceptableForCatalog": true,
+        "assessment": "Kubernetes quickstart validates the provided key against api.anthropic.com, then builds a local cluster. Expected credential destination; infrastructure changes require separate review."
+      },
+      {
+        "index": 15,
+        "location": "claude_agent_sdk\\hosting\\kubernetes\\README.md:167",
+        "acceptableForCatalog": true,
+        "assessment": "Documentation requests a local demo endpoint with an example bearer token."
+      },
+      {
+        "index": 16,
+        "location": "claude_agent_sdk\\observability_agent\\docker\\Dockerfile:17",
+        "acceptableForCatalog": true,
+        "assessment": "Observability Dockerfile installs NodeSource packages and the Claude CLI. Container/installer dependencies remain outside this review."
+      },
+      {
+        "index": 17,
+        "location": "claude_agent_sdk\\site_reliability_agent\\examples\\sre_bot_slack.py:95",
+        "acceptableForCatalog": true,
+        "assessment": "Slack SDK is initialized with the explicitly configured bot token; this integration can send Slack messages when run."
+      },
+      {
+        "index": 18,
+        "location": "managed_agents\\sentry\\skill.md:28",
+        "acceptableForCatalog": true,
+        "assessment": "Sentry documentation illustrates blocked exfiltration with a placeholder credential; it explicitly explains residual host permissions."
+      },
+      {
+        "index": 19,
+        "location": "managed_agents\\cma-mcp\\src\\server-http.ts:10",
+        "acceptableForCatalog": true,
+        "assessment": "HTTP MCP server requires a configured bearer token and imports timingSafeEqual. This is server authentication, not an outbound key transfer."
+      },
+      {
+        "index": 20,
+        "location": "managed_agents\\linear\\src\\main.ts:22",
+        "acceptableForCatalog": true,
+        "assessment": "Linear webhook client receives its configured signing secret for validation."
+      },
+      {
+        "index": 21,
+        "location": "managed_agents\\linear\\src\\oauth.ts:5",
+        "acceptableForCatalog": true,
+        "assessment": "Linear OAuth demo uses its configured client secret and stores tokens in a local JSON file. Protect that file and review production storage separately."
+      },
+      {
+        "index": 22,
+        "location": "managed_agents\\roadtrip_planner\\setup\\create.ts:33",
+        "acceptableForCatalog": true,
+        "assessment": "Roadtrip setup checks API credentials before provisioning demo resources; external API usage and costs remain the operator responsibility."
+      },
+      {
+        "index": 23,
+        "location": "managed_agents\\self_hosted_sandboxes\\daytona\\daytona_webhook.py:49",
+        "acceptableForCatalog": true,
+        "assessment": "Daytona webhook constructs the Anthropic client with configured environment and webhook credentials."
+      },
+      {
+        "index": 24,
+        "location": "managed_agents\\self_hosted_sandboxes\\docs\\upgrade-guide.md:186",
+        "acceptableForCatalog": true,
+        "assessment": "Upgrade guide passes an environment service key to the Anthropic worker; documentation for deliberate sandbox operation."
+      },
+      {
+        "index": 25,
+        "location": "managed_agents\\self_hosted_sandboxes\\docs\\usage-guide.md:181",
+        "acceptableForCatalog": true,
+        "assessment": "Usage guide creates an authenticated Anthropic worker in an explicit workspace."
+      },
+      {
+        "index": 26,
+        "location": "managed_agents\\self_hosted_sandboxes\\modal\\modal_sandbox_webhook.py:78",
+        "acceptableForCatalog": true,
+        "assessment": "Modal webhook constructs the Anthropic client with environment and webhook credentials."
+      },
+      {
+        "index": 27,
+        "location": "managed_agents\\self_hosted_sandboxes\\modal\\sandbox_runner.py:54",
+        "acceptableForCatalog": true,
+        "assessment": "Modal runner gives a worker unrestricted paths inside its intended sandbox. Do not run it against a sensitive host filesystem; base URL configuration must be trusted."
+      },
+      {
+        "index": 28,
+        "location": "managed_agents\\self_hosted_sandboxes\\vercel\\api\\webhook.ts:103",
+        "acceptableForCatalog": true,
+        "assessment": "Vercel KV client uses its configured URL/token. Protect both environment values; no unrelated destination is shown in this finding."
+      },
+      {
+        "index": 29,
+        "location": "managed_agents\\self_hosted_sandboxes\\vercel\\runner\\runner.mjs:42",
+        "acceptableForCatalog": true,
+        "assessment": "Vercel runner supplies its configured environment key to the Anthropic client. Sandbox and base URL configuration need independent deployment review."
+      },
+      {
+        "index": 30,
+        "location": "managed_agents\\slack\\src\\cma-webhook.ts:5",
+        "acceptableForCatalog": true,
+        "assessment": "Slack integration initializes the Slack WebClient with the supplied bot token; external messaging is intentional functionality."
+      },
+      {
+        "index": 31,
+        "location": "managed_agents\\slack\\src\\slack-events.ts:4",
+        "acceptableForCatalog": true,
+        "assessment": "Slack event handler uses the signing secret for HMAC verification with timestamp tolerance."
+      },
+      {
+        "index": 32,
+        "location": "patterns\\agents\\util.py:6",
+        "acceptableForCatalog": true,
+        "assessment": "Agent utility supplies the Anthropic API key to the Anthropic SDK; calls can incur charges."
+      },
+      {
+        "index": 33,
+        "location": "skills\\.claude\\settings.json:2",
+        "acceptableForCatalog": true,
+        "assessment": "Skills demo registers three local hooks. These are convenience checks, not a robust enforcement mechanism."
+      },
+      {
+        "index": 34,
+        "location": "skills\\.claude\\hooks\\pre-bash.sh:2",
+        "acceptableForCatalog": true,
+        "assessment": "Pre-bash hook prints warnings and exits successfully; it does not block destructive commands."
+      },
+      {
+        "index": 35,
+        "location": "skills\\.claude\\hooks\\pre-write.sh:2",
+        "acceptableForCatalog": true,
+        "assessment": "Pre-write hook prints warnings and exits successfully; it does not prevent overwriting protected files."
+      },
+      {
+        "index": 36,
+        "location": "skills\\.claude\\hooks\\session-start.sh:2",
+        "acceptableForCatalog": true,
+        "assessment": "Session-start hook checks the environment, imports the installed SDK and creates outputs/. It checks key presence without printing its value."
+      },
+      {
+        "index": 37,
+        "location": "tests\\notebook_tests\\utils.py:212",
+        "acceptableForCatalog": true,
+        "assessment": "Notebook test compares source strings to recognize environment-based credential loading; not a secret read itself."
+      },
+      {
+        "index": 38,
+        "location": "third_party\\VoyageAI\\how_to_create_embeddings.md:68",
+        "acceptableForCatalog": true,
+        "assessment": "Documented embeddings request sends the configured Voyage key to api.voyageai.com; intentional paid API example."
+      }
+    ]
+  },
+  {
+    "id": "storage-cleanup",
+    "repo": "https://github.com/SOCHI-Co/storage-cleanup",
+    "revision": "435f8a9c634f32e1dd3010b3e992a6a213c4a579",
+    "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+    "reviewer": "Codex, interactive AI source review (no paid API call)",
+    "decision": "needs-review",
+    "summary": "Not approved: staging reuses existing directories and overwrites its restore manifest; purge deletes the entire staging directory rather than only manifest entries. Await upstream correction and a new review.",
+    "warnings": []
+  },
+  {
+    "id": "verify-first-skills",
+    "repo": "https://github.com/SOCHI-Co/skills",
+    "revision": "f8b5882e68684f8885ae9c86cba629dde2e2d9b5",
+    "checkedAt": "2026-09-08T18:36:16.160728+00:00",
+    "reviewer": "Codex, interactive AI source review (no paid API call)",
+    "decision": "approved",
+    "summary": "Approved for catalog inclusion after static scan and targeted source review. Reads local artifacts, audio and Claude session usage. The optional lock probe opens an existing artifact for append; the debugging helper runs project tests. No runtime compatibility test performed.",
+    "warnings": []
+  }
+]
