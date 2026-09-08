@@ -28,6 +28,13 @@ const server=http.createServer((req,res)=>{
     });
     await page.goto(base);await page.waitForSelector('.card');
     assert.equal(await page.locator('.card').count(),data.skills.length);
+    // A clean scan alone, or an old Verified label, must not imply AI approval.
+    for(const skill of data.skills) {
+      const expected=['passed','warnings'].includes(skill.security.status) && skill.security.high===0 && skill.aiReview.status==='approved';
+      const badge=page.locator('#offering-'+skill.id+' .badge');
+      assert.equal(await badge.locator('.disc svg').count(),expected?1:0,skill.id+' verification icon');
+      assert.equal((await badge.innerText())==='Verified',expected,skill.id+' verification label');
+    }
     // Exercise all independent category/platform/type combinations via real DOM events.
     const combinations=await page.evaluate(skills=>{
       const categories=[...document.querySelectorAll('[data-cat]')].map(b=>b.dataset.cat);

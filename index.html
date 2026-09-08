@@ -1042,7 +1042,10 @@
 
     grid.innerHTML = visible.map(function (s) {
       var scan = s.security || { status: "unverified" };
-      var badge = '<span class="badge ' + (scan.status === 'passed' ? 'verified' : 'pending') + '">' + esc(SCAN_LABELS[scan.status] || 'Scan unverified') + '</span>';
+      var verified = (scan.status === 'passed' || scan.status === 'warnings') && scan.high === 0 && s.aiReview && s.aiReview.status === 'approved';
+      var badge = verified
+        ? '<span class="badge verified" title="Security scan and AI review completed. See review details for scope and warnings; platform compatibility is assessed separately."><span class="disc" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="m3 8 3 3 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Verified</span>'
+        : '<span class="badge pending">' + esc(SCAN_LABELS[scan.status] || 'Scan unverified') + '</span>';
       var col = catColor(s.category);
       var catPill = '<span class="tag cat-pill" style="color:' + shade(col, 0.3) + ';border-color:' + hexA(col, 0.5) + ';border-top-color:' + hexA(col, 0.75) +
         ';background:linear-gradient(180deg,' + hexA(col, 0.34) + ',' + hexA(col, 0.10) + ' 60%,' + hexA(col, 0.16) + '),linear-gradient(#1C1A25,#1C1A25)">' +
